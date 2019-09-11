@@ -8,4 +8,7 @@ Sin Will Find You is a website that aggregates podcasts, youtube channels, other
 True crime is one of my favorite subgenres when it comes to entertainment. I wanted to create an app that would like users find various media pertaining to the subject without having to utilize several different services (i.e. using a podcast directory, then going to YouTube, then browsing hours on Reddit on an unrelated sub because that place is a rabbit hole).
 
 #### User Stories
-*
+* Users should be able to get a comprehensive overview of podcasts, tv shows, films, and videos relating to true crime
+
+### Website Layout
+![alt text](public/css/images/ex/full-website.png "Logo Title Text 1")
