@@ -21,4 +21,5 @@ The App
 
 
 #### User Stories
-* Users should be able to get a comprehensive overview of podcasts, tv shows, films, and videos relating to true crime
+1. Users should be able to get a comprehensive overview of podcasts, tv shows, films, and videos.
+2. Users should be able to search for topics and receive results based on query.
