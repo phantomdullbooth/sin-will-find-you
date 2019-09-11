@@ -1,0 +1,280 @@
+/* ====================================
+=======================================
+IMPORT OTHER CSS FILES
+=======================================
+// ==================================== */
+@import url('normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+/* ====================================
+=======================================
+DEFINE COLORS
+=======================================
+==================================== */
+
+:root {
+    --white: ghostwhite;
+    --black: #191919;
+}
+
+/* ====================================
+=======================================
+BODY PARTS
+=======================================
+==================================== */
+
+body {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    margin: 0 20px;
+}
+
+main {
+    height: auto;
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ====================================
+=======================================
+FONTS
+=======================================
+==================================== */
+
+h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1rem;
+    margin: 20px 0;
+    text-transform: uppercase;
+    /* font-weight: 400; */
+}
+
+/* ====================================
+=======================================
+HEADER
+=======================================
+==================================== */
+
+.header-full {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+.header-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.header-logo {
+    width: 135px;
+    height: 135px;
+}
+
+/* ====================================
+=======================================
+MAIN
+=======================================
+==================================== */
+
+.main-media {
+    margin: 80px 10px 80px 5%;
+}
+
+.box-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+}
+
+.example-box {
+    margin: 1px;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
+    min-height: 200px;
+    background-color: #0044ff;
+}
+
+.vid {
+    width: 290px;
+    min-width: 290px;
+    background-color: #00aeff;
+}
+
+.film {
+    width: 325px;
+    min-width: 325px;
+    background-color: #008d23;
+}
+
+.more-button {
+    display: none;
+}
+
+/* ====================================
+=======================================
+MEDIA QUERY
+=======================================
+==================================== */
+
+@media screen and (min-width: 1250px) {
+
+    header {
+        margin: 0 10%;
+    }
+
+    main {
+        margin: 0 5%;
+    }
+
+    /* ====================================
+    =======================================
+    FONTS
+    =======================================
+    ==================================== */
+
+    h6 {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1rem;
+        margin: 20px 0;
+        text-transform: uppercase;
+        /* font-weight: 400; */
+    }
+
+    a {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--black);
+    }
+
+    /* ====================================
+    =======================================
+    HEADER
+    =======================================
+    ==================================== */
+
+    .header-full {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        /* display: inline; */
+    }
+
+    .header-mobile {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+    }
+
+    .header-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-logo {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* ====================================
+    =======================================
+    MAIN
+    =======================================
+    ==================================== */
+
+    .main-media {
+        margin: 80px 10px 80px 5%;
+    }
+
+    
+
+    .box-media {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .example-box {
+        margin: 3px;
+        width: 300px;
+        min-width: 300px;
+        height: 300px;
+        min-height: 300px;
+        background-color: #0044ff;
+    }
+
+    .vid {
+        width: 450px;
+        min-width: 450px;
+        background-color: #00aeff;
+    }
+
+    .film {
+        width: 500px;
+        min-width: 500px;
+        background-color: #008d23;
+    }
+
+    .more-button {
+        border-radius: 50%;
+        background-color: var(--black);
+        width: 75px;
+        height: 75px;
+        margin-left: -40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
