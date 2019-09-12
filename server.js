@@ -28,13 +28,8 @@ app.use(morgan('tiny'));
 // ==================================== //
 // ==================================== //
 
-<<<<<<< HEAD
-const userController = require('./controllers/users.js')
-app.use('/users', userController);
-=======
 const usersController = require('./controllers/users.js');
 app.use('/users', usersController);
->>>>>>> 4f6873f719d5fc6480a30e46e05ecd093a16c393
 
 const port = process.env.PORT || 3000
 

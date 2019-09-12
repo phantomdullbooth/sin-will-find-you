@@ -29,9 +29,6 @@ class Main extends React.Component {
                             <div className="example-box"></div>
                             <h6>Serial Killers</h6>
                         </div>
-                        <div className="more-button">
-                            <img src="../css/images/icon-more.png" className="main-icon" />
-                        </div>
                     </div>
                 </div>
 
@@ -54,9 +51,6 @@ class Main extends React.Component {
                             <div className="example-box vid"></div>
                             <h6>Buzzfeed Unsolved: True Crime</h6>
                         </div>
-                        <div className="more-button">
-                            <img src="../css/images/icon-more.png" className="main-icon" />
-                        </div>
                     </div>
                 </div>
 
@@ -74,9 +68,6 @@ class Main extends React.Component {
                         <div class="box-card">
                             <div className="example-box film"></div>
                             <h6>Nightmare Next Door</h6>
-                        </div>
-                        <div className="more-button">
-                            <img src="../css/images/icon-more.png" className="main-icon" />
                         </div>
                     </div>
                 </div>
