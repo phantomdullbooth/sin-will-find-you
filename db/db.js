@@ -1,9 +1,16 @@
-/*=====================================
-  Creates a database pg-promise object that can be used to connect to postgres
-=====================================*/
+// ==================================== //
+// ==================================== //
+// CONNECT TO POSTGRES WITH PG-PROMISE
+// ==================================== //
+// ==================================== //
 const promise = require('bluebird');
 
-// Create options (We're using bluebird for promises)
+
+// ==================================== //
+// ==================================== //
+// CREATE OPTIONS
+// ==================================== //
+// ==================================== //
 const options = {
   promiseLib: promise
 };
@@ -13,4 +20,5 @@ const pgp = require('pg-promise')(options);
 const connectionString = process.env.DATABASE_URL || 'postgresql://Addison:testpass@localhost:5432/true_crime';
 const db = pgp(connectionString);
 
+// EXPORT
 module.exports = db;

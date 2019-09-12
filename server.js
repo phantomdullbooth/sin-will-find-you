@@ -21,14 +21,12 @@ app.use(morgan('tiny'));
 
 // ==================================== //
 // ==================================== //
-// CONTROLLERS
+// CONTROLLERS 
 // ==================================== //
 // ==================================== //
 
-// const mainController = require('./controllers/m')
-
-const userController = require('./controllers/user_controller.js')
-app.use('/users', userController);
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
 
 // ==================================== //
 // ==================================== //

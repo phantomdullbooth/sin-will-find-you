@@ -1,39 +1,32 @@
 /* ====================================
-=======================================
-IMPORT OTHER CSS FILES
-=======================================
-// ==================================== */
+===== IMPORT NORMALIZE & FONTS
+==================================== */
 @import url('normalize.css');
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 
 /* ====================================
-=======================================
-DEFINE COLORS
-=======================================
+===== DEFINE COLORS
 ==================================== */
 
 :root {
-    --white: ghostwhite;
+    --ghostmagenta: #ff0042;
     --black: #191919;
+    --white: ghostwhite;
 }
 
+
 /* ====================================
-=======================================
-BODY PARTS
-=======================================
+===== BODY PARTS
 ==================================== */
 
 body {
     background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 header {
-    margin: 0 20px;
+    margin: 0 1%;
 }
 
 main {
@@ -41,18 +34,17 @@ main {
 }
 
 footer {
+    width: 100%;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
     background-color: var(--black);
     color: var(--white);
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
 }
 
+
 /* ====================================
-=======================================
-FONTS
-=======================================
+===== GENERAL TEXT
 ==================================== */
 
 h3 {
@@ -63,21 +55,20 @@ h3 {
 }
 
 h6 {
+    margin: 20px 0;
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     line-height: 1rem;
-    margin: 20px 0;
     text-transform: uppercase;
-    /* font-weight: 400; */
 }
 
+
 /* ====================================
-=======================================
-HEADER
-=======================================
+===== HEADER-SPECIFICS
 ==================================== */
 
+/* HEADER, FULL VIEW */
 .header-full {
     display: flex;
     flex-direction: row;
@@ -86,32 +77,33 @@ HEADER
     display: none;
 }
 
+/* HEADER, MOBILE VIEW */
 .header-mobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
+/* INCLUDES SEARCH & MENU ICON */
 .header-icon {
     width: 50px;
     height: 50px;
 }
 
+/* IMAGE TITLE */
 .header-logo {
     width: 135px;
     height: 135px;
 }
 
+
 /* ====================================
-=======================================
-MAIN
-=======================================
+===== MAIN-SPECIFICS
 ==================================== */
 
 .main-media {
-    margin: 80px 10px 80px 5%;
+    margin: 75px 5%;
 }
 
 .box-media {
@@ -189,7 +181,7 @@ MEDIA QUERY
     }
 
     a:hover {
-        color: #ff0042;
+        color: var(--ghostmagenta);
     }
 
     /* ====================================

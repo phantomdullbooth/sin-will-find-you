@@ -3,11 +3,11 @@ class Header extends React.Component {
         return (
             <header>
                 <div className="header-full">
-                    <a href="#">Serial<br />Killers</a>
-                    <a href="#">Unsolved<br />Crimes</a>
+                    <a href="#">Serial Killers</a>
+                    <a href="#">Unsolved Crimes</a>
                     <img src="../css/images/logo.png" class="header-logo" />
-                    <a href="#">Kidnapping<br />& Abduction</a>
-                    <a href="#">Murder &<br />Homicide</a>
+                    <a href="#">Login / Signup</a>
+                    <a href="#">Search</a>
                 </div>
 
                 <div className="header-mobile">
