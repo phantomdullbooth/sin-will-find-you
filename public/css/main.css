@@ -15,8 +15,10 @@ DEFINE COLORS
 ==================================== */
 
 :root {
-    --white: ghostwhite;
     --black: #191919;
+    --ghostmagenta: #ff0042;
+    --white: ghostwhite;
+    
 }
 
 /* ====================================
@@ -189,7 +191,7 @@ MEDIA QUERY
     }
 
     a:hover {
-        color: #ff0042;
+        color: var(--ghostmagenta);
     }
 
     /* ====================================

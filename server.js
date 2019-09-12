@@ -7,8 +7,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const promise = require('bluebird');
+
 const app = express();
-const port = process.env.PORT || 3000
+
 
 // ==================================== //
 // ==================================== //
@@ -19,16 +20,18 @@ const port = process.env.PORT || 3000
 app.use(express.static("public"));
 app.use(morgan('tiny'));
 
+
+
 // ==================================== //
 // ==================================== //
 // CONTROLLERS
 // ==================================== //
 // ==================================== //
 
-// const mainController = require('./controllers/m')
-
-const userController = require('./controllers/user_controller.js')
+const userController = require('./controllers/users.js')
 app.use('/users', userController);
+
+const port = process.env.PORT || 3000
 
 // ==================================== //
 // ==================================== //

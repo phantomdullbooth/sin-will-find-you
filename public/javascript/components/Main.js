@@ -1,25 +1,3 @@
-class Header extends React.Component {
-    render() {
-        return (
-            <header>
-                <div className="header-full">
-                    <a href="#">Serial<br />Killers</a>
-                    <a href="#">Unsolved<br />Crimes</a>
-                    <img src="../css/images/logo.png" class="header-logo" />
-                    <a href="#">Kidnapping<br />& Abduction</a>
-                    <a href="#">Murder &<br />Homicide</a>
-                </div>
-
-                <div className="header-mobile">
-                    <img src="../css/images/icon-search.png" class="header-icon" />
-                    <img src="../css/images/logo.png" class="header-logo" />
-                    <img src="../css/images/icon-menu.png" class="header-icon" />
-                </div>
-            </header>
-        )
-    }
-}
-
 class Main extends React.Component {
     render() {
         return (
@@ -106,37 +84,3 @@ class Main extends React.Component {
         )
     }
 }
-
-class Footer extends React.Component {
-    render() {
-        return (
-            <footer>
-                <p>this app was made with determination and a mac by a true crime enthusiast in atlanta.</p>
-            </footer>
-        )
-    }
-}
-
-
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
-
-    render() {
-        return (
-            <div id="beckham">
-                <Header />
-                <Main />
-                <Footer />
-            </div>
-        )
-    }
-}
-
-ReactDOM.render(
-    <App />,
-    document.querySelector('.body')
-)
