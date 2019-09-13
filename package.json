@@ -1,5 +1,8 @@
 {
   "name": "sin_will_find_you",
+  "engines": {
+    "node": "12.6.0"
+  },
   "version": "1.0.0",
   "description": "final project for GA Software Engineering Immersive Program",
   "main": "server.js",
