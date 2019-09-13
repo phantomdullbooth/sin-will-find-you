@@ -1,3 +1,8 @@
+// ==================================== //
+// ==================================== //
+// CLASS APP; HEADER, MAIN, FOOTER COMPONENTS
+// ==================================== //
+// ==================================== //
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -16,6 +21,11 @@ class App extends React.Component {
     }
 }
 
+// ==================================== //
+// ==================================== //
+// RENDER
+// ==================================== //
+// ==================================== //
 ReactDOM.render(
     <App />,
     document.querySelector('.container')

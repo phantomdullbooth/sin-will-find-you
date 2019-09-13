@@ -1,7 +1,13 @@
+// ==================================== //
+// ==================================== //
+// CLASS MAIN
+// ==================================== //
+// ==================================== //
 class Main extends React.Component {
     render() {
         return (
             <main>
+                {/* PODCASTS SECTION */}
                 <div className="main-media">
                     <h3>Podcasts</h3>
                     <div className="box-media">
@@ -32,6 +38,7 @@ class Main extends React.Component {
                     </div>
                 </div>
 
+                {/* VIDEOS SECTION */}
                 <div className="main-media">
                     <h3>Videos</h3>
                     <div className="box-media">
@@ -54,6 +61,7 @@ class Main extends React.Component {
                     </div>
                 </div>
 
+                {/* TV & FILM SECTION */}
                 <div className="main-media">
                     <h3>TV & Film</h3>
                     <div className="box-media">
