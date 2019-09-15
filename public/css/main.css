@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 /* * {
-    border: 1px solid rgb(81, 142, 167);
+    border: 1px solid #518ea7;
 } */
 
 /* ====================================
@@ -24,23 +24,48 @@
 ===== GENERAL TEXT
 ==================================== */
 
-h3 {
-    font-size: 2rem;
+/* SEARCH RESULTS TITLE */
+h1 {
+    font-size: 5rem;
     font-weight: 600;
+    line-height: 3rem;
+    text-align: center;
 }
 
-h6 {
-    margin: 20px 0;
-    font-size: 1.1rem;
+/* MEDIA SECTION TITLES */
+h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1rem;
+}
+
+/* "IMAGE UNAVAILABLE" READOUT */
+h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    color: var(--white);
+    margin: 0 0 10px 10px;
+}
+
+/* MEDIA TITLES */
+h5 {
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.3rem;
-    padding-right: 20px;
+    line-height: 1.9rem;
+    margin: 20px 0;
+    padding-right: 30px;
 }
 
+p {
+    font-size: 1.2rem;
+}
+
+/* MEDIA TITLE HEADER */
 .important {
     font-weight: 600;
+    font-size: 1.25rem; 
 }
-
 
 /* ====================================
 ===== BODY PARTS
@@ -59,23 +84,28 @@ header {
     margin: 0 1%;
 }
 
-main {
+.header {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+}
+
+main {
     margin: 25px auto;
-    width: 95%;
-    height: auto;
+    width: 90%;
 }
 
 footer {
+    /* position: absolute;
+    bottom: 0; */
     width: 100%;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     text-transform: none;
     background-color: var(--black);
     color: var(--white);
+    padding: 10px;
 }
 
 footer p {
@@ -86,16 +116,16 @@ footer p {
 ===== FORMS & INPUTS
 ==================================== */
 
-.main-forms {
-    width: 90%;
-}
+
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    margin: 50px auto;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 75px auto;
     width: 100%;
+    transition: ease-in-out 2s;
 }
 
 label {
@@ -105,8 +135,8 @@ label {
 input {
     outline: none;
     border: none;
-    border-right: 2px solid var(--ghostmagenta);
-    border-bottom: 2px solid var(--ghostmagenta);
+    border-left: 3px solid var(--ghostmagenta);
+    border-bottom: 3px solid var(--ghostmagenta);
     background-color: #f8f8ff00;
     color: var(--black);
     width: 90%;
@@ -118,8 +148,9 @@ input {
 
 .search-button {
     border-right: none;
-    border-bottom: 2px solid var(--ghostmagenta);
-    border-left: 2px solid var(--ghostmagenta);
+    border-left: none;
+    border-right: 3px solid var(--ghostmagenta);
+    border-bottom: 3px solid var(--ghostmagenta);
     width: 110px;
     height: 50px;
 }
@@ -132,25 +163,12 @@ input {
 
 ::placeholder {
     color: #808080;
-} */
+}
 
 
 /* ====================================
 ===== HEADER CONTENT
 ==================================== */
-
-/* DON'T DISPLAY FULL VERSION ON MOBILE */
-.header-full {
-    display: none;
-}
-
-/* MOBILE HEADER */
-.header-mobile {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
 
 /* LOGO IMAGE SIZING */
 .logo {
@@ -166,52 +184,81 @@ input {
 
 
 /* ====================================
-===== MAIN CONTENT
+===== MAIN CONTENT ====================
 ==================================== */
 
-.main-categories {
-    align-self: flex-start;
-    width: 90%;
+.media-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 0 auto;
 }
 
-.main-categories-media {
-    margin: 25px 0;
+.media-section {
+    margin-bottom: 50px;
+    /* border: 3px solid blue; */
 }
 
-.media-cards {
+.media {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: baseline;
+    align-items:flex-start;
+    overflow: scroll;
 }
 
-.media-cards-image {
-    height: 180px;
-    min-height: 180px;
+/* PODCAST MEDIA ONLY */
+.media-card-podcast {
+    width: 200px;
+    height: auto;
+    margin-right: 3px;
 }
 
 .podcast {
-    width: 180px;
-    min-width: 180px;
+    width: 200px;
+    height: 200px;
+}
+
+/* YOUTUBE MEDIA ONLY */
+.media-card-youtube {
+    width: 320px;
+    height: auto;
+    margin-right: 3px;
 }
 
 .youtube {
     width: 320px;
-    min-width: 320px;
-    margin-right: 20px;
+    height: 180px;
 }
 
-.tv {
-    width: 325px;
-    min-width: 325px;
+/* TV/FILM MEDIA ONLY */
+.media-card-movie {
+    width: 300px;
+    height: auto;
+    margin-right: 3px;
 }
 
-/* ====================================
-=======================================
-MEDIA QUERY
-=======================================
-==================================== */
+.movie {
+    width: 300px;
+    height: 450px;
+}
+
+.movie-null {
+    width: 295px;
+    min-width: 295px;
+    height: 444px;
+    min-height: 444px;
+    background-color: #191919;
+    border: 3px solid #ff0042;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX
+// MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX
+MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
 
 @media screen and (min-width: 1250px) {
 
@@ -227,43 +274,50 @@ MEDIA QUERY
     ===== GENERAL TEXT
     ==================================== */
 
-    h6 {
+    /* SEARCH RESULTS TITLE */
+    h1 {
+        font-size: 5rem;
+        font-weight: 600;
+        line-height: 3rem;
+        text-align: center;
+    }
 
-        font-size: 1.25rem;
+    h2 {
+        font-size: 3.75rem;
+        font-weight: 600;
+        line-height: 1rem;
+    }
+
+    h3 {
+        font-size: 2.25rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+        color: var(--white);
+        margin: 0 0 10px 10px;
+    }
+    
+    h5 {
+        font-size: 1rem;
         font-weight: 400;
         line-height: 1.9rem;
         margin: 20px 0;
         text-transform: uppercase;
+        padding-right: 50px;
+    }
+
+    .important {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 1.2rem;
     }
 
     a {
-
         font-size: 1.75rem;
         font-weight: 600;
-        text-transform: uppercase;
         text-decoration: none;
         color: var(--black);
-    }
-
-    a:hover {
-        color: var(--ghostmagenta);
-    }
-
-    /* ====================================
-    ===== GENERAL TEXT
-    ==================================== */
-
-/* 
-    h6 {
-        margin: 20px 0;
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.3rem;
-        padding-right: 20px;
-    } */
-
-    .important {
-        font-size: 1.5rem;
     }
 
     /* ====================================
@@ -271,22 +325,6 @@ MEDIA QUERY
     HEADER
     =======================================
     ==================================== */
-
-    .header-full {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-
-    .header-mobile {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        display: none;
-    }
 
     .header-icon {
         width: 50px;
@@ -298,188 +336,137 @@ MEDIA QUERY
         height: 250px;
     }
 
-    /* ====================================
-    =======================================
-    MAIN
-    =======================================
+        /* ====================================
+    ===== SEARCH FUNCTION
     ==================================== */
-
-    .main-media {
-        margin: 80px 10px 80px 5%;
+    
+    form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 100px auto;
+        width: 100%;
+        transition: ease-in-out 2s;
     }
 
+    label {
+        display: none;
+    }
     
+    input {
+        outline: none;
+        border: none;
+        border-right: 4px solid var(--ghostmagenta);
+        border-bottom: 4px solid var(--ghostmagenta);
+        background-color: #f8f8ff00;
+        color: var(--black);
+        width: 55%;
+        height: 100px;
+        padding: 0 20px;
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+    
+    .search-button {
+        border-right: none;
+        border-top: 4px solid var(--ghostmagenta);
+        border-bottom: 4px solid #f8f8ff;
+        border-left: none;
+        border-bottom: none;
+        width: 200px;
+        height: 104px;
+        margin-left: -4px;
+    }
+    
+    .search-button:hover {
+        transition: ease-in 0.45s;
+        background-color: var(--ghostmagenta);
+        color: var(--white);
+    }
+    
+    ::placeholder {
+        color: #808080;
+    }
 
-    .box-media {
+    /* ====================================
+    ===== MAIN CONTENT
+    ==================================== */
+
+    /* .search-media {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-categories {
+        align-self: flex-start;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .main-categories-media {
+        margin: 200px auto;
+    }
+
+    .media-cards {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        align-items: center;
-        overflow: hidden;
+        align-items: flex-start;
     }
 
-    .example-box {
-        margin: 3px;
-        width: 180px;
-        min-width: 180px;
-        height: 180px;
-        min-height: 180px;
-        background-color: #0044ff;
-    }
-
-    .vid {
-        width: 320px;
-        min-width: 320px;
-        background-color: #00aeff;
-        background: url("https://i.ytimg.com/vi/2wpjyROYLMs/mqdefault.jpg");
-    }
-
-    .film {
-        width: 500px;
-        min-width: 500px;
-        background-color: #008d23;
-    }
-
-    .more-button {
-        border-radius: 50%;
-        background-color: var(--black);
-        width: 75px;
-        height: 75px;
-        margin-left: -40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .main-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-
-    /* ====================================
-    =======================================
-    SEARCH BAR FORM & INPUTS
-    =======================================
-    ==================================== */
-    form {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: nowrap;
-        margin: 100px auto;
-    }
-
-    label {
-        display: none;
-    }
-
-    input {
-
-        font-size: 3.5rem;
-        text-transform: uppercase;
-        background-color: #ffffff00;
-        color: var(--black);
-        border: none;
-        outline: none;
-    }
-
-    input[type="text"], input[type="password"] {
-        width: 70%;
-        height: 100px;
-        border-bottom: 3px solid var(--ghostmagenta);
-    }
-
-    input[type="submit"] {
-        width: 250px;
-        height: 105px;
-        border-left: 3px solid var(--ghostmagenta);
-        border-top: 3px solid var(--ghostmagenta);
-    }
-
-    input[type="submit"]:hover {
-        transition: ease-in 0.45s;
-        background-color: var(--ghostmagenta);
-        color: var(--white);
-        
-    }
-
-    ::placeholder {
-        color: #808080;
-    }
-
-    /* ====================================
-    =======================================
-    LOGIN FORM * INPUTS
-    =======================================
-    ==================================== */
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
-        margin: 100px auto;
-    }
-
-    label {
-        display: none;
-    }
-
-    input {
-
-        font-size: 3.5rem;
-        text-transform: uppercase;
-        background-color: #ffffff00;
-        color: var(--black);
-        border: none;
-        outline: none;
-    }
-
-    .form-login input[type="text"] {
-        width: 30%;
-        height: 100px;
-        border-bottom: 3px solid var(--ghostmagenta);
-    }
-
-    .login-top {
-        border: 3px solid var(--ghostmagenta);
-        border-left: none;
-        padding: 10px;
-    }
-
-    .login-bottom {
-        border: 3px solid var(--ghostmagenta);
-        border-right: none;
-        border-top: none;
-        padding: 10px;
+    .media-cards-image {
+        height: 200px;
+        min-height: 200px;
     }
     
-
-    input[type="submit"] {
+    .podcast {
+        height: 250px;
+        min-height: 250px;
         width: 250px;
-        height: 105px;
-        border-left: 3px solid var(--ghostmagenta);
-        border-top: 3px solid var(--ghostmagenta);
+        min-width: 250px;
     }
 
-    input[type="submit"]:hover {
-        transition: ease-in 0.45s;
-        background-color: var(--ghostmagenta);
-        color: var(--white);
-        
+    .youtube {
+        width: 320px;
+        min-width: 320px;
+        margin-right: 20px;
     }
 
-    .form-login input[type="submit"] {
-        width: 250px;
-        height: 105px;
-        border: none;
-        border-right: 3px solid var(--ghostmagenta);
-        border-bottom: 3px solid var(--ghostmagenta);
+    .tv {
+        width: 300px;
+        min-width: 300px;
+        height: 450px;
+        min-height: 450px;
     }
 
-    ::placeholder {
-        color: #808080;
+    .tv-null {
+        width: 295px;
+        min-width: 295px;
+        height: 444px;
+        min-height: 444px;
+        background-color: #191919;
+        border: 3px solid #ff0042;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+    } */
+
+    /* ====================================
+    ===== SEARCH RESULTS
+    ==================================== */
+
+    .search-results {
+        margin: 100px auto;
+        width: 90%;
     }
-   
+
+    .media-grid {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 }

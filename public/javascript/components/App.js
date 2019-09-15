@@ -1,44 +1,88 @@
 
+// const APIKEY_YT = process.env.REACT_APP_YOUTUBE_API_KEY
+
 // CONTAINS ALL ELEMENTS
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // videos: []
+            isMobile: true,
+            isResultsClosed: true,
+            isSearchOpen: false,
+            youtube: {
+                // SEARCH DATA INFORMATION
+                baseYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?',
+                part: 'part=snippet&type=video',
+                baseQueryStart: '&q=%22true%20crime%22+%22',
+                userQuery: '',
+                baseQueryEnd: '%22',
+                key: '&key=' + 'AIzaSyBKKyux5QIxE0sAdVFWXanF-Fy5K5n3Z0s',
+                searchYoutubeURL: ''
+            }
         }
-    }
-    // FETCH YOUTUBE DATA
-    fetchYoutube = () => {
-        fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&key=AIzaSyBKKyux5QIxE0sAdVFWXanF-Fy5K5n3Z0s')
-            .then(response => response.json())
-            .then(results => {
-                this.setState({ video: results.items })
-            })
+        this.reformatHeader = this.reformatHeader.bind(this)
+        this.searchYoutube = this.searchYoutube.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.toggleSearchbar = this.toggleSearchbar.bind(this)
     }
 
-    // FETCH DATA ON PAGE LOAD
+    // CHANGE HEADER DEPENDING ON MOBILE OR DESKTOP VIEW
+    reformatHeader() {
+        this.setState({ isMobile: window.innerWidth < 1250 })
+    }
+
+    // SEARCH YOUTUBE MEDIA ON SUBMIT FOR USER QUERY
+    searchYoutube(event) {
+        console.log('searchYoutube triggered')
+        event.preventDefault()
+        this.setState({
+            searchYoutubeURL: this.state.youtube.baseYoutubeURL + this.state.youtube.part + this.state.youtube.baseQueryStart + this.state.youtube.userQuery + this.state.youtube.baseQueryEnd + this.state.youtube.key,
+            isResultsClosed: !this.state.isResultsClosed
+        }, () => {
+            fetch(this.state.searchYoutubeURL)
+                .then(response => response.json())
+                .then(vids => this.setState(
+                    {
+                        youtubeResults: vids.items,
+                        userQuery: ''
+                    }), error => console.error(error))
+        })
+    }
+    handleChange(event) {
+        this.setState({ [event.target.id]: event.target.value })
+    }
+
+    // TOGGLE SEARCH FUNCTION DEPENDING ON BUTTON CLICK
+    toggleSearchbar() {
+        this.setState({ isSearchOpen: !this.state.isSearchOpen })
+    }
+
+    // RUNS ON PAGE LOAD
     componentDidMount() {
-        this.fetchYoutube()
+        this.reformatHeader()
+        window.addEventListener("resize", this.reformatHeader)
+    }
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.reformatHeader)
     }
 
-    // RENDER DATA ON PAGE
     render() {
-        // console.log(this.state.video)
         return (
             <React.Fragment>
-                <Header />
-                <main>
-                    <div className="main-categories">
-                        <div className="main-categories-media">
-                            <h3>YouTube</h3>
-                                {(this.state.video)
-                                    ? <Youtube
-                                        video={this.state.video} />
-                                    : null
-                                }
-                            </div>
-                    </div>
-                </main>
+                <Header
+                    isMobile={this.state.isMobile}
+                    toggleSearchbar={this.toggleSearchbar} />
+
+                <Main
+                    isSearchOpen={this.state.isSearchOpen}
+                    isResultsClosed={this.state.isResultsClosed}
+                    searchYoutube={this.searchYoutube}
+                    handleChange={this.handleChange}
+                    userQuery={this.state.userQuery}
+                    youtubeResults={this.state.youtubeResults}
+                />
+
+                <Footer />
             </React.Fragment>
         )
     }
