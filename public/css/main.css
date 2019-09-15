@@ -97,8 +97,6 @@ main {
 }
 
 footer {
-    /* position: absolute;
-    bottom: 0; */
     width: 100%;
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -106,6 +104,7 @@ footer {
     background-color: var(--black);
     color: var(--white);
     padding: 10px;
+    border-bottom: 7px solid var(--ghostmagenta);
 }
 
 footer p {
@@ -318,6 +317,10 @@ MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
         font-weight: 600;
         text-decoration: none;
         color: var(--black);
+    }
+
+    a:hover {
+        color: var(--ghostmagenta);
     }
 
     /* ====================================
