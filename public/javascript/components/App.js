@@ -20,7 +20,7 @@ class App extends React.Component {
                 baseQueryStart: '&q=%22true%20crime%22+%22',
                 userQuery: '',
                 baseQueryEnd: '%22',
-                key: '&key=' + APIKEY_YT,
+                key: '&key=' + 'AIzaSyBKKyux5QIxE0sAdVFWXanF-Fy5K5n3Z0s',
                 searchURL: ''
             }
         }

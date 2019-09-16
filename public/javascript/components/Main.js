@@ -5,8 +5,8 @@ class Main extends React.Component {
         super(props)
         this.state = {
             homePodcastsURL: 'https://api.spreaker.com/v2/search?type=episodes&q=true%20crime&limit=10',
-            homeYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&key=' + APIKEY_YT,
-            homeMoviesURL: 'https://api.themoviedb.org/3/search/multi?api_key=' + APIKEY_TMDB + '&language=en-US&query=true%20crime&page=1&include_adult=false&region=US'
+            homeYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&key=AIzaSyBKKyux5QIxE0sAdVFWXanF-Fy5K5n3Z0s',
+            homeMoviesURL: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US'
         }
     }
     // FETCH PODCAST DATA
