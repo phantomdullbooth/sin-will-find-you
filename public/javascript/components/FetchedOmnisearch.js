@@ -1,4 +1,4 @@
-// APP > MAIN > SEARCHRESULTS > OMNISEARCHRESULTS
+// APP > MAIN > SEARCHRESULTS > #
 
 class FetchedOmnisearch extends React.Component {
     render() {
@@ -28,7 +28,7 @@ class FetchedOmnisearch extends React.Component {
                 </div>
 
                 {/* RETURNS YOUTUBE VIDEOS */}
-                {/* {this.props.omniYoutubes.map((omniYoutube, index) => {
+                {this.props.omniYoutubes.map((omniYoutube, index) => {
                     return (
                         <div>
                             <a href={'https://www.youtube.com/watch?v=' + omniYoutube.id.videoId} target="_blank">
@@ -37,11 +37,11 @@ class FetchedOmnisearch extends React.Component {
                             </a>
                         </div>
                     )
-                })} */}
+                })}
 
                 {/* =================== SERIES =================== */}
                 <div className="results-section-title">
-                    <h3>Series <br />& Film</h3>
+                    <h3>Series <br /><span class="trivial">&</span> Film</h3>
                 </div>
 
                 {this.props.omniSeries.map((omniSeries, index) => {

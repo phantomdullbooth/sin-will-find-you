@@ -1,9 +1,9 @@
-// APP > MAIN #
+// APP > MAIN > #
 
-class Search extends React.Component {
+class Omnisearch extends React.Component {
     render() {
         return (
-            <form onSubmit={this.props.searchYoutube}>
+            <form class="search-form" onSubmit={this.props.triggerOmnisearch}>
                 <label htmlFor="userQuery">Search</label>
                 <input
                     type="text"

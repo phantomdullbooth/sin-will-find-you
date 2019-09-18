@@ -1,3 +1,5 @@
+// INDEX.JS RENDERS *
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -13,19 +15,19 @@ class App extends React.Component {
             omniPodcasts: [],
             omniSeries: [],
             omniYoutubes: [],
-            listenNotes: {
+            searchPodcasts: {
                 URLstart: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22%2C%22',
                 userQuery: '',
                 URLend: '%22&sort_by_date=0&type=episode',
                 searchURL: ''
             },
-            tmdb: {
+            searchSeries: {
                 URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
                 userQuery: '',
                 URLend: '%22&page=1&include_adult=false&region=US',
                 searchURL: ''
             },
-            youtube: {
+            searchYoutubes: {
                 URLstart: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22+%22',
                 userQuery: '',
                 URLend: '%22&order=date&maxResults=15&key=',
@@ -48,6 +50,7 @@ class App extends React.Component {
         // TOGGLE UNIVERSAL FUNCTIONS
         this.toggleResultsWindow = this.toggleResultsWindow.bind(this)
         this.toggleSearchbar = this.toggleSearchbar.bind(this)
+        this.triggerReload = this.triggerReload.bind(this)
     }
 
     // ============================ OMNISEARCH ============================ //
@@ -55,22 +58,22 @@ class App extends React.Component {
     // ============================ OMNISEARCH ============================ //
 
     // SEARCH BOX USER TOGGLE LOCATED: APP > HEADER
-    // FETCH TRIGGERED BY USER SEARCH INPUT: APP > MAIN > SEARCH
+    // FETCH TRIGGERED BY USER SEARCH INPUT: APP > MAIN > OMNISEARCH
     triggerOmnisearch(event) {
         event.preventDefault()
         console.log('Omnisearch triggered. Live long and prosper.')
 
         Promise.all([
             // FETCH LISTENNOTES DATA
-            fetch(this.state.listenNotes.URLstart + this.state.userQuery + this.state.listenNotes.URLend, {
+            fetch(this.state.searchPodcasts.URLstart + this.state.userQuery + this.state.searchPodcasts.URLend, {
                 headers: {
                     'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
                 }
             }),
             // FETCH YOUTUBE DATA
-            fetch(this.state.youtube.URLstart + this.state.userQuery + this.state.youtube.URLend + this.state.youtube.apikey),
+            fetch(this.state.searchYoutubes.URLstart + this.state.userQuery + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
             // FETCH TMDB DATA
-            fetch(this.state.tmdb.URLstart + this.state.userQuery + this.state.tmdb.URLend)
+            fetch(this.state.searchSeries.URLstart + this.state.userQuery + this.state.searchSeries.URLend)
         ])
             .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
             .then(([podcasts, youtubes, series]) => this.setState({
@@ -83,7 +86,7 @@ class App extends React.Component {
             this.toggleSearchbar()
     }
 
-    // NEEDED TO REGISTER USER INPUT: APP > MAIN > SEARCH
+    // NEEDED TO REGISTER USER INPUT: APP > MAIN > OMNISEARCH
     handleChange(event) {
         this.setState({ [event.target.id]: event.target.value })
     }
@@ -94,10 +97,10 @@ class App extends React.Component {
 
     // MORE PODCASTS TRIGGER: APP > MAIN > FETCHEDHOME
     showMorePodcasts() {
-        console.log('Podcast search for ' + this.state.listenNotes.URLstart + '' + this.state.listenNotes.URLend + '&offset=10')
+        console.log('Podcast search for ' + this.state.searchPodcasts.URLstart + '' + this.state.searchPodcasts.URLend + '&offset=10')
 
         this.setState({
-            searchURL: this.state.listenNotes.URLstart + '' + this.state.listenNotes.URLend + '&offset=10'
+            searchURL: this.state.searchPodcasts.URLstart + '' + this.state.searchPodcasts.URLend + '&offset=10'
         }, () => {
             fetch(this.state.searchURL, {
                 headers: {
@@ -115,10 +118,10 @@ class App extends React.Component {
 
     // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreSeries() {
-        console.log('Series search for ' + this.state.tmdb.URLstart + 'true crime' + this.state.tmdb.URLend)
+        console.log('Series search for ' + this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend)
         
         this.setState({
-            searchURL: this.state.tmdb.URLstart + 'true crime' + this.state.tmdb.URLend
+            searchURL: this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())
@@ -132,10 +135,10 @@ class App extends React.Component {
 
     // MORE YOUTUBE TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreYoutubes() {
-        console.log('Youtube search for ' + this.state.youtube.URLstart + '' + this.state.youtube.URLend + this.state.youtube.apikey)
+        console.log('Youtube search for ' + this.state.searchYoutubes.URLstart + '' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey)
         
         this.setState({
-            searchURL: this.state.youtube.URLstart + '' + '%22&order=date&maxResults=20&key=' + this.state.youtube.apikey
+            searchURL: this.state.searchYoutubes.URLstart + '' + '%22&order=date&maxResults=20&key=' + this.state.searchYoutubes.apikey
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())
@@ -146,8 +149,6 @@ class App extends React.Component {
         })
         this.toggleResultsWindow()
     }
-
-    
 
     // ============================ TOGGLES ============================ //
     // ============================ TOGGLES ============================ //
@@ -168,7 +169,7 @@ class App extends React.Component {
         this.setState({ isMoreYoutubes: !this.state.isMoreYoutubes })
     }
 
-    // TOGGLES MEDIA SEARCH RESULTS: APP > MAIN > SEARCH
+    // TOGGLES MEDIA SEARCH RESULTS: APP > MAIN > OMNISEARCH
     toggleResultsWindow() {
         this.setState({ isResultsClosed: !this.state.isResultsClosed })
     }
@@ -176,6 +177,10 @@ class App extends React.Component {
     // TOGGLES OMNISEARCH BOX: APP > HEADER
     toggleSearchbar() {
         this.setState({ isSearchOpen: !this.state.isSearchOpen })
+    }
+
+    triggerReload() {
+        window.location.reload(true);
     }
 
 
@@ -188,7 +193,9 @@ class App extends React.Component {
             <React.Fragment>
                 <Header
                     // TOGGLE SEARCHBAR
-                    toggleSearchbar={this.toggleSearchbar} />
+                    toggleSearchbar={this.toggleSearchbar}
+                    // TRIGGER RELOAD
+                    triggerReload={this.triggerReload} />
 
                 <Main
                     isResultsClosed={this.state.isResultsClosed}

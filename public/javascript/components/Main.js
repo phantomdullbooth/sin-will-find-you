@@ -4,15 +4,18 @@ class Main extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            homePodcastsURL: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22&sort_by_date=0&type=episode',
-            homeYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&maxResults=10&key=AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
-            homeSeriesURL: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US'
+            homePodcasts: [],
+            homeSeries: [],
+            homeYoutubes: [],
+            searchHomePodcasts: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22&sort_by_date=0&type=episode',
+            searchHomeSeries: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US',
+            searchHomeYoutubes: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&maxResults=10&key=AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
         }
     }
 
     // FETCH PODCAST DATA
     fetchPodcasts = () => {
-        fetch(this.state.homePodcastsURL, {
+        fetch(this.state.searchHomePodcasts, {
             headers: {
                 'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
             }
@@ -25,7 +28,7 @@ class Main extends React.Component {
 
     // FETCH SERIES/FILM DATA
     fetchSeries = () => {
-        fetch(this.state.homeSeriesURL)
+        fetch(this.state.searchHomeSeries)
             .then(response => response.json())
             .then(results => {
                 this.setState({ homeSeries: results.results })
@@ -34,7 +37,7 @@ class Main extends React.Component {
 
     // FETCH YOUTUBE DATA
     fetchYoutube = () => {
-        fetch(this.state.homeYoutubeURL)
+        fetch(this.state.searchHomeYoutubes)
             .then(response => response.json())
             .then(results => {
                 this.setState({ homeYoutubes: results.items })
@@ -55,7 +58,7 @@ class Main extends React.Component {
 
                 {/* TOGGLED SEARCH BAR */}
                 {(this.props.isSearchOpen)
-                    ? <Search
+                    ? <Omnisearch
                         // OMNISEARCH
                         handleChange={this.props.handleChange}
                         triggerOmnisearch={this.props.triggerOmnisearch}

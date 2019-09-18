@@ -1,3 +1,8 @@
+// APP > MAIN > #
+// # > HOMEPODCASTS
+// # > HOMEYOUTUBES
+// # > HOMESERIES
+
 class FetchedHome extends React.Component {
     render() {
         return (
@@ -6,7 +11,7 @@ class FetchedHome extends React.Component {
 
                 <div className="media-section">
                     <h2>Podcasts</h2>
-                    {(this.props.podcast)
+                    {(this.props.homePodcasts)
                         ? <HomePodcasts
                             homePodcasts={this.props.homePodcasts} />
                         : null
@@ -15,7 +20,7 @@ class FetchedHome extends React.Component {
 
                 <div className="media-section">
                     <h2>YouTube</h2>
-                    {(this.props.video)
+                    {(this.props.homeYoutubes)
                         ? <HomeYoutubes
                             homeYoutubes={this.props.homeYoutubes} />
                         : null
@@ -23,8 +28,8 @@ class FetchedHome extends React.Component {
                 </div>
 
                 <div className="media-section">
-                    <h2>TV & Film</h2>
-                    {(this.props.movie)
+                    <h2>Series <span class="trivial">&</span> Film</h2>
+                    {(this.props.homeSeries)
                         ? <HomeSeries
                         homeSeries={this.props.homeSeries} />
                         : null

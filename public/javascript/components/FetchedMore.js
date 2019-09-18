@@ -5,7 +5,6 @@ class FetchedMore extends React.Component {
         return (
             <div class="media-grid">
                 <h1>Want more? Got more.</h1>
-                {/* { console.log(this.props.morePodcasts) } */}
 
                 {this.props.morePodcasts.map((morePodcast, index) => {
                     return (

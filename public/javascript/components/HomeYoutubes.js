@@ -1,4 +1,4 @@
-// YOUTUBE.JS: APP > MAIN > FETCHEDHOME > #
+// APP > MAIN > FETCHEDHOME > #
 
 class HomeYoutubes extends React.Component {
     render() {
