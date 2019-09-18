@@ -1,4 +1,4 @@
-// PODCASTS, YOUTUBE VIDEO, AND TV/FILM ELEMENTS
+// MAIN.JS: APP > #
 
 class Main extends React.Component {
     constructor(props) {
@@ -67,7 +67,7 @@ class Main extends React.Component {
                 {/* MAIN WINDOW */}
                 {(this.props.isResultsClosed)
                     // IF ON PAGE LOAD, SHOW FETCHED RESULTS
-                    ? <HomeResults
+                    ? <FetchedHome
                         // FETCHED HOME
                         homeSeries={this.state.homeSeries}
                         homePodcasts={this.state.homePodcasts}
@@ -88,11 +88,11 @@ class Main extends React.Component {
                         toggleMoreYoutubes={this.props.toggleMoreYoutubes}
                         showMoreYoutubes={this.props.showMoreYoutubes}
                     />
-                    // BUT IF OMNISEARCH TRIGGERED, SHOW OMNIRESULTS
+                    // BUT IF OMNISEARCH TRIGGERED, SHOW FETCHEDOMNISEARCH
                     : (this.props.omniPodcasts) || (this.props.omniSeries) || (this.props.omniYoutubes)
                         ? <React.Fragment>
                             <h1>Search Results</h1>
-                            <OmniResults
+                            <FetchedOmnisearch
                                 omniPodcasts={this.props.omniPodcasts}
                                 omniSeries={this.props.omniSeries}
                                 omniYoutubes={this.props.omniYoutubes}
@@ -102,7 +102,7 @@ class Main extends React.Component {
 
                         // OR IF MORE FUNCTION TRIGGERED, SHOW MORE
                         : <React.Fragment>
-                            <MoreResults
+                            <FetchedMore
                                 // MORE PODCASTS
                                 isMorePodcasts={this.props.isMorePodcasts}
                                 morePodcasts={this.props.morePodcasts}

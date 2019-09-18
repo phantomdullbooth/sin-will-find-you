@@ -1,6 +1,6 @@
-// RENDER ALL ELEMENTS / RENDER ALL ELEMENTS / RENDER ALL ELEMENTS /
-// RENDER ALL ELEMENTS / RENDER ALL ELEMENTS / RENDER ALL ELEMENTS /
-// RENDER ALL ELEMENTS / RENDER ALL ELEMENTS / RENDER ALL ELEMENTS /
+// ===================== RENDER ALL ===================== //
+// ===================== RENDER ALL ===================== //
+// ===================== RENDER ALL ===================== //
 
 ReactDOM.render(
     <App />,
