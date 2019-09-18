@@ -24,9 +24,9 @@ class App extends React.Component {
                 searchURL: ''
             },
             searchSeries: {
-                URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
+                URLstart: 'https://api.themoviedb.org/3/discover/movie?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
                 userQuery: '',
-                URLend: '%22&page=1&include_adult=false&region=US',
+                URLend: '%22&with_genres=80,99&page=1&include_adult=false&region=US',
                 searchURL: ''
             },
             searchYoutubes: {
@@ -39,11 +39,11 @@ class App extends React.Component {
         }
         //  WINDOW SIZE
         this.adaptHeader = this.adaptHeader.bind(this)
-        // LOGIN
-        this.toggleLogin = this.toggleLogin.bind(this)
         // OMNISEARCH
         this.handleChange = this.handleChange.bind(this)
-        this.triggerOmnisearch = this.triggerOmnisearch.bind(this)
+        this.omnisearchQuery = this.omnisearchQuery.bind(this)
+        this.omnisearchSerialKillers = this.omnisearchSerialKillers.bind(this)
+        this.omnisearchUnsolved = this.omnisearchUnsolved.bind(this)
         // MORE PODCASTS
         this.showMorePodcasts = this.showMorePodcasts.bind(this)
         this.toggleMorePodcasts = this.toggleMorePodcasts.bind(this)
@@ -65,7 +65,7 @@ class App extends React.Component {
 
     // SEARCH BOX USER TOGGLE LOCATED: APP > HEADER
     // FETCH TRIGGERED BY USER SEARCH INPUT: APP > MAIN > OMNISEARCH
-    triggerOmnisearch(event) {
+    omnisearchQuery(event) {
         event.preventDefault()
         console.log('Omnisearch triggered. Live long and prosper.')
 
@@ -86,10 +86,60 @@ class App extends React.Component {
                 omniPodcasts: podcasts.results,
                 omniYoutubes: youtubes.items,
                 omniSeries: series.results,
-                userQuery: ''
+                userQuery: '',
+                isResultsClosed: false
             }))
-        this.toggleResultsWindow()
-        this.toggleSearchbar()
+        // this.toggleSearchbar()
+    }
+
+    // SEARCH SERIAL KILLERS
+    omnisearchSerialKillers() {
+        console.log('Serial killer omnisearch triggered. Set phasers to "Run".')
+
+        Promise.all([
+            // FETCH LISTENNOTES DATA
+            fetch(this.state.searchPodcasts.URLstart + 'serial killers' + this.state.searchPodcasts.URLend, {
+                headers: {
+                    'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+                }
+            }),
+            // FETCH YOUTUBE DATA
+            fetch(this.state.searchYoutubes.URLstart + 'serial killers' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
+            // FETCH TMDB DATA
+            fetch(this.state.searchSeries.URLstart + 'serial killers' + this.state.searchSeries.URLend)
+        ])
+            .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
+            .then(([podcasts, youtubes, series]) => this.setState({
+                omniPodcasts: podcasts.results,
+                omniYoutubes: youtubes.items,
+                omniSeries: series.results,
+                isResultsClosed: false
+            }))
+    }
+
+    // SEARCH UNSOLVED CASES
+    omnisearchUnsolved() {
+        console.log('Unsolved omnisearch triggered. Engage.')
+
+        Promise.all([
+            // FETCH LISTENNOTES DATA
+            fetch(this.state.searchPodcasts.URLstart + 'unsolved' + this.state.searchPodcasts.URLend, {
+                headers: {
+                    'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+                }
+            }),
+            // FETCH YOUTUBE DATA
+            fetch(this.state.searchYoutubes.URLstart + 'unsolved' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
+            // FETCH TMDB DATA
+            fetch(this.state.searchSeries.URLstart + 'unsolved' + this.state.searchSeries.URLend)
+        ])
+            .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
+            .then(([podcasts, youtubes, series]) => this.setState({
+                omniPodcasts: podcasts.results,
+                omniYoutubes: youtubes.items,
+                omniSeries: series.results,
+                isResultsClosed: false
+            }))
     }
 
     // NEEDED TO REGISTER USER INPUT: APP > MAIN > OMNISEARCH
@@ -116,10 +166,10 @@ class App extends React.Component {
                 .then(response => response.json())
                 .then(podcasts => this.setState(
                     {
-                        morePodcasts: podcasts.results
+                        morePodcasts: podcasts.results,
+                        isResultsClosed: false
                     }), error => console.error(error))
         })
-        this.toggleResultsWindow()
     }
 
     // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
@@ -127,16 +177,16 @@ class App extends React.Component {
         console.log('Series search for ' + this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend)
 
         this.setState({
-            searchURL: this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend
+            searchURL: this.state.searchSeries.URLstart + 'true%20crime%22&with_genres=80,99&page=2&include_adult=false&region=US'
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())
                 .then(series => this.setState(
                     {
-                        moreSeries: series.results
+                        moreSeries: series.results,
+                        isResultsClosed: false
                     }), error => console.error(error))
         })
-        this.toggleResultsWindow()
     }
 
     // MORE YOUTUBE TRIGGER: APP > MAIN > FETCHEDHOME
@@ -150,10 +200,10 @@ class App extends React.Component {
                 .then(response => response.json())
                 .then(youtubes => this.setState(
                     {
-                        moreYoutubes: youtubes.items
+                        moreYoutubes: youtubes.items,
+                        isResultsClosed: false
                     }), error => console.error(error))
         })
-        this.toggleResultsWindow()
     }
 
     // ============================ TOGGLES ============================ //
@@ -163,10 +213,6 @@ class App extends React.Component {
     // CHANGES HEADER DEPENDING ON MOBILE OR NOT
     adaptHeader() {
         this.setState({ isMobile: window.innerWidth < 1250 })
-    }
-
-    toggleLogin() {
-        this.setState({ isLoginOpen: !this.state.isLoginOpen })
     }
 
     // TOGGLES "MORE" LINK FOR PODCASTS: APP > MAIN > FETCHEDHOME
@@ -223,8 +269,10 @@ class App extends React.Component {
                     isMobile={this.state.isMobile}
                     // TOGGLE LOGIN
                     toggleLogin={this.toggleLogin}
-                    // TOGGLE SEARCHBAR
+                    // SEARCHES
                     toggleSearchbar={this.toggleSearchbar}
+                    omnisearchSerialKillers={this.omnisearchSerialKillers}
+                    omnisearchUnsolved={this.omnisearchUnsolved}
                     // TRIGGER RELOAD
                     triggerReload={this.triggerReload} />
 
@@ -238,7 +286,7 @@ class App extends React.Component {
                     omniPodcasts={this.state.omniPodcasts}
                     omniSeries={this.state.omniSeries}
                     omniYoutubes={this.state.omniYoutubes}
-                    triggerOmnisearch={this.triggerOmnisearch}
+                    omnisearchQuery={this.omnisearchQuery}
                     userQuery={this.state.userQuery}
                     // MORE PODCASTS
                     isMorePodcasts={this.state.isMorePodcasts}

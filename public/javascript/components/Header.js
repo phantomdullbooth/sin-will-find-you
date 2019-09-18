@@ -16,9 +16,11 @@ class Header extends React.Component {
                             <img src="../css/images/icon-menu.png" class="header-icon" />
                         </div>
                     : <div className="header-container">
-                            <a href="#">Serial Killers</a>
-                            <a href="#">Unsolved Crimes</a>
-                            <img    src="../css/images/logo.png"
+                            <a href="#"
+                                onClick={() => { {this.props.omnisearchSerialKillers()} }}>Serial Killers</a>
+                            <a href="#"
+                                onClick={() => { {this.props.omnisearchUnsolved()} }}>Unsolved</a>
+                            <img    src="../css/images/cic-logo.png"
                                     class="header-logo"
                                     onClick={() => { {this.props.triggerReload()} }} />
                             <a  href="#"
