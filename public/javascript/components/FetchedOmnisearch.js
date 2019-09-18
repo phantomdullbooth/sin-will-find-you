@@ -1,6 +1,6 @@
 // APP > MAIN > SEARCHRESULTS > OMNISEARCHRESULTS
 
-class OmniResults extends React.Component {
+class FetchedOmnisearch extends React.Component {
     render() {
         return (
             <div class="media-grid">

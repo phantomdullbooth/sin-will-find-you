@@ -1,6 +1,6 @@
-// APP > MAIN > HOMERESULTS > SERIES
+// APP > MAIN > FETCHEDHOME > #
 
-class Series extends React.Component {
+class HomeSeries extends React.Component {
     render() {
         return (
             <div className="media">

@@ -1,6 +1,6 @@
 // PODCAST COMPONENT; LOADS ON MAIN
 
-class Podcasts extends React.Component {
+class HomePodcasts extends React.Component {
     render() {
         console.log(this.props.podcast)
         return (

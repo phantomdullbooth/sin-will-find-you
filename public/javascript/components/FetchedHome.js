@@ -1,4 +1,4 @@
-class HomeResults extends React.Component {
+class FetchedHome extends React.Component {
     render() {
         return (
             // CONTAINS ALL MEDIA SECTIONS
@@ -7,7 +7,7 @@ class HomeResults extends React.Component {
                 <div className="media-section">
                     <h2>Podcasts</h2>
                     {(this.props.podcast)
-                        ? <Podcasts
+                        ? <HomePodcasts
                             homePodcasts={this.props.homePodcasts} />
                         : null
                     }
@@ -16,7 +16,7 @@ class HomeResults extends React.Component {
                 <div className="media-section">
                     <h2>YouTube</h2>
                     {(this.props.video)
-                        ? <Youtube
+                        ? <HomeYoutubes
                             homeYoutubes={this.props.homeYoutubes} />
                         : null
                     }
@@ -25,7 +25,7 @@ class HomeResults extends React.Component {
                 <div className="media-section">
                     <h2>TV & Film</h2>
                     {(this.props.movie)
-                        ? <Series
+                        ? <HomeSeries
                         homeSeries={this.props.homeSeries} />
                         : null
                     }

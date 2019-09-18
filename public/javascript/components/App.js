@@ -92,7 +92,7 @@ class App extends React.Component {
     // ============================ MORE TRIGGERS ============================ //
     // ============================ MORE TRIGGERS ============================ //
 
-    // MORE PODCASTS TRIGGER: APP > MAIN > HOMERESULTS
+    // MORE PODCASTS TRIGGER: APP > MAIN > FETCHEDHOME
     showMorePodcasts() {
         console.log('Podcast search for ' + this.state.listenNotes.URLstart + '' + this.state.listenNotes.URLend + '&offset=10')
 
@@ -113,7 +113,7 @@ class App extends React.Component {
         this.toggleResultsWindow()
     }
 
-    // MORE SERIES TRIGGER: APP > MAIN > HOMERESULTS
+    // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreSeries() {
         console.log('Series search for ' + this.state.tmdb.URLstart + 'true crime' + this.state.tmdb.URLend)
         
@@ -130,7 +130,7 @@ class App extends React.Component {
         this.toggleResultsWindow()
     }
 
-    // MORE YOUTUBE TRIGGER: APP > MAIN > HOMERESULTS
+    // MORE YOUTUBE TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreYoutubes() {
         console.log('Youtube search for ' + this.state.youtube.URLstart + '' + this.state.youtube.URLend + this.state.youtube.apikey)
         
@@ -153,17 +153,17 @@ class App extends React.Component {
     // ============================ TOGGLES ============================ //
     // ============================ TOGGLES ============================ //
 
-    // TOGGLES "MORE" LINK FOR PODCASTS: APP > MAIN > HOMERESULTS
+    // TOGGLES "MORE" LINK FOR PODCASTS: APP > MAIN > FETCHEDHOME
     toggleMorePodcasts() {
         this.setState({ isMorePodcasts: !this.state.isMorePodcasts })
     }
 
-    // TOGGLES "MORE" LINK FOR SERIES: APP > MAIN > HOMERESULTS
+    // TOGGLES "MORE" LINK FOR SERIES: APP > MAIN > FETCHEDHOME
     toggleMoreSeries() {
         this.setState({ isMoreSeries: !this.state.isMoreSeries })
     }
     
-    // TOGGLES "MORE" LINK FOR YOUTUBE: APP > MAIN > HOMERESULTS
+    // TOGGLES "MORE" LINK FOR YOUTUBE: APP > MAIN > FETCHEDHOME
     toggleMoreYoutubes() {
         this.setState({ isMoreYoutubes: !this.state.isMoreYoutubes })
     }

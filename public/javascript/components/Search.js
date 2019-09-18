@@ -1,4 +1,4 @@
-// ONCLICK IN HEADER.JS; LOADS IN MAIN.JS
+// APP > MAIN #
 
 class Search extends React.Component {
     render() {
