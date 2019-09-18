@@ -142,11 +142,6 @@ header {
     cursor: pointer;
 }
 
-.header-logo:hover {
-    transform: scaleX(-1);
-}
-
-
 /* =================== MAIN =================== */
 /* =================== MAIN =================== */
 /* =================== MAIN =================== */
@@ -366,7 +361,7 @@ footer p {
 
     /* MEDIA SECTION TITLES */
     h2 {
-        font-size: 3.75rem;
+        font-size: 3.25rem;
     }
 
     /* "IMAGE UNAVAILABLE" READOUT */
@@ -414,8 +409,8 @@ footer p {
     }
 
     .header-logo {
-        width: 275px;
-        height: 275px;
+        width: 300px;
+        height: 300px;
     }
 
     /* =================== MAIN 1250 =================== */

@@ -87,7 +87,8 @@ class App extends React.Component {
                 omniYoutubes: youtubes.items,
                 omniSeries: series.results,
                 userQuery: '',
-                isResultsClosed: false
+                isResultsClosed: false,
+                isSearchOpen: false,
             }))
         // this.toggleSearchbar()
     }

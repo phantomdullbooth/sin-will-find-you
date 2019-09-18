@@ -8,7 +8,7 @@ class Main extends React.Component {
             homeSeries: [],
             homeYoutubes: [],
             searchHomePodcasts: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22&sort_by_date=1&type=episode',
-            searchHomeSeries: 'https://api.themoviedb.org/3/discover/movie?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&with_genres=80,99&page=1&include_adult=false&region=US',
+            searchHomeSeries: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US',
             searchHomeYoutubes: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&maxResults=10&key=AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
         }
     }

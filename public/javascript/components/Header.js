@@ -20,7 +20,7 @@ class Header extends React.Component {
                                 onClick={() => { {this.props.omnisearchSerialKillers()} }}>Serial Killers</a>
                             <a href="#"
                                 onClick={() => { {this.props.omnisearchUnsolved()} }}>Unsolved</a>
-                            <img    src="../css/images/cic-logo.png"
+                            <img    src="../css/images/logo.png"
                                     class="header-logo"
                                     onClick={() => { {this.props.triggerReload()} }} />
                             <a  href="#"
