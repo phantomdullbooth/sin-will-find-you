@@ -8,7 +8,7 @@ class HomeResults extends React.Component {
                     <h2>Podcasts</h2>
                     {(this.props.podcast)
                         ? <Podcasts
-                            podcast={this.props.podcast} />
+                            homePodcasts={this.props.homePodcasts} />
                         : null
                     }
                 </div>
@@ -17,7 +17,7 @@ class HomeResults extends React.Component {
                     <h2>YouTube</h2>
                     {(this.props.video)
                         ? <Youtube
-                            video={this.props.video} />
+                            homeYoutubes={this.props.homeYoutubes} />
                         : null
                     }
                 </div>
@@ -25,8 +25,8 @@ class HomeResults extends React.Component {
                 <div className="media-section">
                     <h2>TV & Film</h2>
                     {(this.props.movie)
-                        ? <Movies
-                            movie={this.props.movie} />
+                        ? <Series
+                        homeSeries={this.props.homeSeries} />
                         : null
                     }
                 </div>
