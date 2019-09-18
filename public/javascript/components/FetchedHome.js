@@ -10,7 +10,20 @@ class FetchedHome extends React.Component {
             <div className="media-layout">
 
                 <div className="media-section">
-                    <h2>Podcasts</h2>
+                    <div className="section-title">
+                        <h2>Podcasts</h2>
+
+                        {(this.props.isMorePodcasts)
+                            ? <h2 className="slider-title"
+                                onClick={() => { { this.props.showMorePodcasts() } }}
+                                onMouseLeave={() => { { this.props.toggleMorePodcasts() } }}>More</h2>
+                            : null
+                        }
+
+                        <img src="../css/images/icon-more.png"
+                            onMouseOver={() => { { this.props.toggleMorePodcasts() } }} />
+                    </div>
+
                     {(this.props.homePodcasts)
                         ? <HomePodcasts
                             homePodcasts={this.props.homePodcasts} />
@@ -19,7 +32,20 @@ class FetchedHome extends React.Component {
                 </div>
 
                 <div className="media-section">
-                    <h2>YouTube</h2>
+                    <div className="section-title">
+                        <h2>YouTube</h2>
+
+                        {(this.props.isMoreYoutubes)
+                            ? <h2 className="slider-title"
+                                onClick={() => { { this.props.showMoreYoutubes() } }}
+                                onMouseLeave={() => { { this.props.toggleMoreYoutubes() } }}>More</h2>
+                            : null
+                        }
+                        
+                        <img src="../css/images/icon-more.png"
+                            onMouseOver={() => { { this.props.toggleMoreYoutubes() } }} />
+                    </div>
+
                     {(this.props.homeYoutubes)
                         ? <HomeYoutubes
                             homeYoutubes={this.props.homeYoutubes} />
@@ -28,10 +54,23 @@ class FetchedHome extends React.Component {
                 </div>
 
                 <div className="media-section">
-                    <h2>Series <span class="trivial">&</span> Film</h2>
+                    <div className="section-title">
+                        <h2>Series & Film</h2>
+
+                        {(this.props.isMoreSeries)
+                            ? <h2 className="slider-title"
+                                onClick={() => { { this.props.showMoreSeries() } }}
+                                onMouseLeave={() => { { this.props.toggleMoreSeries() } }}>More</h2>
+                            : null
+                        }
+
+                        <img src="../css/images/icon-more.png"
+                            onMouseOver={() => { { this.props.toggleMoreSeries() } }} />
+                    </div>
+
                     {(this.props.homeSeries)
                         ? <HomeSeries
-                        homeSeries={this.props.homeSeries} />
+                            homeSeries={this.props.homeSeries} />
                         : null
                     }
                 </div>

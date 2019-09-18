@@ -46,9 +46,9 @@ class Main extends React.Component {
 
     // FETCH ALL DATA ON PAGE LOAD
     componentDidMount() {
-        this.fetchPodcasts()
-        this.fetchSeries()
-        this.fetchYoutube()
+        // this.fetchPodcasts()
+        // this.fetchSeries()
+        // this.fetchYoutube()
     }
 
     // RENDER DATA ON PAGE
@@ -56,6 +56,19 @@ class Main extends React.Component {
         return (
             <main>
 
+                {/* TOGGLED LOGIN */}
+                {(this.props.isLoginOpen)
+                    ? <Login
+                        // LOGIN
+                        email={this.props.email}
+                        handleChange={this.props.handleChange}
+                        triggerLogin={this.props.triggerLogin}
+                        username={this.props.username}
+                        password={this.props.password}
+                    />
+                    : null
+                }
+                
                 {/* TOGGLED SEARCH BAR */}
                 {(this.props.isSearchOpen)
                     ? <Omnisearch
@@ -92,7 +105,7 @@ class Main extends React.Component {
                         showMoreYoutubes={this.props.showMoreYoutubes}
                     />
                     // BUT IF OMNISEARCH TRIGGERED, SHOW FETCHEDOMNISEARCH
-                    : (this.props.omniPodcasts) || (this.props.omniSeries) || (this.props.omniYoutubes)
+                    : (this.props.omniPodcasts.length > 0) || (this.props.omniSeries.length > 0) || (this.props.omniYoutubes.length > 0)
                         ? <React.Fragment>
                             <h1>Search Results</h1>
                             <FetchedOmnisearch
@@ -105,10 +118,17 @@ class Main extends React.Component {
 
                         // OR IF MORE FUNCTION TRIGGERED, SHOW MORE
                         : <React.Fragment>
+                            <h1>Want more? Got more.</h1>
                             <FetchedMore
                                 // MORE PODCASTS
                                 isMorePodcasts={this.props.isMorePodcasts}
                                 morePodcasts={this.props.morePodcasts}
+                                // MORE SERIES
+                                isMoreSeries={this.props.isMoreSeries}
+                                moreSeries={this.props.moreSeries}
+                                // MORE YOUTUBES
+                                isMoreYoutubes={this.props.isMoreYoutubes}
+                                moreYoutubes={this.props.moreYoutubes}
                             />
                         </React.Fragment>
                 }

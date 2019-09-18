@@ -4,13 +4,15 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            isLoginOpen: false,
+            isMobile: true,
             isMorePodcasts: false,
             isMoreSeries: false,
             isMoreYoutubes: false,
             isResultsClosed: true,
             isSearchOpen: false,
             morePodcasts: [],
-            moreSeries: [],            
+            moreSeries: [],
             moreYoutubes: [],
             omniPodcasts: [],
             omniSeries: [],
@@ -35,6 +37,10 @@ class App extends React.Component {
                 searchURL: ''
             }
         }
+        //  WINDOW SIZE
+        this.adaptHeader = this.adaptHeader.bind(this)
+        // LOGIN
+        this.toggleLogin = this.toggleLogin.bind(this)
         // OMNISEARCH
         this.handleChange = this.handleChange.bind(this)
         this.triggerOmnisearch = this.triggerOmnisearch.bind(this)
@@ -82,8 +88,8 @@ class App extends React.Component {
                 omniSeries: series.results,
                 userQuery: ''
             }))
-            this.toggleResultsWindow()
-            this.toggleSearchbar()
+        this.toggleResultsWindow()
+        this.toggleSearchbar()
     }
 
     // NEEDED TO REGISTER USER INPUT: APP > MAIN > OMNISEARCH
@@ -119,7 +125,7 @@ class App extends React.Component {
     // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreSeries() {
         console.log('Series search for ' + this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend)
-        
+
         this.setState({
             searchURL: this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend
         }, () => {
@@ -136,7 +142,7 @@ class App extends React.Component {
     // MORE YOUTUBE TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreYoutubes() {
         console.log('Youtube search for ' + this.state.searchYoutubes.URLstart + '' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey)
-        
+
         this.setState({
             searchURL: this.state.searchYoutubes.URLstart + '' + '%22&order=date&maxResults=20&key=' + this.state.searchYoutubes.apikey
         }, () => {
@@ -154,6 +160,15 @@ class App extends React.Component {
     // ============================ TOGGLES ============================ //
     // ============================ TOGGLES ============================ //
 
+    // CHANGES HEADER DEPENDING ON MOBILE OR NOT
+    adaptHeader() {
+        this.setState({ isMobile: window.innerWidth < 1250 })
+    }
+
+    toggleLogin() {
+        this.setState({ isLoginOpen: !this.state.isLoginOpen })
+    }
+
     // TOGGLES "MORE" LINK FOR PODCASTS: APP > MAIN > FETCHEDHOME
     toggleMorePodcasts() {
         this.setState({ isMorePodcasts: !this.state.isMorePodcasts })
@@ -163,7 +178,7 @@ class App extends React.Component {
     toggleMoreSeries() {
         this.setState({ isMoreSeries: !this.state.isMoreSeries })
     }
-    
+
     // TOGGLES "MORE" LINK FOR YOUTUBE: APP > MAIN > FETCHEDHOME
     toggleMoreYoutubes() {
         this.setState({ isMoreYoutubes: !this.state.isMoreYoutubes })
@@ -173,16 +188,28 @@ class App extends React.Component {
     toggleResultsWindow() {
         this.setState({ isResultsClosed: !this.state.isResultsClosed })
     }
-    
+
     // TOGGLES OMNISEARCH BOX: APP > HEADER
     toggleSearchbar() {
         this.setState({ isSearchOpen: !this.state.isSearchOpen })
     }
 
     triggerReload() {
-        window.location.reload(true);
+        location.reload(true);
     }
 
+    // ============================ TOGGLES ============================ //
+    // ============================ TOGGLES ============================ //
+    // ============================ TOGGLES ============================ //
+
+    componentDidMount() {
+        this.adaptHeader()
+        window.addEventListener("resize", this.adaptHeader);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.adaptHeader);
+    }
 
     // ============================ RENDER ============================ //
     // ============================ RENDER ============================ //
@@ -192,6 +219,10 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <Header
+                    // ADAPT HEADER
+                    isMobile={this.state.isMobile}
+                    // TOGGLE LOGIN
+                    toggleLogin={this.toggleLogin}
                     // TOGGLE SEARCHBAR
                     toggleSearchbar={this.toggleSearchbar}
                     // TRIGGER RELOAD
@@ -199,6 +230,8 @@ class App extends React.Component {
 
                 <Main
                     isResultsClosed={this.state.isResultsClosed}
+                    // LOGIN
+                    isLoginOpen={this.state.isLoginOpen}
                     // OMNISEARCH
                     handleChange={this.handleChange}
                     isSearchOpen={this.state.isSearchOpen}
@@ -210,8 +243,8 @@ class App extends React.Component {
                     // MORE PODCASTS
                     isMorePodcasts={this.state.isMorePodcasts}
                     morePodcasts={this.state.morePodcasts}
-                    toggleMorePodcasts={this.toggleMorePodcasts}
                     showMorePodcasts={this.showMorePodcasts}
+                    toggleMorePodcasts={this.toggleMorePodcasts}
                     // MORE SERIES
                     isMoreSeries={this.state.isMoreSeries}
                     moreSeries={this.state.moreSeries}
@@ -220,8 +253,8 @@ class App extends React.Component {
                     // MORE YOUTUBE
                     isMoreYoutubes={this.state.isMoreYoutubes}
                     moreYoutubes={this.state.moreYoutubes}
-                    toggleMoreYoutubes={this.toggleMoreYoutubes}
                     showMoreYoutubes={this.showMoreYoutubes}
+                    toggleMoreYoutubes={this.toggleMoreYoutubes}
                 />
 
                 <Footer />

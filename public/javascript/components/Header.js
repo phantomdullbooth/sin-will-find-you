@@ -18,9 +18,13 @@ class Header extends React.Component {
                     : <div className="header-container">
                             <a href="#">Serial Killers</a>
                             <a href="#">Unsolved Crimes</a>
-                            <img src="../css/images/logo.png" class="header-logo" onClick={() => { {this.props.triggerReload()} }} />
-                            <a href="#">Login / Signup</a>
-                            <a href="#" onClick={() => { {this.props.toggleSearchbar()} }}>Search</a>
+                            <img    src="../css/images/logo.png"
+                                    class="header-logo"
+                                    onClick={() => { {this.props.triggerReload()} }} />
+                            <a  href="#"
+                                onClick={() => { {this.props.toggleLogin()} }}>Login / Signup</a>
+                            <a  href="#"
+                                onClick={() => { {this.props.toggleSearchbar()} }}>Search</a>
                         </div>
                 }
             </header>
