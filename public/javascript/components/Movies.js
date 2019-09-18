@@ -5,23 +5,23 @@ class Movies extends React.Component {
         console.log(this.props.movie)
         return (
             <div className="media">
-                {this.props.homeMovies.map((homeMovie, index) => {
+                {this.props.movie.map((movies, ross) => {
                     return (
-                        <div className="media-card-movie" key={index}>
+                        <div className="media-card-movie" key={ross}>
 
-                            {(homeMovie.poster_path 
-                                ? <img className="movie" src={"https://image.tmdb.org/t/p/w300/" + homeMovie.poster_path} />
+                            {(movies.poster_path 
+                                ? <img className="movie" src={"https://image.tmdb.org/t/p/w300/" + movies.poster_path} />
                                 : <div className="movie-null">
                                     <h3>Image unavailable</h3>
                                 </div>
                                 )}
 
-                            {( homeMovie.name
-                                ? <h5><span className="important">{homeMovie.name}</span></h5>
-                                : <h5><span className="important">{homeMovie.title}</span></h5>
+                            {( movies.name
+                                ? <h5><span className="important">{movies.name}</span></h5>
+                                : <h5><span className="important">{movies.title}</span></h5>
                                 )}
 
-                                <p>{homeMovie.media_type}</p>
+                                <p>{movies.media_type}</p>
                         </div>
                     )
                 })}

@@ -4,77 +4,110 @@ class Main extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            homePodcastsURL: 'https://api.spreaker.com/v2/search?type=episodes&q=true%20crime&limit=10',
-            homeYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&key=AIzaSyBKKyux5QIxE0sAdVFWXanF-Fy5K5n3Z0s',
-            homeMoviesURL: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US'
+            homePodcastsURL: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22&sort_by_date=0&type=episode',
+            homeYoutubeURL: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&maxResults=10&key=AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
+            homeSeriesURL: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US'
         }
     }
+
     // FETCH PODCAST DATA
     fetchPodcasts = () => {
-        fetch(this.state.homePodcastsURL)
+        fetch(this.state.homePodcastsURL, {
+            headers: {
+                'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+            }
+        })
             .then(response => response.json())
             .then(results => {
-                console.log(results)
-                this.setState({ podcast: results.response.items })
+                this.setState({ homePodcasts: results.results })
             })
     }
+
+    // FETCH SERIES/FILM DATA
+    fetchSeries = () => {
+        fetch(this.state.homeSeriesURL)
+            .then(response => response.json())
+            .then(results => {
+                this.setState({ homeSeries: results.results })
+            })
+    }
+
     // FETCH YOUTUBE DATA
     fetchYoutube = () => {
         fetch(this.state.homeYoutubeURL)
             .then(response => response.json())
             .then(results => {
-                console.log(this.state.homeYoutubeURL)
-                this.setState({ video: results.items })
-            })
-    }
-
-    // FETCH MOVIE/TV SHOW DATA
-    fetchMovies = () => {
-        fetch(this.state.homeMoviesURL)
-            .then(response => response.json())
-            .then(results => {
-                this.setState({ movie: results.results })
+                this.setState({ homeYoutubes: results.items })
             })
     }
 
     // FETCH ALL DATA ON PAGE LOAD
     componentDidMount() {
         this.fetchPodcasts()
+        this.fetchSeries()
         this.fetchYoutube()
-        this.fetchMovies()
     }
 
     // RENDER DATA ON PAGE
     render() {
         return (
             <main>
-                {/* ONCLICK TRIGGER ON HEADER.JS */}
+
+                {/* TOGGLED SEARCH BAR */}
                 {(this.props.isSearchOpen)
                     ? <Search
-                        searchYoutube={this.props.searchYoutube}
+                        // OMNISEARCH
                         handleChange={this.props.handleChange}
-                        userQuery={this.props.userQuery} />
+                        triggerOmnisearch={this.props.triggerOmnisearch}
+                        userQuery={this.props.userQuery}
+                    />
                     : null
                 }
 
-                {/* WAS SEARCH INITIATED? */}
+                {/* MAIN WINDOW */}
                 {(this.props.isResultsClosed)
-                    // PAGE VIEW ON PAGE LOAD
+                    // IF ON PAGE LOAD, SHOW FETCHED RESULTS
                     ? <HomeResults
-                        podcast={this.state.podcast}
-                        video={this.state.video}
-                        movie={this.state.movie}
+                        // FETCHED HOME
+                        homeSeries={this.state.homeSeries}
+                        homePodcasts={this.state.homePodcasts}
+                        homeYoutubes={this.state.homeYoutubes}
+                        // MORE PODCASTS
+                        isMorePodcasts={this.props.isMorePodcasts}
+                        morePodcasts={this.props.morePodcasts}
+                        showMorePodcasts={this.props.showMorePodcasts}
+                        toggleMorePodcasts={this.props.toggleMorePodcasts}
+                        // MORE SERIES
+                        isMoreSeries={this.props.isMoreSeries}
+                        moreSeries={this.props.moreSeries}
+                        showMoreSeries={this.props.showMoreSeries}
+                        toggleMoreSeries={this.props.toggleMoreSeries}
+                        // MORE YOUTUBE
+                        isMoreYoutubes={this.props.isMoreYoutubes}
+                        moreYoutubes={this.props.moreYoutubes}
+                        toggleMoreYoutubes={this.props.toggleMoreYoutubes}
+                        showMoreYoutubes={this.props.showMoreYoutubes}
                     />
+                    // BUT IF OMNISEARCH TRIGGERED, SHOW OMNIRESULTS
+                    : (this.props.omniPodcasts) || (this.props.omniSeries) || (this.props.omniYoutubes)
+                        ? <React.Fragment>
+                            <h1>Search Results</h1>
+                            <OmniResults
+                                omniPodcasts={this.props.omniPodcasts}
+                                omniSeries={this.props.omniSeries}
+                                omniYoutubes={this.props.omniYoutubes}
+                                userQuery={this.props.userQuery}
+                            />
+                        </React.Fragment>
 
-                    // IF SEARCH SUBMITTED
-                    : (this.props.youtubeResults)
-                        ? <SearchResults
-                            userQuery={this.props.userQuery}
-                            youtubeResults={this.props.youtubeResults}
-                        />
-                        : null
-
-
+                        // OR IF MORE FUNCTION TRIGGERED, SHOW MORE
+                        : <React.Fragment>
+                            <MoreResults
+                                // MORE PODCASTS
+                                isMorePodcasts={this.props.isMorePodcasts}
+                                morePodcasts={this.props.morePodcasts}
+                            />
+                        </React.Fragment>
                 }
             </main>
         )
