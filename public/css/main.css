@@ -1,32 +1,65 @@
-/* ====================================
-===== IMPORT NORMALIZE & FONTS
-==================================== */
+/* =================== IMPORTS =================== */
+/* =================== IMPORTS =================== */
+/* =================== IMPORTS =================== */
+
 @import url('normalize.css');
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-/* * {
-    border: 1px solid #518ea7;
-} */
-
-/* ====================================
-===== DEFINE COLORS
-==================================== */
-
-:root {
-    --black: #191919;
-    --ghostmagenta: #ff0042;
-    --white: ghostwhite;
+/* BASIER SQUARE REGULAR */
+@font-face {
+    font-family: 'Basier Square Regular';
+    src: url('fonts/basier-square-regular.eot');
+    src: url('fonts/basier-square-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/basier-square-regular.woff2') format('woff2'),
+         url('fonts/basier-square-regular.woff') format('woff'),
+         url('fonts/basier-square-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
-/* ====================================
-===== GENERAL TEXT
-==================================== */
+/* =================== COLOR VARIABLES =================== */
+/* =================== COLOR VARIABLES =================== */
+/* =================== COLOR VARIABLES =================== */
+
+:root {
+    --primary: #f8f8ff;
+    --secondary: #191919;
+    --tertiary: #ff0042;
+    --quandary: #707070;
+}
+
+[data-theme="outrun"] {
+    --primary: #1C0658;
+    --secondary: #ffba00;
+    --tertiary: #ff0042;
+    --quandary: #36CDC4;
+}
+
+
+/* =================== BODY =================== */
+/* =================== BODY =================== */
+/* =================== BODY =================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--primary);
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    color: var(--secondary);
+}
+
+
+/* =================== TEXT =================== */
+/* =================== TEXT =================== */
+/* =================== TEXT =================== */
 
 /* SEARCH RESULTS TITLE */
 h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 600;
     line-height: 3rem;
     text-align: center;
@@ -44,7 +77,7 @@ h3 {
     font-size: 1.75rem;
     font-weight: 600;
     line-height: 2.5rem;
-    color: var(--white);
+    color: var(--secondary);
     margin: 0 0 10px 10px;
 }
 
@@ -63,68 +96,69 @@ p {
 
 /* MEDIA TITLE HEADER */
 .important {
+    font-size: 1.25rem;
     font-weight: 600;
-    font-size: 1.25rem; 
 }
 
-/* ====================================
-===== BODY PARTS
-==================================== */
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--white);
-    font-family: 'Rajdhani', sans-serif;
-    text-transform: uppercase;
+/* MEDIA SECTION MORE SLIDER */
+.slider-title {
+    margin: 0 30px;
+    font-weight: 400;
+    color: var(--quandary);
+    transition: ease-in-out 5s;
+    cursor: pointer;
 }
+
+
+/* =================== HEADER =================== */
+/* =================== HEADER =================== */
+/* =================== HEADER =================== */
 
 header {
-    margin: 0 1%;
+    margin: 0 20px;
 }
 
-.header {
+.header-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
+.header-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.header-logo {
+    width: 135px;
+    height: 135px;
+    cursor: pointer;
+}
+
+.header-logo:hover {
+    transform: scaleX(-1);
+}
+
+
+/* =================== MAIN =================== */
+/* =================== MAIN =================== */
+/* =================== MAIN =================== */
+
 main {
-    margin: 25px auto;
-    width: 90%;
+    margin: 25px 7%;
 }
 
-footer {
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    text-transform: none;
-    background-color: var(--black);
-    color: var(--white);
-    padding: 10px;
-    border-bottom: 7px solid var(--ghostmagenta);
-}
+/* FORMS FORMS FORMS FORMS */
+/* FORMS FORMS FORMS FORMS */
 
-footer p {
-    padding: 10px;
-}
-
-/* ====================================
-===== FORMS & INPUTS
-==================================== */
-
-
-
-form {
+.search-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    margin: 75px auto;
+    margin: 100px auto;
     width: 100%;
-    transition: ease-in-out 2s;
 }
 
 label {
@@ -134,10 +168,10 @@ label {
 input {
     outline: none;
     border: none;
-    border-left: 3px solid var(--ghostmagenta);
-    border-bottom: 3px solid var(--ghostmagenta);
+    border-left: 3px solid var(--tertiary);
+    border-bottom: 3px solid var(--tertiary);
     background-color: #f8f8ff00;
-    color: var(--black);
+    color: var(--secondary);
     width: 90%;
     height: 50px;
     padding: 0 20px;
@@ -148,43 +182,24 @@ input {
 .search-button {
     border-right: none;
     border-left: none;
-    border-right: 3px solid var(--ghostmagenta);
-    border-bottom: 3px solid var(--ghostmagenta);
+    border-right: 3px solid var(--tertiary);
+    border-bottom: 3px solid var(--tertiary);
     width: 110px;
     height: 50px;
 }
 
 .search-button:hover {
     transition: ease-in 0.45s;
-    background-color: var(--ghostmagenta);
-    color: var(--white);
+    background-color: var(--tertiary);
+    color: var(--primary);
 }
 
 ::placeholder {
-    color: #808080;
+    color: var(--quandary);
 }
 
-
-/* ====================================
-===== HEADER CONTENT
-==================================== */
-
-/* LOGO IMAGE SIZING */
-.logo {
-    width: 135px;
-    height: 135px;
-}
-
-/* SEARCH, IMAGE ICONS */
-.header-icon {
-    width: 50px;
-    height: 50px;
-}
-
-
-/* ====================================
-===== MAIN CONTENT ====================
-==================================== */
+/* MEDIA MEDIA MEDIA MEDIA */
+/* MEDIA MEDIA MEDIA MEDIA */
 
 .media-layout {
     display: flex;
@@ -196,6 +211,18 @@ input {
 .media-section {
     margin-bottom: 50px;
     /* border: 3px solid blue; */
+}
+
+.section-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.section-title img {
+    width: 80px;
+    height: 80px;
 }
 
 .media {
@@ -231,245 +258,264 @@ input {
 }
 
 /* TV/FILM MEDIA ONLY */
-.media-card-movie {
+.media-card-series {
     width: 300px;
     height: auto;
     margin-right: 3px;
 }
 
-.movie {
+.series {
     width: 300px;
     height: 450px;
 }
 
-.movie-null {
+/* IF THERE IS NO TV/FILM IMAGE */
+.series-null {
     width: 295px;
     min-width: 295px;
     height: 444px;
     min-height: 444px;
-    background-color: #191919;
-    border: 3px solid #ff0042;
+    background-color: var(--primary);
+    border: 3px solid var(--secondary);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
 }
 
-/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX
-// MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX
-MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
+/* RESULTS RESULTS RESULTS RESULTS */
+/* RESULTS RESULTS RESULTS RESULTS */
+
+.search-results {
+    margin: 200px auto;
+    width: 95%;
+}
+
+.media-grid {
+    margin: 150px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.searched {
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+/* =================== FOOTER =================== */
+/* =================== FOOTER =================== */
+/* =================== FOOTER =================== */
+
+footer {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--secondary);
+    border-top: 5px solid var(--tertiary);
+}
+
+footer p {
+    font-family: 'Basier Square Regular', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--primary);
+    text-align: center;
+    text-transform: none;
+    margin: 20px 10px;
+}
+
+
+/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
+/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
+/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
 
 @media screen and (min-width: 1250px) {
+
+    /* =================== TEXT 1250 =================== */
+    /* =================== TEXT 1250 =================== */
+    /* =================== TEXT 1250 =================== */
+
+    /* SEARCH RESULTS TITLE */
+    h1 {
+        font-size: 5rem;
+        margin-top: 60px;
+    }
+
+    /* MEDIA SECTION TITLES */
+    h2 {
+        font-size: 3.75rem;
+    }
+
+    /* "IMAGE UNAVAILABLE" READOUT */
+    h3 {
+        font-size: 3rem;
+    }
+
+    /* "IMAGE UNAVAILABLE" READOUT FOR OMNI RESULTS */
+    h4 {
+        margin-left: 10px;
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--primary);
+    }
+
+    /* MEDIA TITLES */
+    h5 {
+        font-size: 1rem;
+        padding-right: 20px;
+    }
+
+    a {
+        font-size: 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--secondary);
+    }
+
+    a:hover {
+        color: var(--tertiary);
+    }
+
+    .important {
+        font-size: 1.5rem;
+    }
+    /* =================== HEADER 1250 =================== */
+    /* =================== HEADER 1250 =================== */
+    /* =================== HEADER 1250 =================== */
 
     header {
         margin: 0 10%;
     }
 
+    .header-logo {
+        width: 275px;
+        height: 275px;
+    }
+
+    /* =================== MAIN 1250 =================== */
+    /* =================== MAIN 1250 =================== */
+    /* =================== MAIN 1250 =================== */
+
     main {
-        margin: 50px 5%;
+        margin: 50px 7%;
     }
 
-    /* ====================================
-    ===== GENERAL TEXT
-    ==================================== */
+    /* FORMS FORMS FORMS FORMS */
+    /* FORMS FORMS FORMS FORMS */
 
-    /* SEARCH RESULTS TITLE */
-    h1 {
-        font-size: 5rem;
-        font-weight: 600;
-        line-height: 3rem;
-        text-align: center;
-    }
-
-    h2 {
-        font-size: 3.75rem;
-        font-weight: 600;
-        line-height: 1rem;
-    }
-
-    h3 {
-        font-size: 2.25rem;
-        font-weight: 600;
-        line-height: 2.5rem;
-        color: var(--white);
-        margin: 0 0 10px 10px;
-    }
-    
-    h5 {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.9rem;
-        margin: 20px 0;
-        text-transform: uppercase;
-        padding-right: 50px;
-    }
-
-    .important {
-        font-size: 1.25rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    a {
-        font-size: 1.75rem;
-        font-weight: 600;
-        text-decoration: none;
-        color: var(--black);
-    }
-
-    a:hover {
-        color: var(--ghostmagenta);
-    }
-
-    /* ====================================
-    =======================================
-    HEADER
-    =======================================
-    ==================================== */
-
-    .header-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .logo {
-        width: 250px;
-        height: 250px;
-    }
-
-        /* ====================================
-    ===== SEARCH FUNCTION
-    ==================================== */
-    
-    form {
-        display: flex;
+    .search-form {
         flex-direction: row;
-        justify-content: center;
         align-items: flex-start;
         margin-bottom: 100px auto;
-        width: 100%;
         transition: ease-in-out 2s;
     }
 
-    label {
-        display: none;
-    }
-    
     input {
-        outline: none;
-        border: none;
-        border-right: 4px solid var(--ghostmagenta);
-        border-bottom: 4px solid var(--ghostmagenta);
-        background-color: #f8f8ff00;
-        color: var(--black);
+        border-left: none;
+        border-right: 4px solid var(--tertiary);
+        border-bottom: 4px solid var(--tertiary);
         width: 55%;
         height: 100px;
-        padding: 0 20px;
         font-size: 3rem;
-        text-transform: uppercase;
     }
-    
+
     .search-button {
         border-right: none;
-        border-top: 4px solid var(--ghostmagenta);
-        border-bottom: 4px solid #f8f8ff;
+        border-top: 4px solid var(--tertiary);
         border-left: none;
         border-bottom: none;
         width: 200px;
         height: 104px;
         margin-left: -4px;
     }
-    
-    .search-button:hover {
-        transition: ease-in 0.45s;
-        background-color: var(--ghostmagenta);
-        color: var(--white);
-    }
-    
-    ::placeholder {
-        color: #808080;
-    }
 
-    /* ====================================
-    ===== MAIN CONTENT
-    ==================================== */
+    /* MEDIA MEDIA MEDIA MEDIA */
+    /* MEDIA MEDIA MEDIA MEDIA */
 
-    /* .search-media {
-        display: flex;
-        flex-direction: column;
+    .media-layout {
+        margin: 50px auto;
     }
     
-    .main-categories {
-        align-self: flex-start;
-        width: 90%;
-        margin: 0 auto;
+    .media-section {
+        padding-bottom: 40px;
     }
-
-    .main-categories-media {
-        margin: 200px auto;
+    
+    .section-title img {
+        width: 70px;
+        height: 70px;
     }
-
-    .media-cards {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    .media-cards-image {
-        height: 200px;
-        min-height: 200px;
+    
+    /* PODCAST MEDIA ONLY */
+    .media-card-podcast {
+        width: 275px;
+        margin-right: 5px;
     }
     
     .podcast {
-        height: 250px;
-        min-height: 250px;
-        width: 250px;
-        min-width: 250px;
+        width: 275px;
+        height: 275px;
+    }
+        
+    /* YOUTUBE MEDIA ONLY */
+    .media-card-youtube {
+        margin-right: 5px;
+    }
+    
+    /* TV/FILM MEDIA ONLY */
+    .media-card-series {
+        margin-right: 5px;
     }
 
-    .youtube {
-        width: 320px;
-        min-width: 320px;
-        margin-right: 20px;
+    /* SEARCH */
+
+    .results-section-title {
+        width: 336px;
+        height: 336px;
+        border: 7px solid var(--secondary);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+        margin-bottom: 30px;
     }
 
-    .tv {
-        width: 300px;
-        min-width: 300px;
-        height: 450px;
-        min-height: 450px;
+    .result-podcast {
+        width: 350px;
+        height: 350px;
     }
 
-    .tv-null {
-        width: 295px;
-        min-width: 295px;
-        height: 444px;
-        min-height: 444px;
-        background-color: #191919;
-        border: 3px solid #ff0042;
+    .result-series {
+        width: 242px;
+        height: 350px;
+    }
+
+    .result-youtube {
+        width: 622px;
+        height: 350px;
+    }
+
+    .result-series-null {
+        width: 242px;
+        min-width: 242px;
+        height: 350px;
+        min-height: 350px;
+        background-color: var(--secondary);
+        /* border: 5px solid var(--secondary); */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
-    } */
-
-    /* ====================================
-    ===== SEARCH RESULTS
-    ==================================== */
-
-    .search-results {
-        margin: 100px auto;
-        width: 90%;
+        margin: 0 30px 30px 0;
     }
 
-    .media-grid {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+    /* =================== FOOTER 1250 =================== */
+    /* =================== FOOTER 1250 =================== */
+    /* =================== FOOTER 1250 =================== */
 
+    footer p {
+        font-size: 1.25rem;
+    }
 }
