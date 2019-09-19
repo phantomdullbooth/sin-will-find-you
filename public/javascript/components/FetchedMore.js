@@ -17,7 +17,7 @@ class FetchedMore extends React.Component {
                     )
                 })}
                 
-                {/* ======================= SERIES & FILM ======================= */}
+                {/* ======================= SERIES & MOVIES ======================= */}
 
                 {this.props.moreSeries.map((moreSeries, index) => {
                     return (

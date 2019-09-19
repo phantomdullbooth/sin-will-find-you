@@ -24,10 +24,10 @@
 /* =================== COLOR VARIABLES =================== */
 
 :root {
-    --primary: #f8f8ff;
-    --secondary: #191919;
+    --primary: #191919;
+    --secondary: #f8f8ff;
     --tertiary: #ff0042;
-    --quandary: #707070;
+    --quandary: #a8a8a8;
 }
 
 [data-theme="outrun"] {
@@ -50,6 +50,7 @@ body {
     font-family: 'Rajdhani', sans-serif;
     text-transform: uppercase;
     color: var(--secondary);
+    overflow-x: hidden;
 }
 
 
@@ -67,7 +68,7 @@ h1 {
 
 /* MEDIA SECTION TITLES */
 h2 {
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 600;
     line-height: 1rem;
 }
@@ -104,11 +105,15 @@ p {
 
 /* MEDIA SECTION MORE SLIDER */
 .slider-title {
-    margin: 0 30px;
+    margin: 0 15px;
     font-weight: 400;
     color: var(--quandary);
     transition: ease-in-out 5s;
     cursor: pointer;
+}
+
+.no-click {
+    cursor: auto;
 }
 
 .trivial {
@@ -134,11 +139,13 @@ header {
 .header-icon {
     width: 50px;
     height: 50px;
+    filter: invert(100%);
 }
 
 .header-logo {
     width: 135px;
     height: 135px;
+    filter: invert(100%);
     cursor: pointer;
 }
 
@@ -238,7 +245,7 @@ input {
 .media-card-podcast {
     width: 200px;
     height: auto;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 .podcast {
@@ -250,7 +257,7 @@ input {
 .media-card-youtube {
     width: 320px;
     height: auto;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 .youtube {
@@ -258,23 +265,23 @@ input {
     height: 180px;
 }
 
-/* TV/FILM MEDIA ONLY */
+/* SERIES/MOVIES MEDIA ONLY */
 .media-card-series {
-    width: 300px;
+    width: 250px;
     height: auto;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 .series {
-    width: 300px;
-    height: 450px;
+    width: 250px;
+    height: 375px;
 }
 
 .media-type {
     width: 80px;
     padding: 7px;
     border-radius: 2px;
-    color: var(--primary)
+    color: var(--secondary)
 }
 
 .tv {
@@ -285,12 +292,12 @@ input {
     background-color: #278acc;
 }
 
-/* IF THERE IS NO TV/FILM IMAGE */
+/* IF THERE IS NO SERIES/MOVIE IMAGE */
 .series-null {
-    width: 295px;
-    min-width: 295px;
-    height: 444px;
-    min-height: 444px;
+    width: 244px;
+    min-width: 244px;
+    height: 369px;
+    min-height: 369px;
     background-color: var(--primary);
     border: 3px solid var(--secondary);
     display: flex;
@@ -321,25 +328,68 @@ input {
     margin-bottom: 30px;
 }
 
+/* SEARCH */
+
+.results-section-title {
+    width: 172px;
+    height: 172px;
+    border: 4px solid var(--secondary);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.result-podcast {
+    width: 180px;
+    height: 180px;
+}
+
+.result-series {
+    width: 125px;
+    height: 180px;
+}
+
+.result-youtube {
+    width: 320px;
+    height: 180px;
+}
+
+.result-series-null {
+    width: 125px;
+    min-width: 125px;
+    height: 180px;
+    min-height: 180px;
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin: 0 20px 20px 0;
+}
+
 /* =================== FOOTER =================== */
 /* =================== FOOTER =================== */
 /* =================== FOOTER =================== */
 
 footer {
     width: 100%;
-    padding: 20px;
-    background-color: var(--secondary);
+    background-color: #000000;
     border-top: 5px solid var(--tertiary);
+    margin-bottom: -20px;
 }
 
 footer p {
     font-family: 'Basier Square Regular', sans-serif;
     font-size: 1rem;
     line-height: 1.5rem;
-    color: var(--primary);
+    color: var(--secondary);
     text-align: center;
     text-transform: none;
-    margin: 20px 10px;
+    /* margin: 20px 10px; */
+    padding: 20px;
 }
 
 
@@ -366,7 +416,7 @@ footer p {
 
     /* "IMAGE UNAVAILABLE" READOUT */
     h3 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     /* "IMAGE UNAVAILABLE" READOUT FOR OMNI RESULTS */
@@ -379,7 +429,7 @@ footer p {
 
     /* MEDIA TITLES */
     h5 {
-        font-size: 1.3rem;
+        font-size: 1.1 rem;
         padding-right: 20px;
         font-family: "Basier Square Regular", sans-serif;
         text-transform: none;
@@ -488,7 +538,7 @@ footer p {
         height: 270px;
     }
     
-    /* TV/FILM MEDIA ONLY */
+    /* SERIES/MOVIE MEDIA ONLY */
     .media-card-series {
         margin-right: 5px;
     }

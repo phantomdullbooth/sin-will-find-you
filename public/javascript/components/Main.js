@@ -26,7 +26,7 @@ class Main extends React.Component {
             })
     }
 
-    // FETCH SERIES/FILM DATA
+    // FETCH SERIES/MOVIEs DATA
     fetchSeries = () => {
         fetch(this.state.searchHomeSeries)
             .then(response => response.json())

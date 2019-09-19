@@ -41,7 +41,7 @@ class FetchedOmnisearch extends React.Component {
 
                 {/* =================== SERIES =================== */}
                 <div className="results-section-title">
-                    <h3>Series <br /><span class="trivial">&</span> Film</h3>
+                    <h3>Series <br /><span class="trivial">&</span> Movies</h3>
                 </div>
 
                 {this.props.omniSeries.map((omniSeries, index) => {
