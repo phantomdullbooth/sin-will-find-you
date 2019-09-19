@@ -10,6 +10,12 @@ class FetchedMore extends React.Component {
                 {this.props.morePodcasts.map((morePodcast, index) => {
                     return (
                         <div className="media-card-podcast" key={index}>
+
+
+
+
+
+                        
                             <a href={morePodcast.listennotes_url} target="_blank"><img className="podcast" src={morePodcast.thumbnail} /></a>
                             <h5><span className="important">{morePodcast.podcast_title_original}</span>
                                 <br />{morePodcast.title_original}</h5>

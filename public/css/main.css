@@ -281,7 +281,8 @@ input {
     width: 80px;
     padding: 7px;
     border-radius: 2px;
-    color: var(--secondary)
+    color: var(--secondary);
+    font-size: 1rem;
 }
 
 .tv {
@@ -429,7 +430,7 @@ footer p {
 
     /* MEDIA TITLES */
     h5 {
-        font-size: 1.1 rem;
+        font-size: 1.1rem;
         padding-right: 20px;
         font-family: "Basier Square Regular", sans-serif;
         text-transform: none;
@@ -447,7 +448,8 @@ footer p {
     }
 
     .important {
-        font-size: 1.75rem;
+        color: var(--tertiary);
+        font-size: 1.25rem;
         text-transform: uppercase;
     }
     /* =================== HEADER 1250 =================== */
