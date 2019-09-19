@@ -53,6 +53,13 @@ body {
     overflow-x: hidden;
 }
 
+flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* =================== TEXT =================== */
 /* =================== TEXT =================== */
@@ -75,33 +82,43 @@ h2 {
 
 /* "IMAGE UNAVAILABLE" READOUT */
 h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 2.5rem;
     color: var(--secondary);
     margin: 0 0 10px 10px;
 }
 
-/* MEDIA TITLES */
+/* MEDIA TITLE */
 h5 {
-    font-size: 1rem;
-    font-weight: 400;
+    color: var(--tertiary);
+    font-size: 1.5rem;
+    font-weight: 600;
     line-height: 1.9rem;
     margin: 20px 0;
     padding-right: 30px;
 }
 
+/* LINKS */
+a {
+    text-decoration: none;
+}
+
+/* PODCAST DESCRIPTION, FOOTER */
 p {
-    font-family: "Basier Square Regular", sans-serif;
-    font-size: 1.2rem;
-
+    color: var(--secondary);
+    font-family: 'Basier Square Regular', sans-serif;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    text-transform: none;
 }
 
-/* MEDIA TITLE HEADER */
-.important {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
+
+
+
+
+
+
 
 /* MEDIA SECTION MORE SLIDER */
 .slider-title {
@@ -129,7 +146,7 @@ header {
     margin: 0 20px;
 }
 
-.header-container {
+nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -241,11 +258,16 @@ input {
     overflow: scroll;
 }
 
-/* PODCAST MEDIA ONLY */
-.media-card-podcast {
-    width: 200px;
+/* ****** MEDIA CARDS ****** */
+
+.media-card {
+    width: auto;
     height: auto;
     margin-right: 5px;
+}
+
+.media-card p {
+    padding-right: 5px;
 }
 
 .podcast {
@@ -253,58 +275,43 @@ input {
     height: 200px;
 }
 
-/* YOUTUBE MEDIA ONLY */
-.media-card-youtube {
-    width: 320px;
-    height: auto;
-    margin-right: 5px;
-}
-
-.youtube {
-    width: 320px;
-    height: 180px;
-}
-
-/* SERIES/MOVIES MEDIA ONLY */
-.media-card-series {
-    width: 250px;
-    height: auto;
-    margin-right: 5px;
-}
-
 .series {
     width: 250px;
     height: 375px;
 }
 
-.media-type {
-    width: 80px;
-    padding: 7px;
-    border-radius: 2px;
-    color: var(--secondary);
-    font-size: 1rem;
-}
+    /* CARD THAT HOVERS ABOVE TMDB DATA */
+    .series-type {
+        color: var(--secondary);
+        text-align: left;
+        width: 80px;
+        padding: 7px;
+        text-transform: uppercase;
+    }
 
-.tv {
-    background-color: var(--tertiary);
-}
+    .tv {
+        background-color: var(--tertiary);
+    }
 
-.movie {
-    background-color: #278acc;
-}
+    .movie {
+        background-color: #278acc;
+    }
 
-/* IF THERE IS NO SERIES/MOVIE IMAGE */
-.series-null {
-    width: 244px;
-    min-width: 244px;
-    height: 369px;
-    min-height: 369px;
-    background-color: var(--primary);
-    border: 3px solid var(--secondary);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
+    /* IF THERE IS NO SERIES/MOVIE IMAGE */
+    .series-null {
+        background-color: var(--primary);
+        border: 3px solid var(--secondary);
+        width: 244px;
+        height: 369px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+.youtube {
+    width: 320px;
+    height: 180px;
 }
 
 /* RESULTS RESULTS RESULTS RESULTS */
@@ -335,10 +342,6 @@ input {
     width: 172px;
     height: 172px;
     border: 4px solid var(--secondary);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     margin-right: 20px;
     margin-bottom: 20px;
 }
@@ -371,28 +374,22 @@ input {
     margin: 0 20px 20px 0;
 }
 
-/* =================== FOOTER =================== */
-/* =================== FOOTER =================== */
-/* =================== FOOTER =================== */
+/* =================== FOOTER: SIGNOFF =================== */
+/* =================== FOOTER: SIGNOFF =================== */
+/* =================== FOOTER: SIGNOFF =================== */
 
 footer {
+    color: var(--secondary);
+    background-color: black;
+    border-top: 5px solid var(--secondary);
     width: 100%;
-    background-color: #000000;
-    border-top: 5px solid var(--tertiary);
-    margin-bottom: -20px;
+    margin-bottom: -15px;
+    text-align: center;
 }
 
 footer p {
-    font-family: 'Basier Square Regular', sans-serif;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: var(--secondary);
-    text-align: center;
-    text-transform: none;
-    /* margin: 20px 10px; */
-    padding: 20px;
+    padding: 25px 30px 30px 30px;
 }
-
 
 /* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
 /* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
@@ -430,28 +427,34 @@ footer p {
 
     /* MEDIA TITLES */
     h5 {
-        font-size: 1.1rem;
+        font-size: 1.75rem;
+        font-weight: 400;
+        line-height: 1.9rem;
         padding-right: 20px;
-        font-family: "Basier Square Regular", sans-serif;
+        margin: 20px 0;
+    }
+
+    /* PODCAST DESCRIPTION, FOOTER */
+    p {
+        color: var(--secondary);
+        font-family: 'Basier Square Regular', sans-serif;
+        font-size: 1.3rem;
+        line-height: 2rem;
         text-transform: none;
     }
 
-    a {
+    .header-link {
         font-size: 2rem;
         font-weight: 600;
         text-decoration: none;
         color: var(--secondary);
+        cursor: pointer;
     }
 
-    a:hover {
+    .header-link:hover {
         color: var(--tertiary);
     }
 
-    .important {
-        color: var(--tertiary);
-        font-size: 1.25rem;
-        text-transform: uppercase;
-    }
     /* =================== HEADER 1250 =================== */
     /* =================== HEADER 1250 =================== */
     /* =================== HEADER 1250 =================== */
@@ -545,16 +548,14 @@ footer p {
         margin-right: 5px;
     }
 
+    
+
     /* SEARCH */
 
     .results-section-title {
         width: 336px;
         height: 336px;
         border: 7px solid var(--secondary);
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
         margin-right: 30px;
         margin-bottom: 30px;
     }
@@ -586,13 +587,5 @@ footer p {
         justify-content: flex-end;
         align-items: flex-start;
         margin: 0 30px 30px 0;
-    }
-
-    /* =================== FOOTER 1250 =================== */
-    /* =================== FOOTER 1250 =================== */
-    /* =================== FOOTER 1250 =================== */
-
-    footer p {
-        font-size: 1.25rem;
     }
 }

@@ -6,9 +6,9 @@ class HomeSeries extends React.Component {
             <div className="media">
                 {this.props.homeSeries.map((homeSeries, index) => {
                     return (
-                        <div className="media-card-series" key={index}>
+                        <div className="media-card" key={index}>
 
-                            <p class={((homeSeries.media_type == "movie") ? "media-type movie" : "media-type tv")}>{homeSeries.media_type}</p>
+                            <p className={((homeSeries.media_type == "movie") ? "series-type movie" : "series-type tv")}>{homeSeries.media_type}</p>
 
                             {(homeSeries.media_type == "movie")
                                 ? <a href={'https://www.themoviedb.org/movie/' + homeSeries.id} target="_blank">
@@ -20,8 +20,8 @@ class HomeSeries extends React.Component {
                                     )}
 
                                     {(homeSeries.name
-                                        ? <h5><span className="important">{homeSeries.name}</span></h5>
-                                        : <h5><span className="important">{homeSeries.title}</span></h5>
+                                        ? <h5>{homeSeries.name}</h5>
+                                        : <h5>{homeSeries.title}</h5>
                                     )}
                                 </a>
                                 : <a href={'https://www.themoviedb.org/tv/' + homeSeries.id} target="_blank">
@@ -33,8 +33,8 @@ class HomeSeries extends React.Component {
                                     )}
 
                                     {(homeSeries.name
-                                        ? <h5><span className="important">{homeSeries.name}</span></h5>
-                                        : <h5><span className="important">{homeSeries.title}</span></h5>
+                                        ? <h5>{homeSeries.name}</h5>
+                                        : <h5>{homeSeries.title}</h5>
                                     )}
                                 </a>
                             }

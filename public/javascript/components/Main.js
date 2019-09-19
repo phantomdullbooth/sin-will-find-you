@@ -1,4 +1,4 @@
-// MAIN.JS: APP > #
+// APP > #
 
 class Main extends React.Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class Main extends React.Component {
             })
     }
 
-    // FETCH SERIES/MOVIEs DATA
+    // FETCH SERIES/MOVIE DATA
     fetchSeries = () => {
         fetch(this.state.searchHomeSeries)
             .then(response => response.json())
@@ -55,19 +55,6 @@ class Main extends React.Component {
     render() {
         return (
             <main>
-
-                {/* TOGGLED LOGIN */}
-                {(this.props.isLoginOpen)
-                    ? <Login
-                        // LOGIN
-                        email={this.props.email}
-                        handleChange={this.props.handleChange}
-                        triggerLogin={this.props.triggerLogin}
-                        username={this.props.username}
-                        password={this.props.password}
-                    />
-                    : null
-                }
                 
                 {/* TOGGLED SEARCH BAR */}
                 {(this.props.isSearchOpen)

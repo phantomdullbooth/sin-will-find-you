@@ -6,11 +6,11 @@ class HomeYoutubes extends React.Component {
             <div className="media">
                 {this.props.homeYoutubes.map((homeYoutube, index) => {
                     return (
-                        <div className="media-card-youtube" key={index}>
-                            <a href={'https://www.youtube.com/watch?v=' + omniYoutube.id.videoId} target="_blank">
-                            <img className="youtube" src={homeYoutube.snippet.thumbnails.medium.url} />
-                            <h5><span className="important">{homeYoutube.snippet.channelTitle}</span>
-                            <br />{homeYoutube.snippet.title}</h5>
+                        <div className="media-card" key={index}>
+                            <a href={'https://www.youtube.com/watch?v=' + homeYoutube.id.videoId} target="_blank">
+                                <img className="youtube" src={homeYoutube.snippet.thumbnails.medium.url} />
+                                <h5>{homeYoutube.snippet.channelTitle}</h5>
+                                <p>{homeYoutube.snippet.title}</p>
                             </a>
                         </div>
                     )

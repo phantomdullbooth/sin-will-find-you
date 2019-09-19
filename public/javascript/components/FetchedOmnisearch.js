@@ -3,10 +3,10 @@
 class FetchedOmnisearch extends React.Component {
     render() {
         return (
-            <div class="media-grid">
+            <div className="media-grid">
 
                 {/* =================== PODCASTS =================== */}
-                <div className="results-section-title">
+                <div className="flex-center results-section-title">
                     <h3>Podcasts</h3>
                 </div>
 
@@ -23,7 +23,7 @@ class FetchedOmnisearch extends React.Component {
                 })}
 
                 {/* =================== YOUTUBE =================== */}
-                <div className="results-section-title">
+                <div className="flex-center results-section-title">
                     <h3>YouTube</h3>
                 </div>
 
@@ -40,8 +40,8 @@ class FetchedOmnisearch extends React.Component {
                 })}
 
                 {/* =================== SERIES =================== */}
-                <div className="results-section-title">
-                    <h3>TV <br /><span class="trivial">&</span> Movies</h3>
+                <div className="flex-center results-section-title ">
+                    <h3>TV <br /><span className="trivial">&</span> Movies</h3>
                 </div>
  
                 {this.props.omniSeries.map((omniSeries, index) => {

@@ -3,7 +3,7 @@
 class FetchedMore extends React.Component {
     render() {
         return (
-            <div class="media-grid">
+            <div className="media-grid">
 
                 {/* ======================= PODCASTS ======================= */}
 

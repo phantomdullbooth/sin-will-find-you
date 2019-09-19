@@ -1,10 +1,9 @@
-// INDEX.JS RENDERS *
+// INDEX.JS RENDERS # [ ALL WEBSITE ELEMENTS ]
 
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoginOpen: false,
             isMobile: true,
             isMorePodcasts: false,
             isMoreSeries: false,
@@ -268,8 +267,6 @@ class App extends React.Component {
                 <Header
                     // ADAPT HEADER
                     isMobile={this.state.isMobile}
-                    // TOGGLE LOGIN
-                    toggleLogin={this.toggleLogin}
                     // SEARCHES
                     toggleSearchbar={this.toggleSearchbar}
                     omnisearchSerialKillers={this.omnisearchSerialKillers}
@@ -279,8 +276,6 @@ class App extends React.Component {
 
                 <Main
                     isResultsClosed={this.state.isResultsClosed}
-                    // LOGIN
-                    isLoginOpen={this.state.isLoginOpen}
                     // OMNISEARCH
                     handleChange={this.handleChange}
                     isSearchOpen={this.state.isSearchOpen}

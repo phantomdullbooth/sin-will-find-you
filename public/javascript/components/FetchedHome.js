@@ -1,7 +1,4 @@
 // APP > MAIN > #
-// # > HOMEPODCASTS
-// # > HOMEYOUTUBES
-// # > HOMESERIES
 
 class FetchedHome extends React.Component {
     render() {
@@ -33,7 +30,7 @@ class FetchedHome extends React.Component {
 
                 <div className="media-section">
                     <div className="section-title">
-                        <h2>Series & Movies</h2>
+                        <h2>TV & Movies</h2>
 
                         {(this.props.isMoreSeries)
                             ? <h2 className="slider-title"

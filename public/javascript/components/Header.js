@@ -1,33 +1,28 @@
-//  APP > HEADER
+//  APP > # [ RELOAD TRIGGER, SEARCHBAR TOGGLE, LINKS ]
 
 class Header extends React.Component {
     render() {
         return (
             <header>
                 {(this.props.isMobile)
-                    ? <div className="header-container">
-                            <img
-                                src="../css/images/icon-search.png"
-                                class="header-icon"
-                                onClick={() => { {this.props.toggleSearchbar()} }}
-                                />
-                            <img src="../css/images/logo.png" class="header-logo"
-                            onClick={() => { {this.props.triggerReload()} }} />
-                            <img src="../css/images/icon-menu.png" class="header-icon" />
-                        </div>
-                    : <div className="header-container">
-                            <a href="#"
-                                onClick={() => { {this.props.omnisearchSerialKillers()} }}>Serial Killers</a>
-                            <a href="#"
-                                onClick={() => { {this.props.omnisearchUnsolved()} }}>Unsolved</a>
-                            <img    src="../css/images/logo.png"
-                                    class="header-logo"
-                                    onClick={() => { {this.props.triggerReload()} }} />
-                            <a  href="#"
-                                onClick={() => { {this.props.toggleLogin()} }}>Login / Signup</a>
-                            <a  href="#"
-                                onClick={() => { {this.props.toggleSearchbar()} }}>Search</a>
-                        </div>
+
+                    // ========================= MOBILE HEADER ========================= //
+
+                    ? <nav>
+                        <img src="../css/images/icon-menu.png" className="header-icon" />
+                        <img src="../css/images/logo.png" onClick={() => { {this.props.triggerReload()} }} className="header-logo" />
+                        <img src="../css/images/icon-search.png" onClick={() => { {this.props.toggleSearchbar()} }} className="header-icon" />
+                    </nav>
+
+                    // ========================= FULL HEADER ========================= //
+
+                    : <nav>
+                        <a onClick={() => { {this.props.omnisearchSerialKillers()} }} className="header-link">Serial Killers</a>
+                        <a onClick={() => { {this.props.omnisearchUnsolved()} }} className="header-link">Unsolved</a>
+                        <img src="../css/images/logo.png" onClick={() => { {this.props.triggerReload()} }} className="header-logo" />
+                        <a onClick={() => { {this.props.toggleSearchbar()} }} className="header-link">Search</a>
+                        <a href="#" className="header-link">Investigators</a>
+                    </nav>
                 }
             </header>
         )
