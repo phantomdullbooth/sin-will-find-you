@@ -5,7 +5,7 @@ class FetchedOmnisearch extends React.Component {
         return (
             <div class="media-grid">
 
-            {/* =================== PODCASTS =================== */}
+                {/* =================== PODCASTS =================== */}
                 <div className="results-section-title">
                     <h3>Podcasts</h3>
                 </div>
@@ -28,39 +28,46 @@ class FetchedOmnisearch extends React.Component {
                 </div>
 
                 {/* RETURNS YOUTUBE VIDEOS */}
-                {/* {this.props.omniYoutubes.map((omniYoutube, index) => {
+                {this.props.omniYoutubes.map((omniYoutube, index) => {
                     return (
                         <div>
                             <a href={'https://www.youtube.com/watch?v=' + omniYoutube.id.videoId} target="_blank">
                                 <img className="youtube searched result-youtube"
-                                src={omniYoutube.snippet.thumbnails.high.url} />
+                                    src={omniYoutube.snippet.thumbnails.high.url} />
                             </a>
                         </div>
                     )
-                })} */}
+                })}
 
                 {/* =================== SERIES =================== */}
                 <div className="results-section-title">
-                    <h3>Series <br /><span class="trivial">&</span> Movies</h3>
+                    <h3>TV <br /><span class="trivial">&</span> Movies</h3>
                 </div>
-
+ 
                 {this.props.omniSeries.map((omniSeries, index) => {
                     return (
                         <React.Fragment>
                             <div key={index}>
-                                <a href={'https://www.themoviedb.org/movie/' + omniSeries.id} target="_blank">
 
-                                {(omniSeries.poster_path 
-                                ? <img className="series searched result-series"
-                                    src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
-                                : <div className="result-series-null">
-                                    {(omniSeries.name
-                                ? <h4>{omniSeries.name}</h4>
-                                : <h4>{omniSeries.title}</h4>
-                                )}
-                                </div>
-                                )}
+                            {(omniSeries.media_type == "movie")
+                                ? <a href={'https://www.themoviedb.org/movie/' + omniSeries.id} target="_blank">
+                                    {(omniSeries.poster_path
+                                        ? <img className="series" src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
+                                        : <div className="result-series-null">
+                                            <h3>Image unavailable</h3>
+                                        </div>
+                                    )}
                                 </a>
+                                : <a href={'https://www.themoviedb.org/tv/' + omniSeries.id} target="_blank">
+                                    {(omniSeries.poster_path
+                                        ? <img className="series searched result-series" src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
+                                        : <div className="result-series-null">
+                                            <h3>Image unavailable</h3>
+                                        </div>
+                                    )}
+                                </a>
+                            }
+
                             </div>
                         </React.Fragment>
                     )
