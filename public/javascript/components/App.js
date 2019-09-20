@@ -4,6 +4,7 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            isEvidenceClosed: false,
             isMobile: true,
             isMorePodcasts: false,
             isMoreSeries: false,
@@ -38,6 +39,8 @@ class App extends React.Component {
         }
         //  WINDOW SIZE
         this.adaptHeader = this.adaptHeader.bind(this)
+        // EVIDENCE LOG
+        this.toggleEvidence = this.toggleEvidence.bind(this)
         // OMNISEARCH
         this.handleChange = this.handleChange.bind(this)
         this.omnisearchQuery = this.omnisearchQuery.bind(this)
@@ -89,7 +92,6 @@ class App extends React.Component {
                 isResultsClosed: false,
                 isSearchOpen: false,
             }))
-        // this.toggleSearchbar()
     }
 
     // SEARCH SERIAL KILLERS
@@ -215,6 +217,15 @@ class App extends React.Component {
         this.setState({ isMobile: window.innerWidth < 1250 })
     }
 
+    // TOGGLES EVIDENCE LOG
+    toggleEvidence() {
+        this.setState({
+            isEvidenceClosed: !this.state.isEvidenceClosed,
+            isSearchOpen: false,
+            isResultsClosed: true,
+        })
+    }
+
     // TOGGLES "MORE" LINK FOR PODCASTS: APP > MAIN > FETCHEDHOME
     toggleMorePodcasts() {
         this.setState({ isMorePodcasts: !this.state.isMorePodcasts })
@@ -237,16 +248,19 @@ class App extends React.Component {
 
     // TOGGLES OMNISEARCH BOX: APP > HEADER
     toggleSearchbar() {
-        this.setState({ isSearchOpen: !this.state.isSearchOpen })
+        this.setState({
+            isSearchOpen: !this.state.isSearchOpen,
+            isEvidenceClosed: false
+        })
     }
 
     triggerReload() {
         location.reload(true);
     }
 
-    // ============================ TOGGLES ============================ //
-    // ============================ TOGGLES ============================ //
-    // ============================ TOGGLES ============================ //
+    // ============================ MOUNT(ED) ============================ //
+    // ============================ MOUNT(ED) ============================ //
+    // ============================ MOUNT(ED) ============================ //
 
     componentDidMount() {
         this.adaptHeader()
@@ -265,8 +279,8 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <Header
-                    // ADAPT HEADER
                     isMobile={this.state.isMobile}
+                    toggleEvidence={this.toggleEvidence}
                     // SEARCHES
                     toggleSearchbar={this.toggleSearchbar}
                     omnisearchSerialKillers={this.omnisearchSerialKillers}
@@ -275,6 +289,7 @@ class App extends React.Component {
                     triggerReload={this.triggerReload} />
 
                 <Main
+                    isEvidenceClosed={this.state.isEvidenceClosed}
                     isResultsClosed={this.state.isResultsClosed}
                     // OMNISEARCH
                     handleChange={this.handleChange}
@@ -298,8 +313,7 @@ class App extends React.Component {
                     isMoreYoutubes={this.state.isMoreYoutubes}
                     moreYoutubes={this.state.moreYoutubes}
                     showMoreYoutubes={this.showMoreYoutubes}
-                    toggleMoreYoutubes={this.toggleMoreYoutubes}
-                />
+                    toggleMoreYoutubes={this.toggleMoreYoutubes} />
 
                 <Footer />
             </React.Fragment>

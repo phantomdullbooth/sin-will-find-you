@@ -13,6 +13,10 @@ class Main extends React.Component {
         }
     }
 
+    // ============================ API DATA PULL ============================ //
+    // ============================ API DATA PULL ============================ //
+    // ============================ API DATA PULL ============================ //
+
     // FETCH PODCAST DATA
     fetchPodcasts = () => {
         fetch(this.state.searchHomePodcasts, {
@@ -55,7 +59,7 @@ class Main extends React.Component {
     render() {
         return (
             <main>
-                
+
                 {/* TOGGLED SEARCH BAR */}
                 {(this.props.isSearchOpen)
                     ? <Omnisearch
@@ -64,6 +68,12 @@ class Main extends React.Component {
                         omnisearchQuery={this.props.omnisearchQuery}
                         userQuery={this.props.userQuery}
                     />
+                    : null
+                }
+
+                {/* GUEST LOG */}
+                {(this.props.isEvidenceClosed)
+                    ? <Evidence />
                     : null
                 }
 
@@ -93,6 +103,7 @@ class Main extends React.Component {
                     />
                     // BUT IF OMNISEARCH TRIGGERED, SHOW FETCHEDOMNISEARCH
                     : (this.props.omniPodcasts.length > 0) || (this.props.omniSeries.length > 0) || (this.props.omniYoutubes.length > 0)
+                        // IF SEARCH TRIGGERED
                         ? <React.Fragment>
                             <h1>Search Results</h1>
                             <FetchedOmnisearch

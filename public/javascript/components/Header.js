@@ -21,7 +21,7 @@ class Header extends React.Component {
                         <a onClick={() => { {this.props.omnisearchUnsolved()} }} className="header-link">Unsolved</a>
                         <img src="../css/images/logo.png" onClick={() => { {this.props.triggerReload()} }} className="header-logo" />
                         <a onClick={() => { {this.props.toggleSearchbar()} }} className="header-link">Search</a>
-                        <a href="#" className="header-link">Investigators</a>
+                        <a onClick={() => { {this.props.toggleEvidence()} }} className="header-link">Evidence Log</a>
                     </nav>
                 }
             </header>
