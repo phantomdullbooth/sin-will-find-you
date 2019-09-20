@@ -31,6 +31,8 @@ The App
 #### Where in the world ~is Carmen Sandiego~ did authentication go?
 Initially, I wanted to do authentication, but while working on the app, I decided it wouldn't really be a useful feature. Instead, I opted for an 'Evidence Log', which is a *coming soon* feature... It's just an online guestbook people can sign to let others know they were there. However, there's a catch. You can also edit any of the other logs and after that 'evidence' has been tampered with, the website lets users know the evidence has been contaminated by changing the row to yellow and that it cannot be used. The tamper evidence button then becomes a button to delete the evidence.
 
+![alt text](public/css/images/ex/evidence-log.png "Evidence log coming soon")
+
 #### What "new" things I used
 * NERDS stack (it's weird, but it's called *NERDS* and that's good enough for me
 
