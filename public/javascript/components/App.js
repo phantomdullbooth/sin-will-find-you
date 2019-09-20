@@ -4,7 +4,7 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isEvidenceClosed: false,
+            isEvidenceClosed: true,
             isMobile: true,
             isMorePodcasts: false,
             isMoreSeries: false,

@@ -4,25 +4,84 @@ class Evidence extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            users: [],
-            // userInputs: {
-            //     name: '',
-            //     location: '',
-            //     age: '',
-            //     notes: '',
-            //     id: null
-            // }
+            isEvidenceEdited: false,
+            evidence: [],
+            userInputs: {
+                name: '',
+                location: '',
+                age: '',
+                notes: '',
+                id: null
+            }
         }
-        this.fetchEvidence = this.fetchEvidence.bind(this)
     }
 
     // GET EVIDENCE
-    fetchEvidence() {
-        fetch('/users')
+    fetchEvidence = () => {
+        fetch('/evidence')
             .then(data => data.json())
-            .then(users => {
-                this.setState({ users: users.data, })
+            .then(entries => {
+                this.setState({ evidence: entries.data, })
             })
+    }
+
+    // ADD EVIDENCE
+    handleCreate = (createData) => {
+        
+        
+        
+        fetch('/evidence', {
+            body: JSON.stringify(createData),
+            method: 'Post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(createdEvidence => {
+                return createdEvidence.json()
+            })
+            .then(jsonedEvidence => {
+                this.setState(prevState => {
+                    prevState.evidence.push(jsonedEvidence)
+                    return { evidence: prevState.evidence }
+                })
+            })
+            .catch(error => console.log(error))
+    }
+
+    // UPDATE EVIDENCE
+    handleUpdate = (updateData) => {
+        fetch(`/evidence/${updateData.id}`, {
+            body: JSON.stringify(updateData),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(updatedEvidence => {
+                this.fetchEvidence()
+            })
+            .catch(error => console.log(error))
+    }
+
+    //   DELETE EVIDENCE
+    handleDelete = (id) => {
+        fetch(`/evidence/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(json => {
+                this.setState(prevState => {
+                    const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
+                    return { evidence }
+                })
+            })
+            .catch(error => console.log(error))
     }
 
     componentDidMount() {
@@ -33,73 +92,54 @@ class Evidence extends React.Component {
         return (
             <div class="evidence">
                 <h1>Evidence Log</h1>
-                <h3>Were you here? You might as well leave some evidence behind.</h3>
+                <h3 className="evidence-funny">Since you're here, you'd might as well leave some evidence behind.</h3>
 
-                {this.state.users.map((users, index) => {
-                    return (
-                        <h4>{users.id}</h4>
-                    )
-                })}
+                <EvidenceForm
+                    handleCreate={this.handleCreate}
+                    handleUpdate={this.handleUpdate}
+                    handleDelete={this.handleDelete}
+                    userInputs={this.state.userInputs} />
 
-                
+
+                <table className="evidence-log">
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Age</th>
+                        <th>Notes</th>
+                        <th>Options</th>
+                    </tr>
+
+
+                    {this.state.evidence.map((evidence, index) => {
+                        return (
+                            (this.state.isEvidenceEdited === false)
+                                ? <tr>
+                                    <td>{evidence.id}</td>
+                                    <td>{evidence.name}</td>
+                                    <td>{evidence.location}</td>
+                                    <td>{evidence.age}</td>
+                                    <td>{evidence.notes}</td>
+                                    <th>
+                                        <button className="minty">Tamper with Evidence</button>
+                                    </th>
+                                </tr>
+                                : <tr style={{ backgroundColor: '#ffba00', color: '#191919' }}>
+                                    <td>{evidence.id}</td>
+                                    <td>{evidence.name}</td>
+                                    <td>{evidence.location}</td>
+                                    <td>{evidence.age}</td>
+                                    <td>{evidence.notes}</td>
+                                    <th>
+                                        <button className="dangerStranger">Delete Evidence</button>
+                                    </th>
+                                </tr>
+
+                        )
+                    })}
+                </table>
             </div>
         )
     }
 }
-
-
-
-
-//   handleCreate = (createData) => {
-//     fetch('/api/posts', {
-//       body: JSON.stringify(createData),
-//       method: 'Post',
-//       headers: {
-//         'Accept': 'application/json, text/plain, */*',
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//       .then(createdPost => {
-//         return createdPost.json()
-//       })
-//       .then(jsonedPost => {
-//         //change to home view
-//         this.props.handleView('home')
-//         this.setState(prevState => {
-//           prevState.posts.push(jsonedPost)
-//           return { posts: prevState.posts}
-//         })
-//       })
-//       .catch(error => console.log(error))
-//   }
-//   handleUpdate = (updateData) => {
-//     fetch(`/api/posts/${updateData.id}`, {
-//       body: JSON.stringify(updateData),
-//       method: 'PUT',
-//       headers: {
-//         'Accept': 'application/json, text/plain, */*',
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//     .then(updatedPost => {
-//       this.props.handleView('home')
-//       this.fetchPosts()
-//     })
-//     .catch(error => console.log(error))
-//   }
-//   handleDelete = (id) => {
-//     fetch(`/api/posts/${id}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Accept': 'application/json, text/plain, */*',
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//     .then(json => {
-//       this.setState(prevState => {
-//         const posts = prevState.posts.filter(post => post.id !== id)
-//         return {posts}
-//       })
-//     })
-//     .catch(error => console.log(error))
-//   }

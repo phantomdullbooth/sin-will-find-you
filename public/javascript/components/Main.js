@@ -10,7 +10,15 @@ class Main extends React.Component {
             searchHomePodcasts: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22&sort_by_date=1&type=episode',
             searchHomeSeries: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=true%20crime&page=1&include_adult=false&region=US',
             searchHomeYoutubes: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22&order=date&maxResults=10&key=AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
+            userInputs: {
+                name: null,
+                location: null,
+                age: null,
+                notes: null,
+                id: null
+            },
         }
+        this.handleChange = this.handleChange.bind(this)
     }
 
     // ============================ API DATA PULL ============================ //
@@ -50,9 +58,9 @@ class Main extends React.Component {
 
     // FETCH ALL DATA ON PAGE LOAD
     componentDidMount() {
-        this.fetchPodcasts()
-        this.fetchSeries()
-        this.fetchYoutube()
+        // this.fetchPodcasts()
+        // this.fetchSeries()
+        // this.fetchYoutube()
     }
 
     // RENDER DATA ON PAGE

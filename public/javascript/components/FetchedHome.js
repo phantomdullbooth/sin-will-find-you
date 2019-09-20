@@ -6,6 +6,9 @@ class FetchedHome extends React.Component {
             // CONTAINS ALL MEDIA SECTIONS
             <div className="media-layout">
 
+
+                {/* =================== PODCASTS =================== */}
+
                 <div className="media-section">
                     <div className="section-title">
                         <h2>Podcasts</h2>
@@ -27,6 +30,8 @@ class FetchedHome extends React.Component {
                         : null
                     }
                 </div>
+
+                {/* =================== SERIES =================== */}
 
                 <div className="media-section">
                     <div className="section-title">
@@ -50,6 +55,8 @@ class FetchedHome extends React.Component {
                     }
                 </div>
 
+                {/* =================== YOUTUBE =================== */}
+
                 <div className="media-section">
                     <div className="section-title">
                         <h2>YouTube</h2>
@@ -60,7 +67,7 @@ class FetchedHome extends React.Component {
                                 onMouseLeave={() => { { this.props.toggleMoreYoutubes() } }}>More</h2>
                             : null
                         }
-                        
+
                         <img src="../css/images/icon-more.png"
                             onMouseOver={() => { { this.props.toggleMoreYoutubes() } }} />
                     </div>

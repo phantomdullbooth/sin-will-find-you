@@ -9,7 +9,7 @@ class Header extends React.Component {
                     // ========================= MOBILE HEADER ========================= //
 
                     ? <nav>
-                        <img src="../css/images/icon-menu.png" className="header-icon" />
+                        <img src="../css/images/icon-evidence.png" onClick={() => { {this.props.toggleEvidence()} }} className="header-icon" />
                         <img src="../css/images/logo.png" onClick={() => { {this.props.triggerReload()} }} className="header-logo" />
                         <img src="../css/images/icon-search.png" onClick={() => { {this.props.toggleSearchbar()} }} className="header-icon" />
                     </nav>

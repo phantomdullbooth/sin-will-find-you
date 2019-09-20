@@ -26,8 +26,8 @@ app.use(morgan('tiny'));
 // ==================================== //
 // ==================================== //
 
-const usersController = require('./controllers/users.js');
-app.use('/users', usersController);
+const evidenceController = require('./controllers/evidence.js');
+app.use('/evidence', evidenceController);
 
 // ==================================== //
 // ==================================== //
