@@ -27,9 +27,6 @@ class Evidence extends React.Component {
 
     // ADD EVIDENCE
     handleCreate = (createData) => {
-        
-        
-        
         fetch('/evidence', {
             body: JSON.stringify(createData),
             method: 'Post',
@@ -51,38 +48,38 @@ class Evidence extends React.Component {
     }
 
     // UPDATE EVIDENCE
-    handleUpdate = (updateData) => {
-        fetch(`/evidence/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(updatedEvidence => {
-                this.fetchEvidence()
-            })
-            .catch(error => console.log(error))
-    }
+    // handleUpdate = (updateData) => {
+    //     fetch(`/evidence/${updateData.id}`, {
+    //         body: JSON.stringify(updateData),
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //         .then(updatedEvidence => {
+    //             this.fetchEvidence()
+    //         })
+    //         .catch(error => console.log(error))
+    // }
 
-    //   DELETE EVIDENCE
-    handleDelete = (id) => {
-        fetch(`/evidence/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(json => {
-                this.setState(prevState => {
-                    const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
-                    return { evidence }
-                })
-            })
-            .catch(error => console.log(error))
-    }
+    // //   DELETE EVIDENCE
+    // handleDelete = (id) => {
+    //     fetch(`/evidence/${id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //         .then(json => {
+    //             this.setState(prevState => {
+    //                 const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
+    //                 return { evidence }
+    //             })
+    //         })
+    //         .catch(error => console.log(error))
+    // }
 
     componentDidMount() {
         this.fetchEvidence()

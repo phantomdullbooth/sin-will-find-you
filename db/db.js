@@ -17,7 +17,7 @@ const options = {
 
 // Create the pg-promise object and export it
 const pgp = require('pg-promise')(options);
-const connectionString = process.env.DATABASE_URL || 'postgresql://Addison:testpass@localhost:5432/true_crime';
+const connectionString = process.env.DATABASE_URL || 'postgresql://@localhost:5432/true_crime';
 const db = pgp(connectionString);
 
 // EXPORT

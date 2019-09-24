@@ -4,11 +4,11 @@ class EvidenceForm extends React.Component {
     constructor() {
         super()
         this.state = {
-                name: '',
-                location: '',
-                age: '',
-                notes: '',
-                id: null
+            name: '',
+            location: '',
+            age: '',
+            notes: '',
+            id: null
         }
     }
 
@@ -21,6 +21,12 @@ class EvidenceForm extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.handleCreate(this.state)
+        this.setState({
+            name: '',
+            location: '',
+            age: '',
+            notes: '',
+        })
     }
 
     componentDidMount() {
@@ -36,42 +42,42 @@ class EvidenceForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} className="evidence-form">
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        className="input-field name"
-                        placeholder="What's your name?"
-                        id="name"
-                        value={this.state.name}
-                        onChange={this.handleChange} />
+                <label>Name</label>
+                <input
+                    type="text"
+                    className="input-field name"
+                    placeholder="What's your name?"
+                    id="name"
+                    value={this.state.name}
+                    onChange={this.handleChange} />
 
-                    <label>Location</label>
-                    <input
-                        type="text"
-                        className="input-field location"
-                        placeholder="Where are you from?"
-                        id="location"
-                        value={this.state.location}
-                        onChange={this.handleChange} />
+                <label>Location</label>
+                <input
+                    type="text"
+                    className="input-field location"
+                    placeholder="Where are you from?"
+                    id="location"
+                    value={this.state.location}
+                    onChange={this.handleChange} />
 
-                    <label>Age</label>
-                    <input
-                        type="number"
-                        className="input-field age"
-                        placeholder="Age"
-                        id="age"
-                        value={this.state.age}
-                        onChange={this.handleChange}
-                        />
+                <label>Age</label>
+                <input
+                    type="number"
+                    className="input-field age"
+                    placeholder="Age"
+                    id="age"
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                />
 
                 <label>Notes</label>
-                    <input
-                        type="text"
-                        className="input-field notes"
-                        placeholder="Notes"
-                        id="notes"
-                        onChange={this.handleChange}
-                        value={this.state.notes}/>
+                <input
+                    type="text"
+                    className="input-field notes"
+                    placeholder="Notes"
+                    id="notes"
+                    onChange={this.handleChange}
+                    value={this.state.notes} />
 
 
                 <input type="submit" value="Enter Evidence" className="evidence-button" />

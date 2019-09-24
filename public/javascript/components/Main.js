@@ -18,7 +18,6 @@ class Main extends React.Component {
                 id: null
             },
         }
-        this.handleChange = this.handleChange.bind(this)
     }
 
     // ============================ API DATA PULL ============================ //
@@ -58,9 +57,9 @@ class Main extends React.Component {
 
     // FETCH ALL DATA ON PAGE LOAD
     componentDidMount() {
-        // this.fetchPodcasts()
-        // this.fetchSeries()
-        // this.fetchYoutube()
+        this.fetchPodcasts()
+        this.fetchSeries()
+        this.fetchYoutube()
     }
 
     // RENDER DATA ON PAGE

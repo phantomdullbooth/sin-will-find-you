@@ -20,6 +20,18 @@ router.get('/', (req, res, next) => {
         })
 });
 
-router.post('evidence', db.createPuppy),
-router.put('evidence/:id', db.updatePuppy)
-router.delete('evidence/:id', db.removePuppy);
+router.post('/', (req, res, next) => {
+    
+    db.any(`INSERT INTO evidence (name, location, age, notes) VALUES ('${req.body.name}', '${req.body.location}', ${req.body.age}, '${req.body.notes}')`)
+        .then((data) => {
+            res.status(200).json({
+                status: 'success',
+                data: data,
+                message: 'Posted evidence'
+            });
+        }).catch((err) => {
+            return next(err);
+        })
+});
+
+module.exports = router;
