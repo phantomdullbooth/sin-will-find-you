@@ -16,7 +16,11 @@ class Evidence extends React.Component {
         }
     }
 
-    // GET EVIDENCE
+    // ================= FORM FUNCTIONS ================= //
+    // ================= FORM FUNCTIONS ================= //
+    // ================= FORM FUNCTIONS ================= //
+
+    // GET ENTRIES
     fetchEvidence = () => {
         fetch('/evidence')
             .then(data => data.json())
@@ -63,23 +67,24 @@ class Evidence extends React.Component {
     //         .catch(error => console.log(error))
     // }
 
-    // //   DELETE EVIDENCE
-    // handleDelete = (id) => {
-    //     fetch(`/evidence/${id}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Accept': 'application/json, text/plain, */*',
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //         .then(json => {
-    //             this.setState(prevState => {
-    //                 const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
-    //                 return { evidence }
-    //             })
-    //         })
-    //         .catch(error => console.log(error))
-    // }
+
+    //   DELETE ENTRY
+    handleDelete = (id) => {
+        fetch(`/evidence/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(json => {
+                this.setState(prevState => {
+                    const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
+                    return { evidence }
+                })
+            })
+            .catch(error => console.log(error))
+    }
 
     componentDidMount() {
         this.fetchEvidence()
@@ -93,49 +98,21 @@ class Evidence extends React.Component {
 
                 <EvidenceForm
                     handleCreate={this.handleCreate}
-                    handleUpdate={this.handleUpdate}
-                    handleDelete={this.handleDelete}
                     userInputs={this.state.userInputs} />
 
 
-                <table className="evidence-log">
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Age</th>
-                        <th>Notes</th>
-                        <th>Options</th>
-                    </tr>
 
 
                     {this.state.evidence.map((evidence, index) => {
                         return (
-                            (this.state.isEvidenceEdited === false)
-                                ? <tr>
-                                    <td>{evidence.id}</td>
-                                    <td>{evidence.name}</td>
-                                    <td>{evidence.location}</td>
-                                    <td>{evidence.age}</td>
-                                    <td>{evidence.notes}</td>
-                                    <th>
-                                        <button className="minty">Tamper with Evidence</button>
-                                    </th>
-                                </tr>
-                                : <tr style={{ backgroundColor: '#ffba00', color: '#191919' }}>
-                                    <td>{evidence.id}</td>
-                                    <td>{evidence.name}</td>
-                                    <td>{evidence.location}</td>
-                                    <td>{evidence.age}</td>
-                                    <td>{evidence.notes}</td>
-                                    <th>
-                                        <button className="dangerStranger">Delete Evidence</button>
-                                    </th>
-                                </tr>
-
+                            <div id="entry-card">
+                                <h6>Entry no. {evidence.id}</h6>
+                                <h2>{evidence.name}, {evidence.age} in {evidence.location}</h2>
+                                {/* <h2>{evidence.location}</h2> */}
+                                <p>{evidence.notes}</p>
+                            </div>
                         )
                     })}
-                </table>
             </div>
         )
     }

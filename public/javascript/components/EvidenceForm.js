@@ -27,6 +27,10 @@ class EvidenceForm extends React.Component {
             age: '',
             notes: '',
         })
+        this.props.triggerReload()
+        this.setState({
+            isEvidenceClosed: true
+        })
     }
 
     componentDidMount() {

@@ -4,19 +4,24 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isEvidenceClosed: false,
+            // IS THIS OR THATS
+            isEvidenceClosed: true,
+            isHomeFetchClosed: false,
             isMobile: true,
             isMorePodcasts: false,
             isMoreSeries: false,
             isMoreYoutubes: false,
             isResultsClosed: true,
             isSearchOpen: false,
+            // MORE ARRAYS
             morePodcasts: [],
             moreSeries: [],
             moreYoutubes: [],
+            // OMNISEARCH ARRAYS
             omniPodcasts: [],
             omniSeries: [],
             omniYoutubes: [],
+            // SEARCH URLS
             searchPodcasts: {
                 URLstart: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22%2C%22',
                 userQuery: '',
@@ -221,8 +226,9 @@ class App extends React.Component {
     toggleEvidence() {
         this.setState({
             isEvidenceClosed: !this.state.isEvidenceClosed,
-            isSearchOpen: false,
+            isHomeFetchClosed: false,
             isResultsClosed: true,
+            isSearchOpen: false,
         })
     }
 

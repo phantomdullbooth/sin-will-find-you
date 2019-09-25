@@ -1,4 +1,4 @@
-// APP > #
+// APP > # > [ OMNISEARCH / EVIDENCE / FETCHEDHOME ]
 
 class Main extends React.Component {
     constructor(props) {
@@ -20,11 +20,11 @@ class Main extends React.Component {
         }
     }
 
-    // ============================ API DATA PULL ============================ //
-    // ============================ API DATA PULL ============================ //
-    // ============================ API DATA PULL ============================ //
+    // ================= HOMEPAGE DATA FETCHING ================= //
+    // ================= HOMEPAGE DATA FETCHING ================= //
+    // ================= HOMEPAGE DATA FETCHING ================= //
 
-    // FETCH PODCAST DATA
+    // FETCH PODCAST DATA FROM LISTENNOTES
     fetchPodcasts = () => {
         fetch(this.state.searchHomePodcasts, {
             headers: {
@@ -37,7 +37,7 @@ class Main extends React.Component {
             })
     }
 
-    // FETCH SERIES/MOVIE DATA
+    // FETCH TV/MOVIE DATA FROM TMDB
     fetchSeries = () => {
         fetch(this.state.searchHomeSeries)
             .then(response => response.json())
@@ -46,7 +46,7 @@ class Main extends React.Component {
             })
     }
 
-    // FETCH YOUTUBE DATA
+    // FETCH VIDEO DATA FROM YOUTUBE
     fetchYoutube = () => {
         fetch(this.state.searchHomeYoutubes)
             .then(response => response.json())
@@ -55,19 +55,22 @@ class Main extends React.Component {
             })
     }
 
-    // FETCH ALL DATA ON PAGE LOAD
+    // CALL FETCH FUNCTIONS ON PAGE LOAD
     componentDidMount() {
         this.fetchPodcasts()
         this.fetchSeries()
         this.fetchYoutube()
     }
 
-    // RENDER DATA ON PAGE
+    // #################### MAIN RENDER #################### //
+    // #################### MAIN RENDER #################### //
+    // #################### MAIN RENDER #################### //
+    
     render() {
         return (
             <main>
 
-                {/* TOGGLED SEARCH BAR */}
+                {/* ====== SEARCHBAR ====== */}
                 {(this.props.isSearchOpen)
                     ? <Omnisearch
                         // OMNISEARCH
@@ -78,13 +81,13 @@ class Main extends React.Component {
                     : null
                 }
 
-                {/* GUEST LOG */}
+                {/* ====== GUESTBOOK ====== */}
                 {(this.props.isEvidenceClosed)
                     ? <Evidence />
                     : null
                 }
 
-                {/* MAIN WINDOW */}
+                {/* ====== MAIN CONTENT ====== */}
                 {(this.props.isResultsClosed)
                     // IF ON PAGE LOAD, SHOW FETCHED RESULTS
                     ? <FetchedHome
