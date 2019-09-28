@@ -1,26 +1,8 @@
-/* =================== IMPORTS =================== */
-/* =================== IMPORTS =================== */
-/* =================== IMPORTS =================== */
+/* =================== UNIVERSALS =================== */
+/* =================== UNIVERSALS =================== */
 
 @import url('normalize.css');
-@import url('https://fonts.googleapis.com/css?family=Rajdhani:500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-/* BASIER SQUARE REGULAR */
-@font-face {
-    font-family: 'Basier Square Regular';
-    src: url('fonts/basier-square-regular.eot');
-    src: url('fonts/basier-square-regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/basier-square-regular.woff2') format('woff2'),
-         url('fonts/basier-square-regular.woff') format('woff'),
-         url('fonts/basier-square-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* =================== COLOR VARIABLES =================== */
-/* =================== COLOR VARIABLES =================== */
-/* =================== COLOR VARIABLES =================== */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Rajdhani:400,500,600,700&display=swap');
 
 :root {
     --first: #191919;
@@ -30,102 +12,174 @@
     --fifth: #278acc;
 }
 
-/* =================== BODY =================== */
+.pointer {
+    cursor: pointer;
+}
+
 /* =================== BODY =================== */
 /* =================== BODY =================== */
 
 body {
+    background-color: var(--first);
+    color: var(--second);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--first);
+    overflow-x: hidden;
     font-family: 'Rajdhani', sans-serif;
     text-transform: uppercase;
-    color: var(--second);
-    overflow-x: hidden;
 }
 
+/* [ EVIDENCE LOG TOGGLE, SITE LOGO, SEARCH BAR TOGGLE ] */
+header {
+    margin: 0 20px;
+}
 
+/* [ FETCHED DATA, TOGGLED FEATURES, FORMS ] */
+main {
+    margin: 25px 7%;
+}
 
-/* =================== TEXT =================== */
+/* [ SIGNOFF ] */
+footer {
+    background-color: black;
+    color: var(--second);
+    width: 100%;
+    margin-bottom: -20px;
+    text-align: center;
+}
+
+@media screen and (min-width: 1250px) {
+    header {
+        margin: 0 10%;
+    }
+
+    main {
+        margin: 25px 10%;
+    }
+}
+
 /* =================== TEXT =================== */
 /* =================== TEXT =================== */
 
 /* SEARCH RESULTS TITLE */
 h1 {
-    font-size: 4rem;
-    font-weight: 600;
-    line-height: 3rem;
-    text-align: center;
     color: var(--third);
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 3.5rem;
+    text-align: center;
 }
 
 /* MEDIA SECTION TITLES */
 h2 {
     font-size: 2.25rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1rem;
 }
 
+    #entry-card h2 {
+        font-weight: 600;
+    }
+
 /* "IMAGE UNAVAILABLE" READOUT */
 h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 2.5rem;
     color: var(--second);
     margin: 0 0 10px 10px;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.5rem;
 }
+
+    .evidence h3 {
+        text-align: center;
+    }
 
 /* MEDIA TITLE */
 h5 {
     color: var(--third);
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.9rem;
     margin: 20px 0;
-    padding-right: 30px;
+    padding-right: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.9rem;
 }
 
-/* LINKS */
+h6 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
 a {
     text-decoration: none;
 }
 
-/* PODCAST DESCRIPTION, FOOTER */
 p {
     color: var(--second);
-    font-family: 'Basier Square Regular', sans-serif;
-    font-size: 1.1rem;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
     line-height: 2rem;
     text-transform: none;
 }
 
+    .media-card p {
+        padding-right: 5px;
+    }
+
+    footer p {
+        padding: 30px;
+    }
 
 /* MEDIA SECTION MORE SLIDER */
 .slider-title {
-    margin: 0 15px;
-    font-weight: 400;
     color: var(--fourth);
-    transition: ease-in-out 5s;
-    cursor: pointer;
+    margin: 0 10px;
+    font-weight: 400;
 }
 
-.no-click {
-    cursor: auto;
-}
-
+/* COLORED TEXT [ RESULTS AMPERSAND ] */
 .trivial {
     color: var(--third);
 }
 
-
-/* =================== HEADER =================== */
-/* =================== HEADER =================== */
-/* =================== HEADER =================== */
-
-header {
-    margin: 0 20px;
+.entry-number {
+    font-size: 1.75rem;
+    font-weight: 600;
 }
+
+@media screen and (min-width: 1250px) {
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 3.25rem;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+    h4 {
+        color: var(--first);
+        margin-left: 10px;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    h5 {
+        font-size: 1.75rem;
+        line-height: 1.9rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+/* =================== HEADER [ NAVIGATION ] =================== */
+/* =================== HEADER [ NAVIGATION ] =================== */
 
 nav {
     display: flex;
@@ -135,8 +189,8 @@ nav {
 }
 
 .header-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .header-logo {
@@ -146,77 +200,40 @@ nav {
     cursor: pointer;
 }
 
-/* =================== MAIN =================== */
-/* =================== MAIN =================== */
-/* =================== MAIN =================== */
+@media screen and (min-width: 1250px) {
+    .header-logo {
+        width: 275px;
+        height: 275px;
+    }
 
-main {
-    margin: 25px 7%;
+    /* UNIQUE TO 1250+ */
+    .header-link {
+        color: var(--second);
+        font-size: 2rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .header-link:hover {
+        color: var(--third);
+    }
 }
 
-/* FORMS FORMS FORMS FORMS */
-/* FORMS FORMS FORMS FORMS */
+/* =================== MAIN [ FETCHED HOME ] =================== */
+/* =================== MAIN [ FETCHED HOME ] =================== */
 
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    margin: 100px auto;
-    width: 100%;
-}
-
-label {
-    display: none;
-}
-
-input {
-    outline: none;
-    border: none;
-    border-left: 3px solid var(--third);
-    border-bottom: 3px solid var(--third);
-    background-color: #f8f8ff00;
-    color: var(--second);
-    width: 90%;
-    height: 50px;
-    padding: 0 20px;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-}
-
-.search-button {
-    border-right: none;
-    border-left: none;
-    border-right: 3px solid var(--third);
-    border-bottom: 3px solid var(--third);
-    width: 110px;
-    height: 50px;
-    cursor: pointer;
-}
-
-.search-button:hover {
-    transition: ease-in 0.45s;
-    background-color: var(--third);
-    color: var(--first);
-}
-
-::placeholder {
-    color: var(--fourth);
-}
-
-/* MEDIA MEDIA MEDIA MEDIA */
-/* MEDIA MEDIA MEDIA MEDIA */
-
-.media-layout {
+/* [ FETCHED MEDIA SECTIONS ] */
+.auto-fetched {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin: 0 auto;
 }
 
+/* [ PODCASTS, TV & MOVIES, YOUTUBE ] */
 .media-section {
-    margin-bottom: 50px;
-    /* border: 3px solid blue; */
+    margin-bottom: 25px;
+    border: 3px solid blue;
 }
 
 .section-title {
@@ -226,29 +243,40 @@ input {
     align-items: center;
 }
 
+/* MORE > ICON */
 .section-title img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
 }
 
+/* FLEX CONTAINER FOR MEDIA RESULTS */
 .media {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items:flex-start;
+    align-items: flex-start;
     overflow: scroll;
+    border: 3px solid springgreen;
 }
 
-/* ****** MEDIA CARDS ****** */
+@media screen and (min-width: 1250px) {
+    .auto-fetched {
+        margin: 25px auto;
+    }
+    
+    .section-title img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* =================== MAIN [ MEDIA SIZINGS ] =================== */
+/* =================== MAIN [ MEDIA SIZINGS ] =================== */
 
 .media-card {
     width: auto;
     height: auto;
     margin-right: 5px;
-}
-
-.media-card p {
-    padding-right: 5px;
 }
 
 .podcast {
@@ -261,12 +289,17 @@ input {
     height: 375px;
 }
 
-    /* CARD THAT HOVERS ABOVE TMDB DATA */
+    .grid-series {
+        width: 125px;
+        height: 180px;
+    }
+
+    /* MOVIE OR TV TAG */
     .series-type {
         color: var(--second);
-        text-align: left;
         width: 80px;
         padding: 7px;
+        text-align: left;
         text-transform: uppercase;
     }
 
@@ -275,7 +308,7 @@ input {
     }
 
     .movie {
-        background-color: #278acc;
+        background-color: var(--fifth);
     }
 
     /* IF THERE IS NO SERIES/MOVIE IMAGE */
@@ -290,19 +323,25 @@ input {
         align-items: flex-start;
     }
 
+    .grid-series-null {
+        background-color: var(--second);
+        width: 125px;
+        min-width: 125px;
+        height: 180px;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin: 0 20px 20px 0;
+    }
+
 .youtube {
     width: 320px;
     height: 180px;
 }
 
-/* RESULTS RESULTS RESULTS RESULTS */
-/* RESULTS RESULTS RESULTS RESULTS */
-
-.search-results {
-    margin: 200px auto;
-    width: 95%;
-}
-
+/* CONTAINS RESULTS FOUND */
 .media-grid {
     margin: 150px auto;
     display: flex;
@@ -312,466 +351,147 @@ input {
     flex-wrap: wrap;
 }
 
+.divider-square {
+    border: 4px solid var(--second);
+    width: 172px;
+    height: 172px;
+    margin: 0 20px 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .searched {
     margin-right: 30px;
     margin-bottom: 30px;
 }
 
-/* SEARCH */
+/* =================== MAIN [ FORM ] =================== */
+/* =================== MAIN [ FORM ] =================== */
 
-.results-section-title {
-    width: 172px;
-    height: 172px;
-    border: 4px solid var(--second);
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
-.result-podcast {
-    width: 180px;
-    height: 180px;
-}
-
-.result-series {
-    width: 125px;
-    height: 180px;
-}
-
-.result-youtube {
-    width: 320px;
-    height: 180px;
-}
-
-.result-series-null {
-    width: 125px;
-    min-width: 125px;
-    height: 180px;
-    min-height: 180px;
-    background-color: var(--second);
+form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin: 0 20px 20px 0;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 50px auto;
+    width: 90%;
 }
 
-.evidence-form > input {
+label {
+    display: none;
+}
+
+::placeholder {
+    color: var(--fourth);
+}
+
+input {
+    border: 3px solid var(--third);
+    background-color: #f8f8ff00;
+    color: var(--second);
+    outline: none;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+    .evidence-form input {
+        border-color: var(--fifth);
+    }
+
+.field-query {
+    border-top: none;
+    border-right: none;
+    width: 90%;
+}
+
+.field-name {
+    border-right: none;
+    width: 90%;
+}
+
+.field-location {
+    border-top: none;
+    border-left: none;
+    /* border-bottom: none; */
+    width: 80%;
+    text-align: right;
+}
+
+.field-age {
+    border-top: none;
+    border-right: none;
+    width: 20%;
+    margin-right: 60%;
+}
+
+textarea {
+    background-color: #f8f8ff00;
     border: 3px solid var(--fifth);
+    border-left: none;
+    color: var(--second);
+    outline: none;
+    width: 60%;
+    height: 100px;
+    margin-top: -3px;
+    padding: 20px;
+    font-size: 1.3rem;
+    text-transform: none;
+    resize: none;
+    text-align: right;
 }
 
-/* =================== ENTRY LOG CARDS =================== */
-/* =================== ENTRY LOG CARDS =================== */
-/* =================== ENTRY LOG CARDS =================== */
+textarea::placeholder {
+    text-transform: uppercase;
+}
+
+
+.search-button {
+    border-top: none;
+    border-left: none;
+    width: 110px;
+}
+
+.search-button:hover {
+    background-color: var(--third);
+    color: var(--first);
+    transition: ease-in 0.45s;
+}
+
+.evidence-button {
+    border-top: none;
+    border-right: none;
+    width: 50%;
+    margin-right: 21.3%;
+}
+
+.evidence-button:hover {
+    background-color: var(--fifth);
+    color: var(--first);
+    transition: ease-in 0.45s;
+}
+
+@media screen and (min-width: 1250px) {
+    form {
+        flex-direction: row;
+        align-items: baseline;
+        margin: 100px auto;
+        transition: ease-in-out 2s;
+    }
+}
+
+/* =================== MAIN [ EVIDENCE CARDS ] =================== */
+/* =================== MAIN [ EVIDENCE CARDS ] =================== */
 
 #entry-card {
-    width: 90%;
+    background-color: black;
+    width: 100%;
     height: auto;
-    background-color: #000000;
-    margin-bottom: 40px;
-    border-radius: 10px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20px;
-    border: 2px solid var(--fifth);
-}
-
-#entry-card > h2 {
-    font-size: 1.5rem;
-    line-height: 0rem;
-}
-
-#entry-card > h6 {
-    font-size: 1rem;
-    color: var(--fifth);
-    margin: 0;
-}
-
-#entry-card > p {
-    font-family: "Basier Square Regular", sans-serif;
-}
-
-
-
-/* =================== FOOTER: SIGNOFF =================== */
-/* =================== FOOTER: SIGNOFF =================== */
-/* =================== FOOTER: SIGNOFF =================== */
-
-footer {
-    color: var(--second);
-    background-color: black;
-    border-top: 5px solid var(--second);
-    width: 100%;
-    margin-bottom: -20px;
-    text-align: center;
-}
-
-footer p {
-    padding: 25px 30px 30px 30px;
-}
-
-/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
-/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
-/* MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX MEDIA.QUERY 1250PX */
-
-@media screen and (min-width: 1250px) {
-
-    flex-center {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    /* =================== TEXT 1250 =================== */
-    /* =================== TEXT 1250 =================== */
-    /* =================== TEXT 1250 =================== */
-
-    /* SEARCH RESULTS TITLE */
-    h1 {
-        font-size: 5rem;
-        margin-top: 60px;
-    }
-
-    /* MEDIA SECTION TITLES */
-    h2 {
-        font-size: 3.25rem;
-    }
-
-    /* "IMAGE UNAVAILABLE" READOUT */
-    h3 {
-        font-size: 2.5rem;
-    }
-
-    /* "IMAGE UNAVAILABLE" READOUT FOR OMNI RESULTS */
-    h4 {
-        margin-left: 10px;
-        font-size: 2rem;
-        font-weight: 400;
-        color: var(--first);
-    }
-
-    /* MEDIA TITLES */
-    h5 {
-        font-size: 1.75rem;
-        font-weight: 400;
-        line-height: 1.9rem;
-        padding-right: 20px;
-        margin: 20px 0;
-    }
-
-    /* PODCAST DESCRIPTION, FOOTER */
-    p {
-        color: var(--second);
-        font-family: 'Basier Square Regular', sans-serif;
-        font-size: 1.3rem;
-        line-height: 2rem;
-        text-transform: none;
-    }
-
-    .evidence-funny {
-        text-align: center;
-        color: var(--second);
-    }
-
-
-    /* =================== HEADER 1250 =================== */
-    /* =================== HEADER 1250 =================== */
-    /* =================== HEADER 1250 =================== */
-
-    header {
-        margin: 0 10%;
-    }
-
-    .header-logo {
-        width: 275px;
-        height: 275px;
-    }
-
-    .header-link {
-        font-size: 2rem;
-        font-weight: 600;
-        text-decoration: none;
-        color: var(--second);
-        cursor: pointer;
-    }
-
-    .header-link:hover {
-        color: var(--third);
-    }
-
-    /* =================== MAIN 1250 =================== */
-    /* =================== MAIN 1250 =================== */
-    /* =================== MAIN 1250 =================== */
-
-    main {
-        margin: 50px 7%;
-    }
-
-    /* FORMS FORMS FORMS FORMS */
-    /* FORMS FORMS FORMS FORMS */
-
-    .search-form {
-        flex-direction: row;
-        align-items: flex-start;
-        margin-bottom: 100px auto;
-        transition: ease-in-out 2s;
-    }
-
-    input {
-        border-left: none;
-        border-right: 4px solid var(--third);
-        border-bottom: 4px solid var(--third);
-        width: 55%;
-        height: 100px;
-        font-size: 3rem;
-    }
-
-    .search-button {
-        border: none;
-        border-top: 4px solid var(--third);
-        border-left: none;
-        border-bottom: none;
-        width: 200px;
-        height: 104px;
-        margin-left: -4px;
-    }
-
-    /* MEDIA MEDIA MEDIA MEDIA */
-    /* MEDIA MEDIA MEDIA MEDIA */
-
-    .media-layout {
-        margin: 50px auto;
-    }
-    
-    .media-section {
-        padding-bottom: 40px;
-    }
-    
-    .section-title img {
-        width: 70px;
-        height: 70px;
-    }
-    
-    /* PODCAST MEDIA ONLY */
-    .media-card-podcast {
-        width: 275px;
-        margin-right: 5px;
-    }
-    
-    .podcast {
-        width: 275px;
-        height: 275px;
-    }
-        
-    /* YOUTUBE MEDIA ONLY */
-    .media-card-youtube {
-        width: 480px;
-        margin-right: 5px;
-    }
-
-    .youtube {
-        width: 480px;
-        height: 270px;
-    }
-    
-    /* SERIES/MOVIE MEDIA ONLY */
-    .media-card-series {
-        margin-right: 5px;
-    }
-
-    /* /////////////// */
-
-/* ****** MEDIA CARDS ****** */
-
-.media-card {
-    width: auto;
-    height: auto;
-    margin-right: 5px;
-}
-
-.media-card p {
-    padding-right: 5px;
-}
-
-.podcast {
-    width: 300px;
-    height: 300px;
-}
-
-.series {
-    width: 250px;
-    height: 375px;
-}
-
-    /* CARD THAT HOVERS ABOVE TMDB DATA */
-    .series-type {
-        color: var(--second);
-        text-align: left;
-        width: 80px;
-        padding: 7px;
-        text-transform: uppercase;
-    }
-
-    .tv {
-        background-color: var(--third);
-    }
-
-    .movie {
-        background-color: #278acc;
-    }
-
-    /* IF THERE IS NO SERIES/MOVIE IMAGE */
-    .series-null {
-        background-color: var(--first);
-        border: 3px solid var(--second);
-        width: 244px;
-        height: 369px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-    }
-
-.youtube {
-    width: 320px;
-    height: 180px;
-}
-
-    /* //////////////// */
-
-    
-
-    /* SEARCH */
-
-    .results-section-title {
-        width: 336px;
-        height: 336px;
-        border: 7px solid var(--second);
-        margin-right: 30px;
-        margin-bottom: 30px;
-        display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    }
-
-    .result-podcast {
-        width: 350px;
-        height: 350px;
-    }
-
-    .result-series {
-        width: 242px;
-        height: 350px;
-    }
-
-    .result-youtube {
-        width: 622px;
-        height: 350px;
-    }
-
-    .result-series-null {
-        width: 242px;
-        min-width: 242px;
-        height: 350px;
-        min-height: 350px;
-        background-color: var(--second);
-        /* border: 5px solid var(--second); */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        margin: 0 30px 30px 0;
-    }
-
-    /* TABLE */
-
-    .evidence-log {
-        width: 95%;
-        margin: 100px auto;
-    }
-
-
-    button {
-        font-size: 1.5rem;
-        vertical-align: middle;
-        padding: 5px;
-        border: 2px solid var(--second);
-    }
-
-
-    /*  */
-
-    .evidence {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .evidence-form {
-        width: 95%;
-        padding: 100px 0;
-        flex-direction: row;
-        /* border: 2px solid springgreen; */
-    }
-
-    .input-field, .evidence-button {
-        border: 4px solid var(--fifth);
-        font-size: 2.25rem;
-    }
-
-    .name {
-        width: 30%;
-        border-right: none;
-        border-top: none;
-    }
-
-    .location {
-        position: relative;
-        top: 100px;
-        width: 30%;
-        offset-position: 50px;
-        border-top: none;
-    }
-
-    .age {
-        position: relative;
-        left: -4px;
-        width: 5%;
-        border-bottom: none;
-    }
-
-    .notes {
-        position: relative;
-        left: -4px;
-        width: 35%;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-    }
-
-    .evidence-button {
-        width: 400px;
-        position: relative;
-        top: 96px;
-        left: -5px;
-        border-left: none;
-        cursor: pointer;
-    }
-
-    .evidence-button:hover {
-        transition: ease-in 0.45s;
-        background-color: #278acc;
-        color: var(--first);
-    }
-
-    .input-field::placeholder {
-        font-size: 2.25rem;
-    }
-
-
-
-
 }

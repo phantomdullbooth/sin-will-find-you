@@ -5,7 +5,7 @@ class App extends React.Component {
         super(props)
         this.state = {
             // IS THIS OR THATS
-            isEvidenceClosed: false,
+            isEvidenceClosed: true,
             isHomeFetchClosed: false,
             isMobile: true,
             isMorePodcasts: false,

@@ -65,7 +65,7 @@ class Main extends React.Component {
     // #################### MAIN RENDER #################### //
     // #################### MAIN RENDER #################### //
     // #################### MAIN RENDER #################### //
-    
+
     render() {
         return (
             <main>
@@ -89,33 +89,35 @@ class Main extends React.Component {
 
                 {/* ====== MAIN CONTENT ====== */}
                 {(this.props.isResultsClosed)
-                    // IF ON PAGE LOAD, SHOW FETCHED RESULTS
-                    ? <FetchedHome
-                        // FETCHED HOME
-                        homeSeries={this.state.homeSeries}
-                        homePodcasts={this.state.homePodcasts}
-                        homeYoutubes={this.state.homeYoutubes}
-                        // MORE PODCASTS
-                        isMorePodcasts={this.props.isMorePodcasts}
-                        morePodcasts={this.props.morePodcasts}
-                        showMorePodcasts={this.props.showMorePodcasts}
-                        toggleMorePodcasts={this.props.toggleMorePodcasts}
-                        // MORE SERIES
-                        isMoreSeries={this.props.isMoreSeries}
-                        moreSeries={this.props.moreSeries}
-                        showMoreSeries={this.props.showMoreSeries}
-                        toggleMoreSeries={this.props.toggleMoreSeries}
-                        // MORE YOUTUBE
-                        isMoreYoutubes={this.props.isMoreYoutubes}
-                        moreYoutubes={this.props.moreYoutubes}
-                        toggleMoreYoutubes={this.props.toggleMoreYoutubes}
-                        showMoreYoutubes={this.props.showMoreYoutubes}
-                    />
+                    // IF ON PAGE LOAD, SHOW FETCHED RESULTS, UNLESS EVIDENCE SHOWS
+                    ? (!this.props.isEvidenceClosed)
+                        ? <FetchedHome
+                            // FETCHED HOME
+                            homeSeries={this.state.homeSeries}
+                            homePodcasts={this.state.homePodcasts}
+                            homeYoutubes={this.state.homeYoutubes}
+                            // MORE PODCASTS
+                            isMorePodcasts={this.props.isMorePodcasts}
+                            morePodcasts={this.props.morePodcasts}
+                            showMorePodcasts={this.props.showMorePodcasts}
+                            toggleMorePodcasts={this.props.toggleMorePodcasts}
+                            // MORE SERIES
+                            isMoreSeries={this.props.isMoreSeries}
+                            moreSeries={this.props.moreSeries}
+                            showMoreSeries={this.props.showMoreSeries}
+                            toggleMoreSeries={this.props.toggleMoreSeries}
+                            // MORE YOUTUBE
+                            isMoreYoutubes={this.props.isMoreYoutubes}
+                            moreYoutubes={this.props.moreYoutubes}
+                            toggleMoreYoutubes={this.props.toggleMoreYoutubes}
+                            showMoreYoutubes={this.props.showMoreYoutubes}
+                        />
+                        : null
                     // BUT IF OMNISEARCH TRIGGERED, SHOW FETCHEDOMNISEARCH
                     : (this.props.omniPodcasts.length > 0) || (this.props.omniSeries.length > 0) || (this.props.omniYoutubes.length > 0)
                         // IF SEARCH TRIGGERED
                         ? <React.Fragment>
-                            <h1>Search Results</h1>
+                            <h1>Results Found</h1>
                             <FetchedOmnisearch
                                 omniPodcasts={this.props.omniPodcasts}
                                 omniSeries={this.props.omniSeries}

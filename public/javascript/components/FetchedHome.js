@@ -4,8 +4,7 @@ class FetchedHome extends React.Component {
     render() {
         return (
             // CONTAINS ALL MEDIA SECTIONS
-            <div className="media-layout">
-
+            <div className="auto-fetched">
 
                 {/* =================== PODCASTS =================== */}
 
@@ -14,7 +13,7 @@ class FetchedHome extends React.Component {
                         <h2>Podcasts</h2>
 
                         {(this.props.isMorePodcasts)
-                            ? <h2 className="slider-title"
+                            ? <h2 className="slider-title pointer"
                                 onClick={() => { { this.props.showMorePodcasts() } }}
                                 onMouseLeave={() => { { this.props.toggleMorePodcasts() } }}>More</h2>
                             : null
@@ -38,7 +37,7 @@ class FetchedHome extends React.Component {
                         <h2>TV & Movies</h2>
 
                         {(this.props.isMoreSeries)
-                            ? <h2 className="slider-title"
+                            ? <h2 className="slider-title pointer"
                                 onClick={() => { { this.props.showMoreSeries() } }}
                                 onMouseLeave={() => { { this.props.toggleMoreSeries() } }}>More</h2>
                             : null
@@ -62,7 +61,7 @@ class FetchedHome extends React.Component {
                         <h2>YouTube</h2>
 
                         {(this.props.isMoreYoutubes)
-                            ? <h2 className="slider-title"
+                            ? <h2 className="slider-title pointer"
                                 onClick={() => { { this.props.showMoreYoutubes() } }}
                                 onMouseLeave={() => { { this.props.toggleMoreYoutubes() } }}>More</h2>
                             : null

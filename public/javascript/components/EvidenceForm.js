@@ -49,7 +49,7 @@ class EvidenceForm extends React.Component {
                 <label>Name</label>
                 <input
                     type="text"
-                    className="input-field name"
+                    className="field-name"
                     placeholder="What's your name?"
                     id="name"
                     value={this.state.name}
@@ -58,7 +58,7 @@ class EvidenceForm extends React.Component {
                 <label>Location</label>
                 <input
                     type="text"
-                    className="input-field location"
+                    className="field-location"
                     placeholder="Where are you from?"
                     id="location"
                     value={this.state.location}
@@ -67,7 +67,7 @@ class EvidenceForm extends React.Component {
                 <label>Age</label>
                 <input
                     type="number"
-                    className="input-field age"
+                    className="field-age"
                     placeholder="Age"
                     id="age"
                     value={this.state.age}
@@ -75,9 +75,8 @@ class EvidenceForm extends React.Component {
                 />
 
                 <label>Notes</label>
-                <input
+                <textarea
                     type="text"
-                    className="input-field notes"
                     placeholder="Notes"
                     id="notes"
                     onChange={this.handleChange}

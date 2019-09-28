@@ -6,7 +6,7 @@ class FetchedOmnisearch extends React.Component {
             <div className="media-grid">
 
                 {/* =================== PODCASTS =================== */}
-                <div className="flex-center results-section-title">
+                <div className="divider-square">
                     <h3>Podcasts</h3>
                 </div>
 
@@ -15,7 +15,7 @@ class FetchedOmnisearch extends React.Component {
                         <React.Fragment>
                             <div key={index}>
                                 <a href={omniPodcast.listennotes_url} target="_blank">
-                                    <img className="podcast searched result-podcast" src={omniPodcast.thumbnail} />
+                                    <img className="podcast searched" src={omniPodcast.thumbnail} />
                                 </a>
                             </div>
                         </React.Fragment>
@@ -23,7 +23,7 @@ class FetchedOmnisearch extends React.Component {
                 })}
 
                 {/* =================== YOUTUBE =================== */}
-                <div className="flex-center results-section-title">
+                <div className="divider-square">
                     <h3>YouTube</h3>
                 </div>
 
@@ -40,7 +40,7 @@ class FetchedOmnisearch extends React.Component {
                 })} */}
 
                 {/* =================== SERIES =================== */}
-                <div className="flex-center results-section-title">
+                <div className="divider-square">
                     <h3>TV <span className="trivial">&</span> <br />Movies</h3>
                 </div>
  
@@ -53,15 +53,15 @@ class FetchedOmnisearch extends React.Component {
                                 ? <a href={'https://www.themoviedb.org/movie/' + omniSeries.id} target="_blank">
                                     {(omniSeries.poster_path
                                         ? <img className="series" src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
-                                        : <div className="result-series-null">
+                                        : <div className="grid-series-null">
                                             <h3>Image unavailable</h3>
                                         </div>
                                     )}
                                 </a>
                                 : <a href={'https://www.themoviedb.org/tv/' + omniSeries.id} target="_blank">
                                     {(omniSeries.poster_path
-                                        ? <img className="series searched result-series" src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
-                                        : <div className="result-series-null">
+                                        ? <img className="grid-series searched" src={"https://image.tmdb.org/t/p/w300/" + omniSeries.poster_path} />
+                                        : <div className="grid-series-null">
                                             <h3>Image unavailable</h3>
                                         </div>
                                     )}

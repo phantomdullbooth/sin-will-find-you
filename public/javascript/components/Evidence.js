@@ -100,16 +100,15 @@ class Evidence extends React.Component {
                     handleCreate={this.handleCreate}
                     userInputs={this.state.userInputs} />
 
-
-
-
                     {this.state.evidence.map((evidence, index) => {
                         return (
                             <div id="entry-card">
-                                <h6>Entry no. {evidence.id}</h6>
-                                <h2>{evidence.name}, {evidence.age} in {evidence.location}</h2>
-                                {/* <h2>{evidence.location}</h2> */}
+                                <h6 className="entry-number">Entry no. {evidence.id}</h6>
+                                <h6>{evidence.name}, {evidence.age} in {evidence.location}</h6>
+
                                 <p>{evidence.notes}</p>
+                                {/* <h2>{evidence.location}</h2> */}
+                                
                             </div>
                         )
                     })}
