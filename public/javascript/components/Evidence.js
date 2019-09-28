@@ -93,8 +93,8 @@ class Evidence extends React.Component {
     render() {
         return (
             <div class="evidence">
-                <h1>Evidence Log</h1>
-                <h3 className="evidence-funny">Since you're here, you'd might as well leave some evidence behind.</h3>
+                <h1 className="evidence-title">Evidence Log</h1>
+                <h3>Since you're here, you'd might as well leave some evidence behind.</h3>
 
                 <EvidenceForm
                     handleCreate={this.handleCreate}
@@ -102,13 +102,14 @@ class Evidence extends React.Component {
 
                     {this.state.evidence.map((evidence, index) => {
                         return (
+                            <div id="evidence-cards">
                             <div id="entry-card">
-                                <h6 className="entry-number">Entry no. {evidence.id}</h6>
-                                <h6>{evidence.name}, {evidence.age} in {evidence.location}</h6>
+                                <h6>Entry no. {evidence.id}</h6>
+                                <h6 className="entry-persona">{evidence.name}, {evidence.age} // {evidence.location}</h6>
 
                                 <p>{evidence.notes}</p>
-                                {/* <h2>{evidence.location}</h2> */}
                                 
+                            </div>
                             </div>
                         )
                     })}

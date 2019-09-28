@@ -143,7 +143,12 @@ p {
     color: var(--third);
 }
 
-.entry-number {
+.evidence-title {
+    color: var(--fifth);
+}
+
+.entry-persona {
+    color: var(--fifth);
     font-size: 1.75rem;
     font-weight: 600;
 }
@@ -233,7 +238,6 @@ nav {
 /* [ PODCASTS, TV & MOVIES, YOUTUBE ] */
 .media-section {
     margin-bottom: 25px;
-    border: 3px solid blue;
 }
 
 .section-title {
@@ -256,7 +260,6 @@ nav {
     justify-content: flex-start;
     align-items: flex-start;
     overflow: scroll;
-    border: 3px solid springgreen;
 }
 
 @media screen and (min-width: 1250px) {
@@ -486,11 +489,21 @@ textarea::placeholder {
 /* =================== MAIN [ EVIDENCE CARDS ] =================== */
 /* =================== MAIN [ EVIDENCE CARDS ] =================== */
 
+#evidence-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 #entry-card {
     background-color: black;
-    width: 100%;
+    border-radius: 5px;
+    border: 2px solid var(--fifth);
+    width: 90%;
     height: auto;
-    margin: 0 auto;
+    margin: 15px auto;
+    padding: 5%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
