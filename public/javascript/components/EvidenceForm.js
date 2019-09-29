@@ -50,7 +50,7 @@ class EvidenceForm extends React.Component {
                 <input
                     type="text"
                     className="field-name"
-                    placeholder="What's your name?"
+                    placeholder="Name"
                     id="name"
                     value={this.state.name}
                     onChange={this.handleChange} />
@@ -59,7 +59,7 @@ class EvidenceForm extends React.Component {
                 <input
                     type="text"
                     className="field-location"
-                    placeholder="Where are you from?"
+                    placeholder="Location"
                     id="location"
                     value={this.state.location}
                     onChange={this.handleChange} />
