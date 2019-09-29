@@ -75,8 +75,9 @@ class EvidenceForm extends React.Component {
                 />
 
                 <label>Notes</label>
-                <textarea
+                <input
                     type="text"
+                    className="field-notes"
                     placeholder="Notes"
                     id="notes"
                     onChange={this.handleChange}
