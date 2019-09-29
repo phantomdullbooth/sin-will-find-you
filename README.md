@@ -17,14 +17,13 @@ The App
 3. Users should be able to click media and be taken to a website that provides more information about the result.
 4. Users should not have to refresh the page to receive new results.
 5. Users should be able to get results for serial killers and unsolved crimes with just one click (because popular genres).
-~~6. Users should be able to sign in to save their favorites.~~ 
-6. Users should be able to sign a guestbook.
+6. ~~Users should be able to sign in to save their favorites.~~ Users should be able to sign a guestbook.
 
 #### Where in the world ~~is Carmen Sandiego~~ did authentication go?
 Originally, I planned to allow users to sign in to save their favorites. But I decided to scrap the idea based on the fact that clicking a result takes users to third party sites where they can then find, e.g. a podcast, using their favorite podcast app. Instead, I used the database for a guestbook feature. Users can leave their name, location, age, and notes, which are then provided as cards under the Evidence Log form.
 
 ### Technologies used
-I opted to code this website using the NERDS stack (*NERDS!*):
+I opted to code this website using the NERDS stack. Why? Honestly, because it's called NERDS. (*NERDS!*):
 * NodeJS (https://nodejs.org/en/)
 * Express (https://expressjs.com/)
 * ReactJS (https://reactjs.org/)
