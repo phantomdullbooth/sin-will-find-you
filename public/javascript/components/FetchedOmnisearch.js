@@ -68,7 +68,7 @@ class FetchedOmnisearch extends React.Component {
                 </div>
 
                 {/* RETURNS YOUTUBE VIDEOS */}
-                {/* {this.props.omniYoutubes.map((omniYoutube, index) => {
+                {this.props.omniYoutubes.map((omniYoutube, index) => {
                     return (
                         <div>
                             <a href={'https://www.youtube.com/watch?v=' + omniYoutube.id.videoId} target="_blank">
@@ -77,7 +77,7 @@ class FetchedOmnisearch extends React.Component {
                             </a>
                         </div>
                     )
-                })} */}
+                })}
             </div>
         )
     }
