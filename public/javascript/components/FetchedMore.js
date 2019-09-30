@@ -47,7 +47,7 @@ class FetchedMore extends React.Component {
                 {this.props.moreYoutubes.map((moreYoutube, index) => {
                     return (
                         <div className="more-card" key={index}>
-                            <a href={'https://www.youtube.com/watch?v=' + moreYoutube.videoId}
+                            <a href={'https://www.youtube.com/watch?v=' + moreYoutube.id.videoId}
                                 target="_blank">
                                 <img className="youtube" src={moreYoutube.snippet.thumbnails.medium.url} />
                             </a>
