@@ -581,7 +581,7 @@ input {
     form {
         flex-direction: row;
         justify-content: center;
-        align-items: flex-start;
+        align-items: baseline;
         margin: 100px auto;
     }
 
@@ -602,31 +602,24 @@ input {
     .field-name {
         border: 4px solid var(--third);
         border-left: none;
-        border-bottom: none;
-        text-align: right;
-        width: 25%;
     }
     
     .field-location {
         border: 4px solid var(--third);
-        border-left: none;
+        border-right: none;
         border-top: none;
-        width: 25%;
     }
     
     .field-age {
         border: 4px solid var(--third);
-        border-bottom: none;
         border-left: none;
-        text-align: center;
-        width: 7%;
+        border-top: none;
     }
     
     .field-notes {
-        border-left: none;
+        border: 4px solid var(--third);
         border-right: none;
-        text-transform: none;
-        width: 25%;
+        border-top: none;
     }
     
     .field-notes::placeholder {
@@ -643,10 +636,11 @@ input {
     }
 
     .evidence-button {
+        border: 4px solid var(--third);
         border-top: none;
-        border-left: none;
         width: 300px;
-        margin-right: 7%;
+        height: 104px;
+        padding: 0;
     }
 }
 
@@ -676,6 +670,9 @@ input {
 @media screen and (min-width: 1000px) {
     #evidence-cards {
         flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        flex-wrap: wrap;
     }
     
     #entry-card {
