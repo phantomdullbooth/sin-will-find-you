@@ -120,7 +120,8 @@ class App extends React.Component {
                 omniPodcasts: podcasts.results,
                 omniYoutubes: youtubes.items,
                 omniSeries: series.results,
-                isResultsClosed: false
+                isResultsClosed: false,
+                isEvidenceClosed: false
             }))
     }
 
@@ -145,7 +146,8 @@ class App extends React.Component {
                 omniPodcasts: podcasts.results,
                 omniYoutubes: youtubes.items,
                 omniSeries: series.results,
-                isResultsClosed: false
+                isResultsClosed: false,
+                isEvidenceClosed: false
             }))
     }
 
