@@ -51,48 +51,13 @@ class Evidence extends React.Component {
             .catch(error => console.log(error))
     }
 
-    // UPDATE EVIDENCE
-    // handleUpdate = (updateData) => {
-    //     fetch(`/evidence/${updateData.id}`, {
-    //         body: JSON.stringify(updateData),
-    //         method: 'PUT',
-    //         headers: {
-    //             'Accept': 'application/json, text/plain, */*',
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //         .then(updatedEvidence => {
-    //             this.fetchEvidence()
-    //         })
-    //         .catch(error => console.log(error))
-    // }
-
-
-    //   DELETE ENTRY
-    handleDelete = (id) => {
-        fetch(`/evidence/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(json => {
-                this.setState(prevState => {
-                    const evidence = prevState.evidence.filter(evidence => evidence.id !== id)
-                    return { evidence }
-                })
-            })
-            .catch(error => console.log(error))
-    }
-
     componentDidMount() {
         this.fetchEvidence()
     }
 
     render() {
         return (
-            <div class="evidence">
+            <div className="evidence">
                 <h1 className="evidence-title">Evidence Log</h1>
                 <h3>Since you're here, you'd might as well leave some evidence behind.</h3>
 

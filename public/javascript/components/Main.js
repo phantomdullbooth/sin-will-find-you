@@ -128,7 +128,7 @@ class Main extends React.Component {
 
                         // OR IF MORE FUNCTION TRIGGERED, SHOW MORE
                         : <React.Fragment>
-                            <h1>Want more? Got more.</h1>
+                            <h1>More Sin</h1>
                             <FetchedMore
                                 // MORE PODCASTS
                                 isMorePodcasts={this.props.isMorePodcasts}

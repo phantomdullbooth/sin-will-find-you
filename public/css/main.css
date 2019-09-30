@@ -280,6 +280,7 @@ nav {
 /* =================== MAIN [ MEDIA SIZINGS ] =================== */
 /* =================== MAIN [ MEDIA SIZINGS ] =================== */
 
+/* GENERAL MEDIA */
 .media-card {
     width: auto;
     height: auto;
@@ -296,12 +297,6 @@ nav {
     height: 375px;
 }
 
-    .grid-series {
-        width: 125px;
-        height: 180px;
-    }
-
-    /* MOVIE OR TV TAG */
     .series-type {
         color: var(--second);
         width: 60px;
@@ -319,7 +314,6 @@ nav {
         background-color: var(--fifth);
     }
 
-    /* IF THERE IS NO SERIES/MOVIE IMAGE */
     .series-null {
         background-color: var(--first);
         border: 3px solid var(--second);
@@ -331,25 +325,12 @@ nav {
         align-items: flex-start;
     }
 
-    .grid-series-null {
-        background-color: var(--second);
-        width: 125px;
-        min-width: 125px;
-        height: 180px;
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        margin: 0 20px 20px 0;
-    }
-
 .youtube {
     width: 320px;
     height: 180px;
 }
 
-/* CONTAINS RESULTS FOUND */
+/* SEARCHED MEDIA */
 .media-grid {
     margin: 150px auto;
     display: flex;
@@ -359,7 +340,6 @@ nav {
     flex-wrap: wrap;
 }
 
-/* DIVIDES EACH MEDIA SECTION */
 .divider-square {
     border: 4px solid var(--second);
     width: 172px;
@@ -371,15 +351,58 @@ nav {
     align-items: center;
 }
 
+.grid-series {
+    width: 125px;
+    height: 180px;
+}
+
+.grid-series-null {
+    background-color: var(--second);
+    width: 125px;
+    min-width: 125px;
+    height: 180px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin: 0 20px 20px 0;
+}
+
 .searched {
     margin-right: 30px;
     margin-bottom: 30px;
 }
 
+/* MORE MEDIA */
+.more-grid {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.more-card {
+    width: 90%;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.podcast-more {
+    width: 100%;
+    height: 100%;
+}
+
+
 @media screen and (min-width: 1250px) {
     .media-card {
         margin-right: 15px;
     }
+
 
     .podcast {
         width: 250px;
@@ -416,6 +439,32 @@ nav {
         width: 242px;
         height: 242px;
         margin: 0 20px 20px 0;
+    }
+
+    .more-grid {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+
+    .more-card {
+        width: auto;
+        margin: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .more-card h5, .more-card p {
+        width: 325px;
+    }
+
+    .podcast-more {
+        width: 350px;
+        height: 350px;
     }
 }
 
