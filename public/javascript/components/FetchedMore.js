@@ -12,31 +12,47 @@ class FetchedMore extends React.Component {
                         <div className="more-card" key={index} target="_blank">
                             <a href={morePodcast.listennotes_url}>
                                 <img className="podcast-more" src={morePodcast.thumbnail} />
-                                <h5>{morePodcast.podcast_title_original}</h5>
-                                <p>{morePodcast.title_original}</p>
+                                <h5 className="limited">{morePodcast.podcast_title_original}</h5>
+                                <p className="limited">{morePodcast.title_original}</p>
                             </a>
                         </div>
                     )
                 })}
 
-                {/* ======================= SERIES & MOVIES ======================= */}
+                {/* ======================= TV & MOVIES ======================= */}
 
                 {this.props.moreSeries.map((moreSeries, index) => {
                     return (
                         <div className="more-card" key={index}>
-                            <a href={'https://www.themoviedb.org/movie/' + moreSeries.id} target="_blank">
+                            <p className={((moreSeries.media_type == "movie") ? "series-type movie" : "series-type tv")}>{moreSeries.media_type}</p>
 
-                                {/* IF POSTER, SHOW POSTED / OTHERWISE, SHOW REPLACEMENT */}
-                                {(moreSeries.poster_path
-                                    ? <img className="series-more" src={"https://image.tmdb.org/t/p/w300/" + moreSeries.poster_path} />
-                                    : <div className="series-null"><h3>Image unavailable</h3></div>
-                                )}
-                            </a>
+                            {(moreSeries.media_type == "movie")
+                                ? <a href={'https://www.themoviedb.org/movie/' + moreSeries.id} target="_blank">
+                                    {(moreSeries.poster_path
+                                        ? <img className="series" src={"https://image.tmdb.org/t/p/w300/" + moreSeries.poster_path} />
+                                        : <div className="series-null">
+                                            <h3>Image unavailable</h3>
+                                        </div>
+                                    )}
 
-                            {/* IF NAME, SHOW NAME / OTHERWISE, SHOW ORIGINAL TITLE */}
-                            {(moreSeries.name)
-                                ? <h5><span>{moreSeries.name}</span></h5>
-                                : <h5><span>{moreSeries.title}</span></h5>
+                                    {(moreSeries.name
+                                        ? <h5 className="limited">{moreSeries.name}</h5>
+                                        : <h5 className="limited">{moreSeries.title}</h5>
+                                    )}
+                                </a>
+                                : <a href={'https://www.themoviedb.org/tv/' + moreSeries.id} target="_blank">
+                                    {(moreSeries.poster_path
+                                        ? <img className="series" src={"https://image.tmdb.org/t/p/w300/" + moreSeries.poster_path} />
+                                        : <div className="series-null">
+                                            <h3>Image unavailable</h3>
+                                        </div>
+                                    )}
+
+                                    {(moreSeries.name
+                                        ? <h5 className="limited">{moreSeries.name}</h5>
+                                        : <h5 className="limited">{moreSeries.title}</h5>
+                                    )}
+                                </a>
                             }
                         </div>
                     )
@@ -51,8 +67,8 @@ class FetchedMore extends React.Component {
                                 target="_blank">
                                 <img className="youtube" src={moreYoutube.snippet.thumbnails.medium.url} />
                             </a>
-                            <h5>{moreYoutube.snippet.channelTitle}</h5>
-                            <p>{moreYoutube.snippet.title}</p>
+                            <h5 className="limited">{moreYoutube.snippet.channelTitle}</h5>
+                            <p className="limited">{moreYoutube.snippet.title}</p>
                         </div>
 
                     )

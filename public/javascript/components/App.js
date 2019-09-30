@@ -29,9 +29,9 @@ class App extends React.Component {
                 searchURL: ''
             },
             searchSeries: {
-                URLstart: 'https://api.themoviedb.org/3/discover/movie?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
+                URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
                 userQuery: '',
-                URLend: '%22&with_genres=80,99&page=1&include_adult=false&region=US',
+                URLend: '&page=1&include_adult=false&region=US',
                 searchURL: ''
             },
             searchYoutubes: {
@@ -184,7 +184,7 @@ class App extends React.Component {
         console.log('Series search for ' + this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend)
 
         this.setState({
-            searchURL: this.state.searchSeries.URLstart + 'true%20crime%22&with_genres=80,99&page=2&include_adult=false&region=US'
+            searchURL: this.state.searchSeries.URLstart + 'true%20crime%22&page=1&include_adult=false&region=US'
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())

@@ -91,6 +91,14 @@ h3 {
     line-height: 2.5rem;
 }
 
+    .divider-square h3 {
+        margin: 0 auto;
+    }
+
+    .grid-series-null h3 {
+        font-size: 1.5rem;
+    }
+
     .evidence h3 {
         text-align: center;
     }
@@ -124,6 +132,10 @@ p {
 }
 
     .media-card p {
+        padding-right: 5px;
+    }
+
+    .more-card p {
         padding-right: 5px;
     }
 
@@ -357,16 +369,18 @@ nav {
 }
 
 .grid-series-null {
-    background-color: var(--second);
-    width: 125px;
-    min-width: 125px;
-    height: 180px;
-    min-height: 180px;
+    background-color: var(--first);
+    border: 3px solid var(--fifth);
+    width: 117px;
+    min-width: 117px;
+    height: 172px;
+    min-height: 172px;
+    margin: 0 20px 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    margin: 0 20px 20px 0;
+    font-size: 1rem;
 }
 
 .searched {
@@ -421,10 +435,11 @@ nav {
     }
 
     .grid-series-null {
-        width: 174px;
-        height: 250px;
+        width: 167px;
+        height: 242px;
         margin: 0 20px 20px 0;
     }
+
 
     .youtube {
         width: 444px;
@@ -458,9 +473,10 @@ nav {
         justify-content: center;
     }
 
-    .more-card h5, .more-card p {
+    .limited {
         width: 325px;
     }
+
 
     .podcast-more {
         width: 350px;
