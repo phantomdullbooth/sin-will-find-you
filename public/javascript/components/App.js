@@ -97,6 +97,7 @@ class App extends React.Component {
                 isResultsClosed: false,
                 isSearchOpen: false,
             }))
+            .catch(([error1, error2, error3]) => [console.log(error1), [console.log(error2)], console.log(error3)])
     }
 
     // SEARCH SERIAL KILLERS
@@ -123,6 +124,7 @@ class App extends React.Component {
                 isResultsClosed: false,
                 isEvidenceClosed: false
             }))
+            .catch(([error1, error2, error3]) => [console.log(error1), [console.log(error2)], console.log(error3)])
     }
 
     // SEARCH UNSOLVED CASES
@@ -149,6 +151,7 @@ class App extends React.Component {
                 isResultsClosed: false,
                 isEvidenceClosed: false
             }))
+            .catch(([error1, error2, error3]) => [console.log(error1), [console.log(error2)], console.log(error3)])
     }
 
     // NEEDED TO REGISTER USER INPUT: APP > MAIN > OMNISEARCH
@@ -178,6 +181,7 @@ class App extends React.Component {
                         morePodcasts: podcasts.results,
                         isResultsClosed: false
                     }), error => console.error(error))
+                .catch(error => console.log(error))
         })
     }
 
@@ -195,6 +199,7 @@ class App extends React.Component {
                         moreSeries: series.results,
                         isResultsClosed: false
                     }), error => console.error(error))
+                .catch(error => console.log(error))
         })
     }
 
@@ -212,6 +217,7 @@ class App extends React.Component {
                         moreYoutubes: youtubes.items,
                         isResultsClosed: false
                     }), error => console.error(error))
+                .catch(error => console.log(error))
         })
     }
 
