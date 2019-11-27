@@ -1,15 +1,14 @@
 # Sin Will Find You
 https://sinwillfindyou.herokuapp.com
 
-Sin Will Find You aggregates podcasts, YouTube videos, television shows, and movies that specifically pertain to true crime. It pulls and renders data from multiple APIs, provides direct links to corresponding external sites, and lets users "leave evidence behind" in the form of a guestbook — a throwback to websites of the early 2000s.
+Have you ever been at home alone late at night and you hear something, so you stop what you're doing until it's dead silent, just so you can try to hear whatever it was? There's a good chance it's just the ice maker, but what if it wasn't? What if it was something more sinister?
 
+![alt text](public/css/images/ex/final-version.png "Final view of the app")
+
+Sin Will Find You aggregates podcasts, YouTube videos, television shows, and movies from the world of true crime. It fetches and renders data from multiple APIs, provides direct links to corresponding external sites, and lets users "leave evidence behind" in the form of a guestbook — a throwback to websites of the early 2000s.
 
 ### Why I decided to build this app
 I love true crime. It is easily one of my favorite genres. However, finding media relating to the subject often leads me downa  rabbit hole of other irrelevant topics. I wanted to create an app that pulls media from various sources together in one convenient service. No more searching through podcast directories... filtering out YouTube videos/channels... upvoting things you weren't even looking for on Reddit... etc.
-
-The App
-------
-![alt text](public/css/images/ex/final-version.png "Final view of the app")
 
 #### User Stories
 1. Users should be able to get a comprehensive overview of podcasts, tv shows, movies, and videos.
