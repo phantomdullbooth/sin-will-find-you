@@ -23,21 +23,21 @@ class App extends React.Component {
             omniYoutubes: [],
             // SEARCH URLS
             searchPodcasts: {
-                URLstart: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22%2C%22',
+                urlStart: 'https://listen-api.listennotes.com/api/v2/search?q=%22true%20crime%22%2C%22',
                 userQuery: '',
-                URLend: '%22&sort_by_date=0&type=episode',
+                urlEnd: '%22&sort_by_date=0&type=episode',
                 searchURL: ''
             },
             searchSeries: {
-                URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22', // unlimited api queries
+                urlStart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22', // unlimited api queries
                 userQuery: '',
-                URLend: '&page=1&include_adult=false&region=US',
+                urlEnd: '&page=1&include_adult=false&region=US',
                 searchURL: ''
             },
             searchYoutubes: {
-                URLstart: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22+%22',
+                urlStart: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22+%22',
                 userQuery: '',
-                URLend: '%22&order=date&maxResults=15&key=',
+                urlEnd: '%22&order=date&maxResults=15&key=',
                 apikey: 'AIzaSyBsIsX4wYIiRlqiJ8OtJMV2el8IcurRohQ', // restricted in Google Dev Console
                 searchURL: ''
             }
@@ -78,15 +78,15 @@ class App extends React.Component {
 
         Promise.all([
             // FETCH LISTENNOTES DATA
-            fetch(this.state.searchPodcasts.URLstart + this.state.userQuery + this.state.searchPodcasts.URLend, {
+            fetch(this.state.searchPodcasts.urlStart + this.state.userQuery + this.state.searchPodcasts.urlEnd, {
                 headers: {
                     'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
                 }
             }),
             // FETCH YOUTUBE DATA
-            fetch(this.state.searchYoutubes.URLstart + this.state.userQuery + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
+            fetch(this.state.searchYoutubes.urlStart + this.state.userQuery + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey),
             // FETCH TMDB DATA
-            fetch(this.state.searchSeries.URLstart + this.state.userQuery + this.state.searchSeries.URLend)
+            fetch(this.state.searchSeries.urlStart + this.state.userQuery + this.state.searchSeries.urlEnd)
         ])
             .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
             .then(([podcasts, youtubes, series]) => this.setState({
@@ -106,15 +106,15 @@ class App extends React.Component {
 
         Promise.all([
             // FETCH LISTENNOTES DATA
-            fetch(this.state.searchPodcasts.URLstart + 'serial killers' + this.state.searchPodcasts.URLend, {
+            fetch(this.state.searchPodcasts.urlStart + 'serial killers' + this.state.searchPodcasts.urlEnd, {
                 headers: {
                     'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6' // free version; will not work after reaching limit
                 }
             }),
             // FETCH YOUTUBE DATA
-            fetch(this.state.searchYoutubes.URLstart + 'serial killers' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
+            fetch(this.state.searchYoutubes.urlStart + 'serial killers' + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey),
             // FETCH TMDB DATA
-            fetch(this.state.searchSeries.URLstart + 'serial killers' + this.state.searchSeries.URLend)
+            fetch(this.state.searchSeries.urlStart + 'serial killers' + this.state.searchSeries.urlEnd)
         ])
             .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
             .then(([podcasts, youtubes, series]) => this.setState({
@@ -133,15 +133,15 @@ class App extends React.Component {
 
         Promise.all([
             // FETCH LISTENNOTES DATA
-            fetch(this.state.searchPodcasts.URLstart + 'unsolved' + this.state.searchPodcasts.URLend, {
+            fetch(this.state.searchPodcasts.urlStart + 'unsolved' + this.state.searchPodcasts.urlEnd, {
                 headers: {
                     'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
                 }
             }),
             // FETCH YOUTUBE DATA
-            fetch(this.state.searchYoutubes.URLstart + 'unsolved' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey),
+            fetch(this.state.searchYoutubes.urlStart + 'unsolved' + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey),
             // FETCH TMDB DATA
-            fetch(this.state.searchSeries.URLstart + 'unsolved' + this.state.searchSeries.URLend)
+            fetch(this.state.searchSeries.urlStart + 'unsolved' + this.state.searchSeries.urlEnd)
         ])
             .then(([results1, results2, results3]) => Promise.all([results1.json(), results2.json(), results3.json()]))
             .then(([podcasts, youtubes, series]) => this.setState({
@@ -165,10 +165,10 @@ class App extends React.Component {
 
     // MORE PODCASTS TRIGGER: APP > MAIN > FETCHEDHOME
     showMorePodcasts() {
-        console.log('Podcast search for ' + this.state.searchPodcasts.URLstart + '' + this.state.searchPodcasts.URLend + '&offset=10')
+        console.log('Podcast search for ' + this.state.searchPodcasts.urlStart + '' + this.state.searchPodcasts.urlEnd + '&offset=10')
 
         this.setState({
-            searchURL: this.state.searchPodcasts.URLstart + '' + this.state.searchPodcasts.URLend + '&offset=10'
+            searchURL: this.state.searchPodcasts.urlStart + '' + this.state.searchPodcasts.urlEnd + '&offset=10'
         }, () => {
             fetch(this.state.searchURL, {
                 headers: {
@@ -187,10 +187,10 @@ class App extends React.Component {
 
     // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreSeries() {
-        console.log('Series search for ' + this.state.searchSeries.URLstart + 'true crime' + this.state.searchSeries.URLend)
+        console.log('Series search for ' + this.state.searchSeries.urlStart + 'true crime' + this.state.searchSeries.urlEnd)
 
         this.setState({
-            searchURL: this.state.searchSeries.URLstart + 'true%20crime%22&page=1&include_adult=false&region=US'
+            searchURL: this.state.searchSeries.urlStart + 'true%20crime%22&page=1&include_adult=false&region=US'
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())
@@ -205,10 +205,10 @@ class App extends React.Component {
 
     // MORE YOUTUBE TRIGGER: APP > MAIN > FETCHEDHOME
     showMoreYoutubes() {
-        console.log('Youtube search for ' + this.state.searchYoutubes.URLstart + '' + this.state.searchYoutubes.URLend + this.state.searchYoutubes.apikey)
+        console.log('Youtube search for ' + this.state.searchYoutubes.urlStart + '' + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey)
 
         this.setState({
-            searchURL: this.state.searchYoutubes.URLstart + '' + '%22&order=date&maxResults=20&key=' + this.state.searchYoutubes.apikey
+            searchURL: this.state.searchYoutubes.urlStart + '' + '%22&order=date&maxResults=20&key=' + this.state.searchYoutubes.apikey
         }, () => {
             fetch(this.state.searchURL)
                 .then(response => response.json())
