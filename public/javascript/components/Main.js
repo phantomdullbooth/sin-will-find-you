@@ -28,7 +28,7 @@ class Main extends React.Component {
     fetchPodcasts = () => {
         fetch(this.state.searchHomePodcasts, {
             headers: {
-                'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+                'X-ListenAPI-Key': 'fc7f3f811890424a843401fba64ea2e6' // free; limited to 10,000/month
             }
         })
             .then(response => response.json())
