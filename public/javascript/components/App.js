@@ -29,7 +29,7 @@ class App extends React.Component {
                 searchURL: ''
             },
             searchSeries: {
-                URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22',
+                URLstart: 'https://api.themoviedb.org/3/search/multi?api_key=12f7badcc9527f6ddfae7b0034c74aa4&language=en-US&query=%22', // unlimited api queries
                 userQuery: '',
                 URLend: '&page=1&include_adult=false&region=US',
                 searchURL: ''
@@ -38,7 +38,7 @@ class App extends React.Component {
                 URLstart: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22+%22',
                 userQuery: '',
                 URLend: '%22&order=date&maxResults=15&key=',
-                apikey: 'AIzaSyAdqXYpoB8F94qe_MI2luj1RQAypAzMSQA',
+                apikey: 'AIzaSyBsIsX4wYIiRlqiJ8OtJMV2el8IcurRohQ', // restricted in Google Dev Console
                 searchURL: ''
             }
         }
@@ -108,7 +108,7 @@ class App extends React.Component {
             // FETCH LISTENNOTES DATA
             fetch(this.state.searchPodcasts.URLstart + 'serial killers' + this.state.searchPodcasts.URLend, {
                 headers: {
-                    'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+                    'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6' // free version; will not work after reaching limit
                 }
             }),
             // FETCH YOUTUBE DATA
