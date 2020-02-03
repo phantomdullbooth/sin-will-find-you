@@ -38,7 +38,7 @@ class App extends React.Component {
                 urlStart: 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%22true%20crime%22+%22',
                 userQuery: '',
                 urlEnd: '%22&order=date&maxResults=15&key=',
-                apikey: 'AIzaSyBsIsX4wYIiRlqiJ8OtJMV2el8IcurRohQ', // restricted in Google Dev Console
+                apikey: 'AIzaSyC8UJ6tn-5stkqNMWJYg9-ANnHOdc00dcY', // restricted in Google Dev Console
                 searchURL: ''
             }
         }
@@ -72,6 +72,8 @@ class App extends React.Component {
 
     // SEARCH BOX USER TOGGLE LOCATED: APP > HEADER
     // FETCH TRIGGERED BY USER SEARCH INPUT: APP > MAIN > OMNISEARCH
+
+
     omnisearchQuery(event) {
         event.preventDefault()
         console.log('Omnisearch triggered. Live long and prosper.')
