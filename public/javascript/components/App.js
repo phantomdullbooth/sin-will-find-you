@@ -84,7 +84,7 @@ class App extends React.Component {
                 }
             }),
             // FETCH YOUTUBE DATA
-            fetch(this.state.searchYoutubes.urlStart + this.state.userQuery + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey),
+            fetch(this.state.searchYoutubes.urlStart + this.state.searchYoutubes.userQuery + this.state.searchYoutubes.urlEnd + this.state.searchYoutubes.apikey),
             // FETCH TMDB DATA
             fetch(this.state.searchSeries.urlStart + this.state.userQuery + this.state.searchSeries.urlEnd)
         ])
