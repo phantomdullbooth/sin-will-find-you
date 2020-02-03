@@ -2,6 +2,7 @@
 /* =================== UNIVERSALS =================== */
 
 @import url('normalize.css');
+@import url('footer.css');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Rajdhani:400,500,600,700&display=swap');
 
 :root {
@@ -40,14 +41,7 @@ main {
     margin: 25px 7%;
 }
 
-/* [ SIGNOFF ] */
-footer {
-    background-color: black;
-    color: var(--second);
-    width: 100%;
-    margin-bottom: -20px;
-    text-align: center;
-}
+
 
 @media screen and (min-width: 1250px) {
     header {
@@ -127,7 +121,7 @@ p {
     color: var(--second);
     font-family: 'Noto Sans', sans-serif;
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 130%;
     text-transform: none;
 }
 
@@ -137,10 +131,6 @@ p {
 
     .more-card p {
         padding-right: 5px;
-    }
-
-    footer p {
-        padding: 30px;
     }
 
 /* MEDIA SECTION MORE SLIDER */
@@ -193,10 +183,6 @@ p {
     p {
         font-size: 1.3rem;
     }
-
-        footer p {
-            font-size: 1rem;
-        }
 }
 
 /* =================== HEADER [ NAVIGATION ] =================== */
