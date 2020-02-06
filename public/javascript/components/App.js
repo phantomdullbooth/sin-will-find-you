@@ -165,26 +165,21 @@ class App extends React.Component {
     // ============================ MORE TRIGGERS ============================ //
     // ============================ MORE TRIGGERS ============================ //
 
-    // MORE PODCASTS TRIGGER: APP > MAIN > FETCHEDHOME
     showMorePodcasts() {
-        console.log('Podcast search for ' + this.state.searchPodcasts.urlStart + '' + this.state.searchPodcasts.urlEnd + '&offset=10')
+        console.log('Showing more podcasts')
 
-        this.setState({
-            searchURL: this.state.searchPodcasts.urlStart + '' + this.state.searchPodcasts.urlEnd + '&offset=10'
-        }, () => {
-            fetch(this.state.searchURL, {
-                headers: {
-                    'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
-                }
-            })
-                .then(response => response.json())
-                .then(podcasts => this.setState(
-                    {
-                        morePodcasts: podcasts.results,
-                        isResultsClosed: false
-                    }), error => console.error(error))
-                .catch(error => console.log(error))
+        fetch(this.state.searchPodcasts.urlStart + this.state.searchPodcasts.urlEnd, {
+            headers: {
+                'X-ListenAPI-Key': '6e0d87eb4b284e659faa4ccfb8082cc6'
+            }
         })
+            .then(response => response.json())
+            .then(podcasts => this.setState(
+                {
+                    morePodcasts: podcasts.results,
+                    isResultsClosed: false
+                }), error => console.error(error))
+            .catch(error => console.log(error))
     }
 
     // MORE SERIES TRIGGER: APP > MAIN > FETCHEDHOME
@@ -307,6 +302,7 @@ class App extends React.Component {
                 <Main
                     isEvidenceClosed={this.state.isEvidenceClosed}
                     isResultsClosed={this.state.isResultsClosed}
+                    searchYoutubes={this.state.searchYoutubes}
                     // OMNISEARCH
                     handleChange={this.handleChange}
                     isSearchOpen={this.state.isSearchOpen}
