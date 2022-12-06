@@ -19,8 +19,8 @@
   "homepage": "https://github.com/winslowdev/sin_will_find_you#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "morgan": "^1.9.1",
     "pg": "^7.12.1",
     "pg-promise": "^9.1.4"
